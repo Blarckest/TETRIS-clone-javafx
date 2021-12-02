@@ -1,6 +1,6 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="RUN" type="Application" factoryName="Application">
-    <option name="MAIN_CLASS_NAME" value="Launcher.Launch" />
+    <option name="MAIN_CLASS_NAME" value="launcher.Launch" />
     <module name="Code" />
     <option name="VM_PARAMETERS" value="--module-path ${pathToFx} --add-modules javafx.controls,javafx.fxml" />
     <method v="2">

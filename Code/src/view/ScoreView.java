@@ -1,11 +1,10 @@
 package view;
 
 import javafx.fxml.FXML;
-
 import javafx.scene.control.Button;
 import launcher.Launch;
 
-public class MainWindow {
+public class ScoreView {
     @FXML
     private Button playButton;
 
@@ -13,12 +12,7 @@ public class MainWindow {
     private Button seeScoreButton;
 
     @FXML
-    public void launchGame(){
-        Launch.navigator.goToGame();
-    }
-
-    @FXML
-    public void goToScore(){
-        Launch.navigator.goToScore();
+    public void goToMenu(){
+        Launch.navigator.goToMenu();
     }
 }

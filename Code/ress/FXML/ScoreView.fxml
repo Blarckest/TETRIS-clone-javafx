@@ -5,14 +5,16 @@
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.text.Text?>
 <VBox xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml"
-      fx:controller="view.MainWindow"
+      fx:controller="view.GameView"
       prefHeight="800" prefWidth="500">
-    <Text textAlignment="CENTER">
-        TETRIS!
-    </Text>
-    <Button fx:id="playButton" onAction="#launchGame" text="PLAY!" alignment="BASELINE_CENTER"/>
-    <Button fx:id="seeScoreButton" onAction="#goToScore" text="Scores" alignment="BASELINE_CENTER"/>
+    <ScrollPane>
+        <VBox>
+            <Text>list score</Text>
+        </VBox>
+    </ScrollPane>
+    <Button fx:id="backButton" onAction="#goToMenu" text="Retour"/>
 </VBox>

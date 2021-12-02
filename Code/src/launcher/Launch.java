@@ -1,17 +1,17 @@
-package Launcher;
+package launcher;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import view.navigator.Navigator;
 
 public class Launch extends Application {
+    public static Navigator navigator;
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent view = FXMLLoader.load(getClass().getResource("/FXML/MainWindow.fxml"));
-        primaryStage.setScene(new Scene(view));
-        primaryStage.show();
+        navigator=new Navigator(primaryStage);
         //todo tetris
     }
 }

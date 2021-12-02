@@ -6,13 +6,15 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
+<?import javafx.scene.canvas.Canvas?>
 <VBox xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml"
-      fx:controller="view.MainWindow"
+      fx:controller="view.GameView"
       prefHeight="800" prefWidth="500">
     <Text textAlignment="CENTER">
-        TETRIS!
+        TETRIS TIME!
     </Text>
-    <Button fx:id="playButton" onAction="#launchGame" text="PLAY!" alignment="BASELINE_CENTER"/>
-    <Button fx:id="seeScoreButton" onAction="#goToScore" text="Scores" alignment="BASELINE_CENTER"/>
+    <Canvas height="700" width="400">
+    </Canvas>
+    <Button fx:id="backButton" onAction="#goToMenu" text="Retour"/>
 </VBox>
