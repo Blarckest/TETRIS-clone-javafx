@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Text?>
 <VBox xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml"
-      fx:controller="view.GameView"
+      fx:controller="view.ScoreView"
       prefHeight="800" prefWidth="500">
     <ScrollPane>
         <VBox>
