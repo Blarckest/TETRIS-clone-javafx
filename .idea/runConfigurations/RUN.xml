@@ -1,0 +1,10 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="RUN" type="Application" factoryName="Application">
+    <option name="MAIN_CLASS_NAME" value="launcher.Launch" />
+    <module name="tetris" />
+    <option name="VM_PARAMETERS" value="--module-path ${FX_Path} --add-modules javafx.controls,javafx.fxml" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
