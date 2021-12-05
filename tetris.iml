@@ -6,7 +6,7 @@
       <sourceFolder url="file://$MODULE_DIR$/Code/ress" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/Code/src" isTestSource="false" />
     </content>
-    <orderEntry type="inheritedJdk" />
+    <orderEntry type="jdk" jdkName="16" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="lib" level="application" />
   </component>
