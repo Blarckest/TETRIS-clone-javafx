@@ -1,8 +1,20 @@
 package model.utils;
 
-public class Rotator {
+import model.interfaces.IRotable;
+import model.interfaces.IRotator;
 
-    public void rotate(Couple couple){
+public class Rotator implements IRotator {
+    private IRotable m_object;
+    public Rotator(IRotable object){
+        m_object=object;
+    }
+    @Override
+    public void rotateBy(int angle) {
+        m_object.rotateTo(m_object.getAngle()+angle);
+    }
 
-    };
+    @Override
+    public void rotateTo(int angle) {
+        m_object.rotateTo(angle);
+    }
 }

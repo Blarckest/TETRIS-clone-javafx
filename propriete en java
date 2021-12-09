@@ -1,0 +1,26 @@
+([])==optionnel
+
+private StringProperty toto=new SimpleStringProperty()
+
+//getter
+public String getToto(){  //nom super important bon->get(Nom)=/=get(nom)
+    return toto.get();
+}
+
+
+//setter
+public void setToto(String val){ //idem
+    toto.set(val);
+}
+
+//accesseur
+public ([ReadOnly])StringProperty totoProperty(){//idem
+    return toto;
+}
+
+
+//javafx
+element.propriété().bind([Bidirectionnel])(element2.propriété()) //vue.bind(model) //observateur.bind(sujet)
+
+//fxml
+<Button text="${element.prop}"/>

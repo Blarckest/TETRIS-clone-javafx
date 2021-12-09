@@ -1,8 +1,7 @@
 package model.interfaces;
 
-import model.utils.Couple;
-
 public interface IRotable {
-    Couple getRotationPoint();
-
+    int getAngle();
+    void rotateTo(int angle);
+    void rotateBy(int angle);
 }

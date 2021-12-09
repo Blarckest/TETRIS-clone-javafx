@@ -22,7 +22,7 @@ public class GameView {
     public void initialize(){
 
 
-            Image img1=new Image("img/sprites.png");
+            Image img1=new Image("img/sprites2.png");
             sprites.setImage(img1);
 
 
