@@ -1,0 +1,19 @@
+ne pas utiliser la vitesse du thread mais les secondes (sleep)
+
+sleep +boucle pas dans thread d'exec(graphique) mais dans un nouveau thread
+
+thread 2 peux pas modif vue ou propriete de la vue (pas de setX....)
+
+thread 2 ne doit pas exécuter cette instruction et dire au thread principal de le faire quand il peut
+
+class herite thread = bof, (->redefini run()),  démarrer un thread : class.start()
+ou implémente Runnable = mieux (->redefini run()), démarrer : new Thread(new Runnable).start();
+
+transfert vers thread graphique:
+Platform.runLater(()->{
+p.setX(10);
+p.setY(15);
+}
+);
+
+
