@@ -41,4 +41,8 @@ public abstract class Tetrominos extends Entity implements IRotable, IMovable {
     }
 
     public TetroType getType(){return type;}
+
+    public BlockAbs[][] getBlocks(){
+        return matrix;
+    }
 }
