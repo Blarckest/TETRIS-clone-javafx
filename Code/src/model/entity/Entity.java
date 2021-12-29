@@ -1,8 +1,12 @@
 package model.entity;
 
 import model.utils.Couple;
+import model.utils.move.IMovable;
+import model.utils.move.Mover;
+import model.utils.rotate.IRotable;
+import model.utils.rotate.Rotator;
 
-public abstract class Entity {
+public abstract class Entity implements IMovable, IRotable {
     protected Couple location;
     protected int angle;
 
@@ -19,21 +23,44 @@ public abstract class Entity {
         this(new Couple(x,y),angle);
     }
 
+    @Override
     public int getX() {
         return location.first;
     }
 
+    @Override
     public int getY() {
         return location.second;
     }
 
+    @Override
     public int getAngle() { return angle; }
 
+    @Override
     public void setX(int x) { location.first = x; }
 
+    @Override
     public void setY(int y) {
         location.second = y;
     }
 
-    public void setAngle(int angle) { this.angle = angle; }
+    @Override
+    public void rotateTo(int angle) {
+        new Rotator(this).rotateTo(angle);
+    }
+
+    @Override
+    public void rotateBy(int angle) {
+        new Rotator(this).rotateBy(angle);
+    }
+
+    @Override
+    public void move(Couple couple) {
+        new Mover(this).move(couple);
+    }
+
+    @Override
+    public void moveTo(Couple couple) {
+        new Mover(this).moveTo(couple);
+    }
 }

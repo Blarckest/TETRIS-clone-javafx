@@ -6,9 +6,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import launcher.Launch;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-
 public class GameView {
     @FXML
     private Button backButton;
@@ -22,7 +19,7 @@ public class GameView {
     public void initialize(){
 
 
-            Image img1=new Image("img/sprites2.png");
+            Image img1=new Image("img/spritesBlock.png");
             sprites.setImage(img1);
 
 

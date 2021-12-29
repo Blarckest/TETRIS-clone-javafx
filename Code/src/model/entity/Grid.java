@@ -1,5 +1,6 @@
 package model.entity;
 
+import javafx.geometry.Rectangle2D;
 import model.utils.Couple;
 
 public class Grid {
@@ -14,4 +15,5 @@ public class Grid {
     public boolean isEmptyBox(Couple couple){
         return matrix[couple.second][couple.first]==0;
     }
+    public boolean isEmptyBox(Rectangle2D rectangle2D){return isEmptyBox(new Couple((int)rectangle2D.getMaxX(),(int)rectangle2D.getMaxY()));}
 }
