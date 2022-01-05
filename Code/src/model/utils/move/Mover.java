@@ -10,7 +10,8 @@ public class Mover implements IMover {
 
     @Override
     public void move(Couple couple) {
-
+        m_object.setX(m_object.getX()+couple.first);
+        m_object.setY(m_object.getY()+couple.second);
     }
 
     @Override
