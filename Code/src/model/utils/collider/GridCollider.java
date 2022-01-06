@@ -15,9 +15,9 @@ public class GridCollider implements ICollider {
             for (int j=0; j< matTetro[i].length;j++){
                 int targetX = xOffset + i;
                 int targetY = yOffSet + j;
-                if (matTetro[j][i] != null && (checkOutOfBound(targetX, targetY) || grid.at(targetY,targetX) != )) {
+                /*if (matTetro[j][i] != null && (checkOutOfBound(targetX, targetY) || grid.at(targetY,targetX) != )) {
                     return true;
-                }
+                }*/
             }
         }
         throw new UnsupportedOperationException(); //todo
@@ -32,13 +32,13 @@ public class GridCollider implements ICollider {
     }
 
     public boolean canRotate(Tetrominos t){
-        for(var blockLine:t.getBlocks()){
+        /*for(var blockLine:t.getBlocks()){
             for(var block:blockLine){
                 if(grid.isEmptyBox(block.getBoundingRectangle())){
                     throw new UnsupportedOperationException();//todo
                 }
             }
-        }
+        }*/
         throw new UnsupportedOperationException();//todo
     }
 
