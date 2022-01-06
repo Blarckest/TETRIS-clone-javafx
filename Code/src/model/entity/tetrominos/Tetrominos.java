@@ -4,21 +4,22 @@ import javafx.scene.paint.Color;
 import model.entity.block.Block;
 import model.entity.block.BlockAbs;
 import model.entity.Entity;
+import model.utils.CircularList;
 import model.utils.Couple;
+
+import java.util.List;
 
 
 public abstract class Tetrominos extends Entity{
 
     private boolean blocked;
     private BlockAbs[][] matrix;
+    private CircularList<BlockAbs[][]> shapeMatrix;
+
     protected TetroType type=TetroType.NaT;
+    protected BlockAbs[] blocks;
 
     public Tetrominos() {blocked = false;}
-
-    public BlockAbs[][] getBlocks(){
-        return matrix;
-    }
-
 
     public void setBlocked(){blocked=true;}
 
@@ -58,5 +59,35 @@ public abstract class Tetrominos extends Entity{
             }
         }
         this.matrix=matrix;
+    }
+
+    protected void setShapeMatrix(CircularList<BlockAbs[][]> shapeMatrix) {
+        this.shapeMatrix=shapeMatrix;
+    }
+
+    public BlockAbs[][] getCurrentShape(){
+        return matrix;
+    }
+
+    public BlockAbs[][] getNextShape(){
+        var nextShape=(CircularList<BlockAbs[][]>)List.copyOf(shapeMatrix);
+        return (BlockAbs[][]) nextShape.next();
+    }
+
+    public BlockAbs[][] getNPrecedentShape(){
+        var nextShape=(CircularList<BlockAbs[][]>)List.copyOf(shapeMatrix);
+        return (BlockAbs[][]) nextShape.precedent();
+    }
+
+    //pb? doit peutetre le mettre dans un rotator
+    @Override
+    public void rotateLeft() {
+        setMatrix((BlockAbs[][]) shapeMatrix.precedent());
+    }
+
+    //pb? doit peutetre le mettre dans un rotator
+    @Override
+    public void rotateRight() {
+        setMatrix((BlockAbs[][]) shapeMatrix.next());
     }
 }

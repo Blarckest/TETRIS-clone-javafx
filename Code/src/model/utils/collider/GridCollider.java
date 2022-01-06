@@ -1,22 +1,23 @@
 package model.utils.collider;
 
-import javafx.scene.effect.ColorInput;
-import model.entity.block.BlockAbs;
-import model.entity.Grid;
+import model.entity.grid.Grid;
+import model.entity.grid.IGrid;
 import model.entity.tetrominos.Tetrominos;
-import model.utils.Couple;
 
 public class GridCollider implements ICollider {
-    public final Grid grid;
-    public GridCollider(Grid grid){
+    public final IGrid grid;
+    public GridCollider(IGrid grid){
         this.grid=grid;
     }
-    public boolean canMoveLeft(Tetrominos t){
-        var matTetro=t.getBlocks();
-        var matGrid = grid.subMat(new Couple(t.getX(), t.getY()),matTetro[0].length,matTetro.length+1);
+    public boolean canMoveLeft(Tetrominos t, int xOffset, int yOffSet){
+        var matTetro=t.getCurrentShape();
         for (int i = 0; i < matTetro.length; i++) {
-            BlockAbs[] line = matTetro[i];
-            for (int j=0; j< matTetro[0].length;j++){
+            for (int j=0; j< matTetro[i].length;j++){
+                int targetX = xOffset + i;
+                int targetY = yOffSet + j;
+                if (matTetro[j][i] != null && (checkOutOfBound(targetX, targetY) || grid.at(targetY,targetX) != )) {
+                    return true;
+                }
             }
         }
         throw new UnsupportedOperationException(); //todo

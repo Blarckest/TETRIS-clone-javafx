@@ -14,4 +14,14 @@ public class Rotator implements IRotator {
     public void rotateTo(int angle) {
         m_object.rotateTo(angle);
     }
+
+    @Override
+    public void rotateLeft(IRotable rotable) {
+        rotable.rotateLeft();
+    }
+
+    @Override
+    public void rotateRight(IRotable rotable) {
+        rotable.rotateRight();
+    }
 }

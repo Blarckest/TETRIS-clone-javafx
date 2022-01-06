@@ -1,11 +1,11 @@
-package model.entity;
+package model.entity.grid;
 
 import javafx.geometry.Rectangle2D;
 import model.utils.Couple;
 
 public class Grid {
-    public static final int lignes=20;
-    public static final int colonnes=12;
+    public final int lignes=20;
+    public final int colonnes=12;
     public int[][] matrix;
 
     public Grid(){
@@ -26,16 +26,5 @@ public class Grid {
     }
     public void setAt(int x, int y, int value){
         matrix[x][y]=value;
-    }
-
-    public Grid subMat(Couple startPoint, int height, int width){
-        var mat=new int[height][width];
-        for (int i = startPoint.first; i < width; i++) {
-            int[] line = matrix[i];
-            for (int j = startPoint.second; j < height; j++) {
-                mat[i][j] = line[j];
-            }
-        }
-        return new Grid(mat);
     }
 }
