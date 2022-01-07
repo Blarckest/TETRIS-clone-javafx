@@ -1,30 +1,21 @@
 package model.entity.grid;
 
-import javafx.geometry.Rectangle2D;
-import model.utils.Couple;
-
-public class Grid {
+public class Grid extends GridAbs {
     public final int lignes=20;
     public final int colonnes=12;
-    public int[][] matrix;
+    public Object[][] matrix;
 
     public Grid(){
-        matrix=new int[lignes][colonnes];
+        matrix=new Object[lignes][colonnes];
     }
-    public Grid(int[][] matrix){
+    public Grid(Object[][] matrix){
         this.matrix=matrix;
     }
 
-
-    public boolean isEmptyBox(Couple dimensions){
-        return matrix[dimensions.second][dimensions.first]==0;
+    public Object at(int ligne, int colonne){
+        return matrix[ligne][colonne];
     }
-    public boolean isEmptyBox(Rectangle2D dimensions){return isEmptyBox(new Couple((int)dimensions.getMaxX(),(int)dimensions.getMaxY()));}
-
-    public int at(int x, int y){
-        return matrix[x][y];
-    }
-    public void setAt(int x, int y, int value){
-        matrix[x][y]=value;
+    public void setAt(int ligne, int colonne, Object value){
+        matrix[ligne][colonne]=value;
     }
 }

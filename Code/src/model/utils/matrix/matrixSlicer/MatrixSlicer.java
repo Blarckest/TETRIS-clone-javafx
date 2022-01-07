@@ -1,18 +1,18 @@
-package model.utils.matrixSlicer;
+package model.utils.matrix.matrixSlicer;
 
 import model.entity.grid.Grid;
-import model.entity.grid.IGrid;
+import model.entity.grid.GridAbs;
 import model.utils.Couple;
 
 public class MatrixSlicer {
-    private final IGrid grid;
-    public MatrixSlicer(IGrid grid){
+    private final GridAbs grid;
+    public MatrixSlicer(GridAbs grid){
         this.grid=grid;
     }
     public Grid subMat(Couple startPoint, int height, int width){
-        var mat=new int[height][width];
+        var mat=new Object[height][width];
         for (int i = startPoint.first; i < width; i++) {
-            int[] line = grid.matrix[i];
+            var line = grid.matrix[i];
             for (int j = startPoint.second; j < height; j++) {
                 mat[i][j] = line[j];
             }

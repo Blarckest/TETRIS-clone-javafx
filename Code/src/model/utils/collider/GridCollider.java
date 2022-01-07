@@ -1,12 +1,11 @@
 package model.utils.collider;
 
-import model.entity.grid.Grid;
-import model.entity.grid.IGrid;
+import model.entity.grid.GridAbs;
 import model.entity.tetrominos.Tetrominos;
 
 public class GridCollider implements ICollider {
-    public final IGrid grid;
-    public GridCollider(IGrid grid){
+    public final GridAbs grid;
+    public GridCollider(GridAbs grid){
         this.grid=grid;
     }
     public boolean canMoveLeft(Tetrominos t, int xOffset, int yOffSet){
@@ -15,31 +14,18 @@ public class GridCollider implements ICollider {
             for (int j=0; j< matTetro[i].length;j++){
                 int targetX = xOffset + i;
                 int targetY = yOffSet + j;
-                /*if (matTetro[j][i] != null && (checkOutOfBound(targetX, targetY) || grid.at(targetY,targetX) != )) {
+                if (matTetro[i][j] != null && (checkOutOfBound(targetX, targetY) || grid.at(targetX,targetY) !=  null)) {
                     return true;
-                }*/
-            }
-        }
-        throw new UnsupportedOperationException(); //todo
-    }
-
-    public boolean canMoveRight(Tetrominos t){
-        throw new UnsupportedOperationException(); //todo
-    }
-
-    public boolean canMoveDown(Tetrominos t){
-        throw new UnsupportedOperationException(); //todo
-    }
-
-    public boolean canRotate(Tetrominos t){
-        /*for(var blockLine:t.getBlocks()){
-            for(var block:blockLine){
-                if(grid.isEmptyBox(block.getBoundingRectangle())){
-                    throw new UnsupportedOperationException();//todo
                 }
             }
-        }*/
-        throw new UnsupportedOperationException();//todo
+        }
+        return false;
     }
 
+    private boolean checkOutOfBound(int targetX, int targetY) {
+        if (targetX >= 0 && targetY < grid.lignes && targetX < grid.colonnes) {
+            return false;
+        }
+        return true;
+    }
 }

@@ -37,11 +37,11 @@ public abstract class Tetrominos extends Entity{
     @Override
     public void moveTo(Couple couple) {
         super.move(couple);
-        for (int i = 0, matrixLength = matrix.length; i < matrixLength; i++) {
-            BlockAbs[] blockLine = matrix[i];
-            for (int j = 0; j < blockLine.length; j++) {
-                BlockAbs block = blockLine[j];
-                block.moveTo(new Couple(couple.first+block.getSize().first*i, couple.second+block.getSize().second*j));
+        for (int ligne = 0, matrixLength = matrix.length; ligne < matrixLength; ligne++) {
+            BlockAbs[] blockLine = matrix[ligne];
+            for (int colonne = 0; colonne < blockLine.length; colonne++) {
+                BlockAbs block = blockLine[colonne];
+                block.moveTo(new Couple(couple.first+block.getSize().first*ligne, couple.second+block.getSize().second*colonne));
             }
         }
     }
@@ -80,13 +80,11 @@ public abstract class Tetrominos extends Entity{
     }
 
     //pb? doit peutetre le mettre dans un rotator
-    @Override
     public void rotateLeft() {
         setMatrix((BlockAbs[][]) shapeMatrix.precedent());
     }
 
     //pb? doit peutetre le mettre dans un rotator
-    @Override
     public void rotateRight() {
         setMatrix((BlockAbs[][]) shapeMatrix.next());
     }
