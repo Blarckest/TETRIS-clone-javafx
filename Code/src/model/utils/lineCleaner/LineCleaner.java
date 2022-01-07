@@ -5,14 +5,14 @@ import model.utils.Couple;
 import model.utils.matrix.MatrixMerger;
 import model.utils.matrix.matrixSlicer.MatrixSlicer;
 
-public class LineCLeaner implements ILineCleaner {
+public class LineCleaner implements ILineCleaner {
     private final GridAbs grid;
-    public LineCLeaner(GridAbs grid){
+    public LineCleaner(GridAbs grid){
         this.grid=grid;
     }
 
     @Override
-    public int removeLines(GridAbs grid) {
+    public int removeLines() {
         var matrix=grid.matrix;
         int width = matrix.length;
         int lineWidth;

@@ -751,7 +751,7 @@
 											"top": 262,
 											"width": 463,
 											"height": 13,
-											"text": "launcher"
+											"text": "launch"
 										},
 										{
 											"_type": "LabelView",
@@ -872,7 +872,7 @@
 											"top": -944,
 											"width": 88.13720703125,
 											"height": 13,
-											"text": "(from launcher)"
+											"text": "(from launch)"
 										},
 										{
 											"_type": "LabelView",
@@ -8558,7 +8558,7 @@
 					"_parent": {
 						"$ref": "AAAAAAF9egnSP71t0UM="
 					},
-					"name": "launcher",
+					"name": "launch",
 					"ownedElements": [
 						{
 							"_type": "UMLClass",

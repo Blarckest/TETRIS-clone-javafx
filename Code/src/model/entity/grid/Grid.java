@@ -1,15 +1,19 @@
 package model.entity.grid;
 
 public class Grid extends GridAbs {
-    public final int lignes=20;
-    public final int colonnes=12;
+    public int lignes;
+    public int colonnes;
     public Object[][] matrix;
 
-    public Grid(){
+    public Grid(int lignes, int colonnes){
+        this.lignes=lignes;
+        this.colonnes=colonnes;
         matrix=new Object[lignes][colonnes];
     }
     public Grid(Object[][] matrix){
         this.matrix=matrix;
+        lignes= matrix.length;
+        colonnes=matrix[0].length;
     }
 
     public Object at(int ligne, int colonne){

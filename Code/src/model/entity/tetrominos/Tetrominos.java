@@ -1,7 +1,6 @@
 package model.entity.tetrominos;
 
 import javafx.scene.paint.Color;
-import model.entity.block.Block;
 import model.entity.block.BlockAbs;
 import model.entity.Entity;
 import model.utils.CircularList;
@@ -74,7 +73,7 @@ public abstract class Tetrominos extends Entity{
         return (BlockAbs[][]) nextShape.next();
     }
 
-    public BlockAbs[][] getNPrecedentShape(){
+    public BlockAbs[][] getPrecedentShape(){
         var nextShape=(CircularList<BlockAbs[][]>)List.copyOf(shapeMatrix);
         return (BlockAbs[][]) nextShape.precedent();
     }

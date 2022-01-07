@@ -1,8 +1,6 @@
 package model.utils.rotate;
 
-import model.entity.tetrominos.Tetrominos;
-
-public interface IRotator {
+public interface IAngleRotator {
    void rotateBy(int angle);
    void rotateTo(int angle);
 }

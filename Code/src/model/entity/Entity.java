@@ -4,7 +4,7 @@ import model.utils.Couple;
 import model.utils.move.IMovable;
 import model.utils.move.Mover;
 import model.utils.rotate.IRotable;
-import model.utils.rotate.Rotator;
+import model.utils.rotate.AngleRotator;
 
 public abstract class Entity implements IMovable, IRotable {
     protected Couple location;
@@ -46,12 +46,12 @@ public abstract class Entity implements IMovable, IRotable {
 
     @Override
     public void rotateTo(int angle) {
-        new Rotator(this).rotateTo(angle);
+        new AngleRotator(this).rotateTo(angle);
     }
 
     @Override
     public void rotateBy(int angle) {
-        new Rotator(this).rotateBy(angle);
+        new AngleRotator(this).rotateBy(angle);
     }
 
     @Override

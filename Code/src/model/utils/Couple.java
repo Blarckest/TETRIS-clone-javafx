@@ -15,4 +15,9 @@ public class Couple {
         this.first=first.intValue();
         this.second=second.intValue();
     }
+
+    public Couple(Couple couple) {
+        first=couple.first;
+        second= couple.second;
+    }
 }

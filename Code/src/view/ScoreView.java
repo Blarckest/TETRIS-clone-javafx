@@ -2,7 +2,7 @@ package view;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import launcher.Launch;
+import launch.Launcher;
 
 public class ScoreView {
     @FXML
@@ -13,6 +13,6 @@ public class ScoreView {
 
     @FXML
     public void goToMenu(){
-        Launch.navigator.goToMenu();
+        Launcher.navigator.goToMenu();
     }
 }

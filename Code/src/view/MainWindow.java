@@ -3,7 +3,7 @@ package view;
 import javafx.fxml.FXML;
 
 import javafx.scene.control.Button;
-import launcher.Launch;
+import launch.Launcher;
 
 public class MainWindow {
     @FXML
@@ -14,11 +14,11 @@ public class MainWindow {
 
     @FXML
     public void launchGame(){
-        Launch.navigator.goToGame();
+        Launcher.navigator.goToGame();
     }
 
     @FXML
     public void goToScore(){
-        Launch.navigator.goToScore();
+        Launcher.navigator.goToScore();
     }
 }

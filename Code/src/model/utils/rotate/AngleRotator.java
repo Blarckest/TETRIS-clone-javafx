@@ -1,8 +1,8 @@
 package model.utils.rotate;
 
-public class Rotator implements IRotator {
+public class AngleRotator implements IAngleRotator {
     private final IRotable m_object;
-    public Rotator(IRotable object){
+    public AngleRotator(IRotable object){
         m_object=object;
     }
     @Override

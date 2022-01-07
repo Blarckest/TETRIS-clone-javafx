@@ -4,5 +4,5 @@ import model.entity.grid.GridAbs;
 
 public interface ILineCleaner {
     //nombre de ligne supprimé
-    int removeLines(GridAbs grid);
+    int removeLines();
 }
