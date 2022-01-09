@@ -70,7 +70,9 @@ public class GameBoard implements IGameBoard{
         if (conflict) {
             return false;
         } else {
+            cleanCurrentTetro();
             currentOffset = p;
+            mergeTetroToMatrix();
             return true;
         }
     }
@@ -83,7 +85,9 @@ public class GameBoard implements IGameBoard{
         if (conflict) {
             return false;
         } else {
+            cleanCurrentTetro();
             currentOffset = p;
+            mergeTetroToMatrix();
             return true;
         }
     }
@@ -95,7 +99,9 @@ public class GameBoard implements IGameBoard{
         if (conflict) {
             return false;
         } else {
+            cleanCurrentTetro();
             rotator.rotateLeft(tetrominos);
+            mergeTetroToMatrix();
             return true;
         }
     }
@@ -107,7 +113,9 @@ public class GameBoard implements IGameBoard{
         if (conflict) {
             return false;
         } else {
+            cleanCurrentTetro();
             rotator.rotateRight(tetrominos);
+            mergeTetroToMatrix();
             return true;
         }
     }
