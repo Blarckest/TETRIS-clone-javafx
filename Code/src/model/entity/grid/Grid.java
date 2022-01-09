@@ -13,11 +13,11 @@ public class Grid extends GridAbs {
     }
 
     public Object at(int ligne, int colonne){
-        System.out.println("at "+ligne+"  "+colonne);
+        //System.out.println("at "+ligne+"  "+colonne);
         return matrix[ligne][colonne];
     }
     public void setAt(int ligne, int colonne, Object value){
-        System.out.println("set at "+ligne+"  "+colonne);
+        //System.out.println("set at "+ligne+"  "+colonne);
         matrix[ligne][colonne]=value;
     }
 }

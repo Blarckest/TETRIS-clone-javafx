@@ -44,15 +44,22 @@ public class GameBoard implements IGameBoard{
         if (conflict) {
             return false;
         } else {
-            currentOffset = p;
             cleanCurrentTetro();
+            currentOffset = p;
             mergeTetroToMatrix();
             return true;
         }
     }
 
     private void cleanCurrentTetro() {
-        //efface le tetro actuel pour ensuite pouvoir le redessiner
+        //efface le tetro actuel pour ensuite pouvoir le redessiner au bon endroit
+        var shape=tetrominos.getCurrentShape();
+        for (int i=0;i< shape.length;i++){
+            for (int j=0; j<shape[0].length;j++){
+                if(shape[j][i]!=null)
+                    grid.setAt(currentOffset.second+i,currentOffset.first+j,null);
+            }
+        }
     }
 
     @Override
@@ -132,12 +139,12 @@ public class GameBoard implements IGameBoard{
     @Override
     public void mergeTetroToBackground() {
         tetrominos.setBlocked();
-        new MatrixMerger().merge(grid, new Grid(tetrominos.getCurrentShape()), currentOffset.first, currentOffset.second);
+        new MatrixMerger().merge(grid, tetrominos.getCurrentShape(), currentOffset.first, currentOffset.second);
     }
 
     @Override
     public void mergeTetroToMatrix() {
-        new MatrixMerger().merge(grid, new Grid(tetrominos.getCurrentShape()), currentOffset.first, currentOffset.second);
+        new MatrixMerger().merge(grid, tetrominos.getCurrentShape(), currentOffset.first, currentOffset.second);
     }
 
     @Override

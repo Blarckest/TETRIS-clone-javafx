@@ -16,7 +16,7 @@ public class GameController implements IGameController {
         gameView.addListener(this);
         gameView.initGameView(board.getGrid(),board.getNextTetro());
         gameView.bindScore(board.getScore().scoreProperty());
-        gameView.refreshGameBackground(board.getGrid());
+        refresh();
     }
 
     @Override
@@ -31,34 +31,43 @@ public class GameController implements IGameController {
             if (board.createNewTetro()) {
                 gameView.gameOver();
             }
-            gameView.refreshGameBackground(board.getGrid());
+            refresh();
         }
-
+        refresh();
     }
 
     @Override
     public void onLeftEvent(EventSrc src) {
         board.moveTetroLeft();
+        refresh();
     }
 
     @Override
     public void onRightEvent(EventSrc src) {
         board.moveTetroRight();
+        refresh();
     }
 
     @Override
     public void onRotateLeftEvent(EventSrc src) {
         board.rotateLeftTetro();
+        refresh();
     }
 
     @Override
     public void onRotateRightEvent(EventSrc src) {
         board.rotateRightTetro();
+        refresh();
     }
 
     @Override
     public void createNewGame() {
         board.newGame();
+        refresh();
+    }
+
+    @Override
+    public void refresh(){
         gameView.refreshGameBackground(board.getGrid());
     }
 }
