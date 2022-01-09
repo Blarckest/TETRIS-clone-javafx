@@ -14,7 +14,7 @@ public class GridCollider implements ICollider {
             for (int j=0; j< t[i].length;j++){
                 int targetX = xOffset + i;
                 int targetY = yOffSet + j;
-                if (t[i][j] != null && (checkOutOfBound(targetX, targetY) || grid.at(targetX,targetY) !=  null)) {
+                if ((checkOutOfBound(targetX, targetY) && grid.at(targetX,targetY) !=  null)) {
                     return true;
                 }
             }
@@ -23,7 +23,7 @@ public class GridCollider implements ICollider {
     }
 
     private boolean checkOutOfBound(int targetX, int targetY) {
-        if (targetX >= 0 && targetY < grid.lignes && targetX < grid.colonnes) {
+        if (targetX >= 0 && targetY >= 0 && targetY > grid.lignes && targetX > grid.colonnes) {
             return false;
         }
         return true;

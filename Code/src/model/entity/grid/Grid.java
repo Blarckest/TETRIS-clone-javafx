@@ -1,10 +1,6 @@
 package model.entity.grid;
 
 public class Grid extends GridAbs {
-    public int lignes;
-    public int colonnes;
-    public Object[][] matrix;
-
     public Grid(int lignes, int colonnes){
         this.lignes=lignes;
         this.colonnes=colonnes;
@@ -17,9 +13,11 @@ public class Grid extends GridAbs {
     }
 
     public Object at(int ligne, int colonne){
+        System.out.println("at "+ligne+"  "+colonne);
         return matrix[ligne][colonne];
     }
     public void setAt(int ligne, int colonne, Object value){
+        System.out.println("set at "+ligne+"  "+colonne);
         matrix[ligne][colonne]=value;
     }
 }

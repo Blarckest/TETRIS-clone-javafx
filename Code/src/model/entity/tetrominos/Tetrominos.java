@@ -54,7 +54,8 @@ public abstract class Tetrominos extends Entity{
             BlockAbs[] blockLine = matrix[i];
             for (int j = 0; j < blockLine.length; j++) {
                 BlockAbs block = blockLine[j];
-                block.moveTo(new Couple(getX()+block.getSize().first*i,getY()+block.getSize().second*j));
+                if (block!=null)
+                    block.moveTo(new Couple(getX()+block.getSize().first*i,getY()+block.getSize().second*j));
             }
         }
         this.matrix=matrix;
@@ -69,13 +70,11 @@ public abstract class Tetrominos extends Entity{
     }
 
     public BlockAbs[][] getNextShape(){
-        var nextShape=(CircularList<BlockAbs[][]>)List.copyOf(shapeMatrix);
-        return (BlockAbs[][]) nextShape.next();
+        return shapeMatrix.getNextShape();
     }
 
     public BlockAbs[][] getPrecedentShape(){
-        var nextShape=(CircularList<BlockAbs[][]>)List.copyOf(shapeMatrix);
-        return (BlockAbs[][]) nextShape.precedent();
+        return shapeMatrix.getPrecedentShape();
     }
 
     //pb? doit peutetre le mettre dans un rotator

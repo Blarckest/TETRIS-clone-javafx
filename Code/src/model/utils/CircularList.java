@@ -9,20 +9,37 @@ import java.util.*;
  */
 public class CircularList<E> extends LinkedList {
     private int current=0;
-    public Object next(){
+    public E next(){
         if (current==size()){
             current=0;
-            return getFirst();
+            return (E) getFirst();
         }
         current++;
-        return get(current);
+        return (E) get(current);
     }
-    public Object precedent(){
+    public E precedent(){
         if (current==0){
             current=size();
-            return getLast();
+            return (E) getLast();
         }
         current--;
-        return get(current);
+        return (E) get(current);
+    }
+    public int getCurrentIndex(){
+        return current;
+    }
+
+    public E getNextShape() {
+        if (current==size()){
+            return (E) getFirst();
+        }
+        return (E) get(current);
+    }
+
+    public E getPrecedentShape() {
+        if (current==0){
+            return (E) getLast();
+        }
+        return (E) get(current);
     }
 }

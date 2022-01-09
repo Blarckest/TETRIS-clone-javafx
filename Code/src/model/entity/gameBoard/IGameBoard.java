@@ -2,6 +2,7 @@ package model.entity.gameBoard;
 
 import model.entity.block.BlockAbs;
 import model.entity.grid.GridAbs;
+import model.entity.tetrominos.Tetrominos;
 import model.utils.Score;
 
 public interface IGameBoard {
@@ -23,9 +24,13 @@ public interface IGameBoard {
 
     void mergeTetroToBackground();
 
+    void mergeTetroToMatrix();
+
     int clearRows();
 
     Score getScore();
 
     void newGame();
+
+    Tetrominos getNextTetro();
 }

@@ -4,6 +4,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import model.utils.gameController.GameController;
+
+import java.net.URL;
+import java.util.ResourceBundle;
 
 public class Navigator {
     private Stage m_stage;
@@ -18,8 +22,11 @@ public class Navigator {
     }
     public void goToGame(){
         try {
-            Parent view = FXMLLoader.load(getClass().getResource("/FXML/GameView.fxml"));
+            var location = getClass().getResource("/FXML/GameView.fxml");
+            var fxmlLoader = new FXMLLoader(location, null);
+            Parent view = fxmlLoader.load();
             m_stage.setScene(new Scene(view));
+            new GameController(fxmlLoader.getController());
             m_stage.show();
         }
         catch (Exception e){

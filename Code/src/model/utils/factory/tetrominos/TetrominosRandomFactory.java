@@ -8,7 +8,7 @@ import java.util.Random;
 public class TetrominosRandomFactory implements ITetrominosRandomFactory {
     @Override
     public Tetrominos create() {
-        int nbGen = new Random().nextInt()%TetroType.values().length;
-        return new TetrominosFactory().create(TetroType.values()[nbGen]);
+        int nbGen = Math.abs(new Random().nextInt())%(TetroType.values().length-1);
+        return new TetrominosFactory().create(TetroType.values()[nbGen+1]); //+1 pour eviter de tirer un NaT
     }
 }

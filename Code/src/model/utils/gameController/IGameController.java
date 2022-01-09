@@ -1,15 +1,7 @@
 package model.utils.gameController;
 
-public interface IGameController {
-    void onDownEvent();
+import model.utils.event.EventSrc;
+import model.utils.event.IEventListener;
 
-    void onLeftEvent();
-
-    void onRightEvent();
-
-    void onRotateLeftEvent();
-
-    void onRotateRightEvent();
-
-    void createNewGame();
+public interface IGameController extends IEventListener {
 }

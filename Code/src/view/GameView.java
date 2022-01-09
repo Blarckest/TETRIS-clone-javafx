@@ -3,7 +3,6 @@ package view;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleBooleanProperty;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -19,9 +18,13 @@ import javafx.scene.text.Text;
 import launch.Launcher;
 import model.entity.block.BlockAbs;
 import model.entity.grid.GridAbs;
+import model.entity.tetrominos.Tetrominos;
+import model.utils.event.EventSrc;
+import model.utils.event.IEventListener;
 
 import java.net.URL;
-import java.util.Observable;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import static javafx.scene.layout.GridPane.getColumnIndex;
@@ -37,7 +40,7 @@ public class GameView implements Initializable {
     @FXML
     private Text scoreValue;
     @FXML
-    private GridPane nextBrick;
+    private GridPane nextTetroPreview;
     @FXML
     private ToggleButton pauseButton;
     @FXML
@@ -46,10 +49,14 @@ public class GameView implements Initializable {
     private GridPane brickPanel;
     @FXML
     private Button backButton;
+    private GridAbs grid;
+
     @FXML
     public void goToMenu(){
         Launcher.navigator.goToMenu();
     }
+
+    private List<IEventListener> eventListeners= new LinkedList<>();
 
     private final BooleanProperty isPauseProperty = new SimpleBooleanProperty();
 
@@ -57,22 +64,32 @@ public class GameView implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        gamePanel.setFocusTraversable(true);
+        gamePanel.requestFocus();
         gamePanel.setOnKeyPressed(keyEvent -> {
             if (isPauseProperty.getValue() == Boolean.FALSE && isGameOverProperty.getValue() == Boolean.FALSE) {
                 if (keyEvent.getCode() == KeyCode.LEFT || keyEvent.getCode() == KeyCode.Q) {
-                    //notifie gauche
+                    for (var listener: eventListeners) {
+                        listener.onLeftEvent(EventSrc.USER);
+                    }
                     keyEvent.consume();
                 }
                 if (keyEvent.getCode() == KeyCode.RIGHT || keyEvent.getCode() == KeyCode.D) {
-                    //notifie droite
+                    for (var listener: eventListeners) {
+                        listener.onRightEvent(EventSrc.USER);
+                    }
                     keyEvent.consume();
                 }
                 if (keyEvent.getCode() == KeyCode.UP || keyEvent.getCode() == KeyCode.Z) {
-                    //notifie rotation
+                    for (var listener: eventListeners) {
+                        listener.onRotateLeftEvent(EventSrc.USER);
+                    }
                     keyEvent.consume();
                 }
                 if (keyEvent.getCode() == KeyCode.DOWN || keyEvent.getCode() == KeyCode.S) {
-                    //notifie descente
+                    for (var listener: eventListeners) {
+                        listener.onDownEvent(EventSrc.USER);
+                    }
                     keyEvent.consume();
                 }
             }
@@ -91,7 +108,7 @@ public class GameView implements Initializable {
         });
     }
 
-    public void initGameView(GridAbs grid) {
+    public void initGameView(GridAbs grid, Tetrominos nextTetro) {
         for (int i = 0; i < grid.lignes; i++) {
             for (int j = 0; j < grid.colonnes; j++) {
                 Rectangle rectangle = new Rectangle(blockSize, blockSize);
@@ -99,13 +116,34 @@ public class GameView implements Initializable {
                 gamePanel.add(rectangle, j, i);
             }
         }
+        generatePreviewPanel(nextTetro);
+    }
+
+    private void generatePreviewPanel(Tetrominos nextTetro) {
+        nextTetroPreview.getChildren().clear();
+        var matrix=nextTetro.getCurrentShape();
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[i].length; j++) {
+                Rectangle rectangle = new Rectangle(blockSize, blockSize);
+                if (matrix[i][j] == null) {
+                    rectangle.setFill(Color.TRANSPARENT);
+                    nextTetroPreview.add(rectangle,j,i);
+                } else {
+                    rectangle.setFill(matrix[i][j].getColor());
+                    nextTetroPreview.add(rectangle,j,i);
+                }
+            }
+        }
     }
 
     public void gameOver() {
         //gameOver
     }
+
     public void newGame(ActionEvent actionEvent) {
-        //restart
+        for (var listener: eventListeners) {
+            listener.createNewGame();
+        }
     }
 
 
@@ -129,4 +167,6 @@ public class GameView implements Initializable {
                 currentChild.setFill(Color.TRANSPARENT);
         }
     }
+
+    public void addListener(IEventListener listener){eventListeners.add(listener);}
 }

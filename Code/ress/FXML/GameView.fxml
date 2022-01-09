@@ -23,7 +23,7 @@
         <Label text="Next brick" styleClass="nextBrickLabel"/>
         <BorderPane styleClass="nextBrick" prefWidth="100" prefHeight="70" maxWidth="100">
             <center>
-                <GridPane fx:id="nextBrick" alignment="CENTER" hgap="1" vgap="1"/>
+                <GridPane fx:id="nextTetroPreview" alignment="CENTER" hgap="1" vgap="1"/>
             </center>
         </BorderPane>
     </VBox>

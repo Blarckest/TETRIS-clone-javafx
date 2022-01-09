@@ -2,6 +2,7 @@ package model.utils.gameController;
 
 import model.entity.gameBoard.GameBoard;
 import model.entity.gameBoard.IGameBoard;
+import model.utils.event.EventSrc;
 import view.GameView;
 
 public class GameController implements IGameController {
@@ -12,12 +13,14 @@ public class GameController implements IGameController {
     public GameController(GameView c) {
         gameView = c;
         board.createNewTetro();
-        gameView.initGameView(board.getGrid());
+        gameView.addListener(this);
+        gameView.initGameView(board.getGrid(),board.getNextTetro());
         gameView.bindScore(board.getScore().scoreProperty());
+        gameView.refreshGameBackground(board.getGrid());
     }
 
     @Override
-    public void onDownEvent() {
+    public void onDownEvent(EventSrc src) {
         boolean canMove = board.moveTetroDown();
         if (!canMove) {
             board.mergeTetroToBackground();
@@ -30,25 +33,26 @@ public class GameController implements IGameController {
             }
             gameView.refreshGameBackground(board.getGrid());
         }
+
     }
 
     @Override
-    public void onLeftEvent() {
+    public void onLeftEvent(EventSrc src) {
         board.moveTetroLeft();
     }
 
     @Override
-    public void onRightEvent() {
+    public void onRightEvent(EventSrc src) {
         board.moveTetroRight();
     }
 
     @Override
-    public void onRotateLeftEvent() {
+    public void onRotateLeftEvent(EventSrc src) {
         board.rotateLeftTetro();
     }
 
     @Override
-    public void onRotateRightEvent() {
+    public void onRotateRightEvent(EventSrc src) {
         board.rotateRightTetro();
     }
 

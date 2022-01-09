@@ -9,7 +9,7 @@ public class MatrixMerger {
                 int targetX = xOffset + ligne;
                 int targetY = yOffset + colonne;
                 if (grid2.matrix[ligne][colonne] != null) {
-                    grid1.setAt(targetY, targetX, grid2.at(colonne, ligne));
+                    grid1.setAt(targetY, targetX, grid2.at(ligne, colonne));
                 }
             }
         }

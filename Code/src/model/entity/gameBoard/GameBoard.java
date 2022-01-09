@@ -26,12 +26,14 @@ public class GameBoard implements IGameBoard{
     private Tetrominos tetrominos;
     private Tetrominos nextTetrominos;
     private Couple currentOffset;
-    private Score score;
+    private final Score score;
     private ITetroRotator rotator=new TetroRotator(tetrominos);
 
     public GameBoard(int width, int height) {
         this.width = width;
         this.height = height;
+        nextTetrominos=tetrominosRandomFactory.create();
+        score=new Score();
     }
 
     @Override
@@ -43,8 +45,14 @@ public class GameBoard implements IGameBoard{
             return false;
         } else {
             currentOffset = p;
+            cleanCurrentTetro();
+            mergeTetroToMatrix();
             return true;
         }
+    }
+
+    private void cleanCurrentTetro() {
+        //efface le tetro actuel pour ensuite pouvoir le redessiner
     }
 
     @Override
@@ -102,8 +110,13 @@ public class GameBoard implements IGameBoard{
         tetrominos=nextTetrominos;
         nextTetrominos = tetrominosRandomFactory.create();
         rotator=new TetroRotator(tetrominos);
-        currentOffset = new Couple((new Random().nextInt()%(width-4))+4, 0);
-        return collider.intersect(tetrominos.getCurrentShape(), currentOffset.first, currentOffset.second);
+        //currentOffset = new Couple((Math.abs(new Random().nextInt())%(width-4))+4, 0);
+        currentOffset = new Couple(5, 0);
+        var collision=collider.intersect(tetrominos.getCurrentShape(), currentOffset.first, currentOffset.second);
+        if (!collision) {
+            mergeTetroToMatrix();
+        }
+        return collision;
     }
 
     @Override
@@ -118,6 +131,12 @@ public class GameBoard implements IGameBoard{
 
     @Override
     public void mergeTetroToBackground() {
+        tetrominos.setBlocked();
+        new MatrixMerger().merge(grid, new Grid(tetrominos.getCurrentShape()), currentOffset.first, currentOffset.second);
+    }
+
+    @Override
+    public void mergeTetroToMatrix() {
         new MatrixMerger().merge(grid, new Grid(tetrominos.getCurrentShape()), currentOffset.first, currentOffset.second);
     }
 
@@ -136,5 +155,10 @@ public class GameBoard implements IGameBoard{
         grid=new Grid(20,12);
         score.reset();
         createNewTetro();
+    }
+
+    @Override
+    public Tetrominos getNextTetro() {
+        return nextTetrominos;
     }
 }
