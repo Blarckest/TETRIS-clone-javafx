@@ -79,11 +79,11 @@ public abstract class Tetrominos extends Entity{
 
     //pb? doit peutetre le mettre dans un rotator
     public void rotateLeft() {
-        setMatrix((BlockAbs[][]) shapeMatrix.precedent());
+        setMatrix((BlockAbs[][]) shapeMatrix.next());
     }
 
     //pb? doit peutetre le mettre dans un rotator
     public void rotateRight() {
-        setMatrix((BlockAbs[][]) shapeMatrix.next());
+        setMatrix((BlockAbs[][]) shapeMatrix.precedent());
     }
 }

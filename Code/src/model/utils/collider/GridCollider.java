@@ -14,7 +14,6 @@ public class GridCollider implements ICollider {
             for (int j=0; j< tetro[i].length;j++){
                 int targetX = xOffset + i;
                 int targetY = yOffSet + j;
-                //( ~a && b && d) || ( ~a && c)
                 if ((tetro[i][j]!=null && checkOutOfBound(targetX, targetY)) || ((tetro[i][j]!=null &&  grid.at(targetY,targetX)!=null && !isSelfColliding(tetro,tetro[i][j])))) {
                         return true;
                 }
