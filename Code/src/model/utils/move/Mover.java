@@ -1,6 +1,7 @@
 package model.utils.move;
 
 import model.utils.Couple;
+import model.utils.looper.IObserver;
 
 public class Mover implements IMover {
     private final IMovable m_object;
@@ -19,4 +20,5 @@ public class Mover implements IMover {
         m_object.setX(couple.first);
         m_object.setY(couple.second);
     }
+
 }

@@ -5,6 +5,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import model.utils.gameController.GameController;
+import model.utils.looper.Looper;
+import model.utils.looper.LooperAbs;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -26,7 +28,11 @@ public class Navigator {
             var fxmlLoader = new FXMLLoader(location, null);
             Parent view = fxmlLoader.load();
             m_stage.setScene(new Scene(view));
-            new GameController(fxmlLoader.getController());
+            GameController gc=new GameController(fxmlLoader.getController());
+            LooperAbs looper=new Looper();
+            Thread thread=new Thread(looper);
+            thread.start();
+            looper.subscribe(gc);
             m_stage.show();
         }
         catch (Exception e){

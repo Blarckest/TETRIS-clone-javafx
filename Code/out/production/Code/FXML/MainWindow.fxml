@@ -6,6 +6,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
+<?import java.net.URL?>
 <VBox xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml"
       fx:controller="view.MainWindow"
@@ -15,4 +16,7 @@
     </Text>
     <Button fx:id="playButton" onAction="#launchGame" text="PLAY!" alignment="BASELINE_CENTER"/>
     <Button fx:id="seeScoreButton" onAction="#goToScore" text="Scores" alignment="BASELINE_CENTER"/>
+    <stylesheets>
+        <URL value="@style.css"/>
+    </stylesheets>
 </VBox>

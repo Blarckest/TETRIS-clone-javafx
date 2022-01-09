@@ -3,9 +3,10 @@ package model.utils.gameController;
 import model.entity.gameBoard.GameBoard;
 import model.entity.gameBoard.IGameBoard;
 import model.utils.event.EventSrc;
+import model.utils.looper.IObserver;
 import view.GameView;
 
-public class GameController implements IGameController {
+public class GameController implements IGameController, IObserver {
     private IGameBoard board = new GameBoard(20, 12);
 
     private final GameView gameView;
@@ -69,5 +70,10 @@ public class GameController implements IGameController {
     @Override
     public void refresh(){
         gameView.refreshGameBackground(board.getGrid());
+    }
+
+    @Override
+    public void doAction() {
+        onDownEvent(EventSrc.CLOCK);
     }
 }

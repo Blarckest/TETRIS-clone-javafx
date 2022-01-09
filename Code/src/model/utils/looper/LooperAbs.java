@@ -2,7 +2,7 @@ package model.utils.looper;
 
 import java.util.ArrayList;
 
-public abstract class ILooper implements Runnable{
+public abstract class LooperAbs implements Runnable{
     ArrayList<IObserver> listObserver = new ArrayList<>();
 
     public void subscribe(IObserver o){
