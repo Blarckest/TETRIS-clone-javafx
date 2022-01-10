@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.text.Text?>
+<?import java.net.URL?>
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="view.GameOver"
+      prefHeight="800" prefWidth="500">
+    <Text styleClass="scoreClass">GAME OVER</Text>
+    <HBox>
+        <Text styleClass="scoreClass">Score: </Text>
+        <Text fx:id="scoreValue" styleClass="scoreClass"></Text>
+    </HBox>
+    <Button fx:id="restartButton" onAction="#restartGame" text="Rejouer"/>
+    <Button fx:id="scoreButton" onAction="#goToScore" text="Voir scores"/>
+    <Button fx:id="quitButton" onAction="#quitGame" text="Quitter"/>
+    <stylesheets>
+        <URL value="@style.css"/>
+    </stylesheets>
+</VBox>

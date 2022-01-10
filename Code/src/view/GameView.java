@@ -1,5 +1,6 @@
 package view;
 
+import javafx.application.Platform;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleBooleanProperty;
@@ -137,7 +138,7 @@ public class GameView implements Initializable {
     }
 
     public void gameOver() {
-        //gameOver
+        Platform.runLater(()->Launcher.navigator.goToGameOver(scoreValue));
     }
 
     public void newGame(ActionEvent actionEvent) {

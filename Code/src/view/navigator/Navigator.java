@@ -3,13 +3,12 @@ package view.navigator;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import model.utils.gameController.GameController;
 import model.utils.looper.Looper;
 import model.utils.looper.LooperAbs;
-
-import java.net.URL;
-import java.util.ResourceBundle;
+import view.GameOver;
 
 public class Navigator {
     private Stage m_stage;
@@ -43,6 +42,20 @@ public class Navigator {
         try {
             Parent view = FXMLLoader.load(getClass().getResource("/FXML/ScoreView.fxml"));
             m_stage.setScene(new Scene(view));
+            m_stage.show();
+        }
+        catch (Exception e){
+            error(e);
+        }
+
+    }
+    public void goToGameOver(Text scoreValue){
+        try {
+            var location = getClass().getResource("/FXML/GameOver.fxml");
+            var fxmlLoader = new FXMLLoader(location, null);
+            Parent view = fxmlLoader.load();
+            m_stage.setScene(new Scene(view));
+            ((GameOver)fxmlLoader.getController()).setScoreValue(scoreValue);
             m_stage.show();
         }
         catch (Exception e){
