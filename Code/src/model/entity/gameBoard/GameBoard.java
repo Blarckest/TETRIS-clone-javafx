@@ -15,8 +15,6 @@ import model.utils.matrix.MatrixMerger;
 import model.utils.rotate.ITetroRotator;
 import model.utils.rotate.TetroRotator;
 
-import java.util.Random;
-
 public class GameBoard implements IGameBoard{
     private final int width;
     private final int height;
@@ -136,7 +134,7 @@ public class GameBoard implements IGameBoard{
 
     @Override
     public BlockAbs[][] getBoardMatrix() {
-        return (BlockAbs[][]) grid.matrix;
+        return grid.matrix;
     }
 
     @Override

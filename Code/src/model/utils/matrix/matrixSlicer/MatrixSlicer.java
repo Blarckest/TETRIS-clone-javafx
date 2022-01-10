@@ -1,5 +1,6 @@
 package model.utils.matrix.matrixSlicer;
 
+import model.entity.block.BlockAbs;
 import model.entity.grid.Grid;
 import model.entity.grid.GridAbs;
 import model.utils.Couple;
@@ -10,10 +11,10 @@ public class MatrixSlicer {
         this.grid=grid;
     }
     public Grid subMat(Couple startPoint, int height, int width){
-        var mat=new Object[height][width];
-        for (int i = startPoint.first; i < width; i++) {
-            var line = grid.matrix[i];
-            for (int j = startPoint.second; j < height; j++) {
+        var mat=new BlockAbs[height][width];
+        for (int i = startPoint.first; i < height; i++) {
+            var line = grid.matrix[grid.lignes-i-1];
+            for (int j = startPoint.second; j < width; j++) {
                 mat[i][j] = line[j];
             }
         }
