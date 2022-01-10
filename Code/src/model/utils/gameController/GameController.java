@@ -1,5 +1,6 @@
 package model.utils.gameController;
 
+import javafx.application.Platform;
 import model.entity.gameBoard.GameBoard;
 import model.entity.gameBoard.IGameBoard;
 import model.utils.event.EventSrc;
@@ -31,6 +32,9 @@ public class GameController implements IGameController, IObserver {
             }
             if (board.createNewTetro()) {
                 gameView.gameOver();
+            }
+            else{
+                Platform.runLater(() -> gameView.setNextTetro(board.getNextTetro()));
             }
             refresh();
         }

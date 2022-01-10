@@ -116,10 +116,10 @@ public class GameView implements Initializable {
                 gamePanel.add(rectangle, j, i);
             }
         }
-        generatePreviewPanel(nextTetro);
+        setNextTetro(nextTetro);
     }
 
-    private void generatePreviewPanel(Tetrominos nextTetro) {
+    public void setNextTetro(Tetrominos nextTetro) {
         nextTetroPreview.getChildren().clear();
         var matrix=nextTetro.getCurrentShape();
         for (int i = 0; i < matrix.length; i++) {
