@@ -9,6 +9,7 @@ import model.utils.gameController.GameController;
 import model.utils.looper.Looper;
 import model.utils.looper.LooperAbs;
 import view.GameOver;
+import view.GameView;
 
 public class Navigator {
     private Stage m_stage;
@@ -28,7 +29,7 @@ public class Navigator {
             Parent view = fxmlLoader.load();
             m_stage.setScene(new Scene(view));
             GameController gc=new GameController(fxmlLoader.getController());
-            LooperAbs looper=new Looper();
+            LooperAbs looper=new Looper(((GameView)fxmlLoader.getController()).getPausedProperty());
             Thread thread=new Thread(looper);
             thread.start();
             looper.subscribe(gc);

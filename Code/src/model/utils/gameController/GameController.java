@@ -1,6 +1,8 @@
 package model.utils.gameController;
 
 import javafx.application.Platform;
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.SimpleBooleanProperty;
 import model.entity.gameBoard.GameBoard;
 import model.entity.gameBoard.IGameBoard;
 import model.utils.event.EventSrc;
@@ -9,6 +11,7 @@ import view.GameView;
 
 public class GameController implements IGameController, IObserver {
     private IGameBoard board = new GameBoard(20, 12);
+    private BooleanProperty isGameOver=new SimpleBooleanProperty(false);
 
     private final GameView gameView;
 
@@ -18,6 +21,8 @@ public class GameController implements IGameController, IObserver {
         gameView.addListener(this);
         gameView.initGameView(board.getGrid(),board.getNextTetro());
         gameView.bindScore(board.getScore().scoreProperty());
+        gameView.bindGamOver(isGameOver);
+
         refresh();
     }
 
@@ -31,7 +36,7 @@ public class GameController implements IGameController, IObserver {
                 board.getScore().add(clearedRow*50*clearedRow);
             }
             if (board.createNewTetro()) {
-                gameView.gameOver();
+                isGameOver.setValue(true);
             }
             else{
                 Platform.runLater(() -> gameView.setNextTetro(board.getNextTetro()));

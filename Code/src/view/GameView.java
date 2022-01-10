@@ -61,7 +61,7 @@ public class GameView implements Initializable {
 
     private final BooleanProperty isPauseProperty = new SimpleBooleanProperty();
 
-    private final BooleanProperty isGameOverProperty = new SimpleBooleanProperty();
+    private final BooleanProperty isGameOverProperty = new SimpleBooleanProperty(false);
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -107,6 +107,7 @@ public class GameView implements Initializable {
                 pauseButton.setText("Pause");
             }
         });
+        isGameOverProperty.addListener((observable, oldValue, newValue)->{if (newValue){gameOver();}});
     }
 
     public void initGameView(GridAbs grid, Tetrominos nextTetro) {
@@ -138,7 +139,9 @@ public class GameView implements Initializable {
     }
 
     public void gameOver() {
-        Platform.runLater(()->Launcher.navigator.goToGameOver(scoreValue));
+        if (isGameOverProperty.getValue() == true) {
+            Platform.runLater(()->Launcher.navigator.goToGameOver(scoreValue));
+        }
     }
 
     public void newGame(ActionEvent actionEvent) {
@@ -170,4 +173,12 @@ public class GameView implements Initializable {
     }
 
     public void addListener(IEventListener listener){eventListeners.add(listener);}
+
+    public void bindGamOver(BooleanProperty isGameOver) {
+        this.isGameOverProperty.bind(isGameOver);
+    }
+
+    public BooleanProperty getPausedProperty(){
+        return isPauseProperty;
+    }
 }

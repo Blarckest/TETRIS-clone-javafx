@@ -1,8 +1,15 @@
 package model.utils.looper;
 
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.SimpleBooleanProperty;
+
 import java.util.ArrayList;
 
 public abstract class LooperAbs implements Runnable{
+    protected BooleanProperty gamePaused = new SimpleBooleanProperty();
+
+    public LooperAbs(BooleanProperty gamePausedProperty){gamePaused.bind(gamePausedProperty);}
+
     ArrayList<IObserver> listObserver = new ArrayList<>();
 
     public void subscribe(IObserver o){
