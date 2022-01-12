@@ -10,6 +10,9 @@
 <?import java.net.URL?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
 <VBox xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml"
       fx:controller="view.ScoreView"
@@ -17,6 +20,18 @@
     <ScrollPane fx:id="scoreScroller">
         <ListView fx:id="scoresView"/>
     </ScrollPane>
+    <HBox>
+        <Text>Trier par</Text>
+        <ChoiceBox fx:id="sortChoice" value="Meilleur">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="Meilleur"/>
+                    <String fx:value="Plus recent"/>
+                    <String fx:value="Plus ancien"/>
+                </FXCollections>
+            </items>
+        </ChoiceBox>
+    </HBox>
     <Button fx:id="backButton" onAction="#goToMenu" text="Retour"/>
     <stylesheets>
         <URL value="@style.css"/>
