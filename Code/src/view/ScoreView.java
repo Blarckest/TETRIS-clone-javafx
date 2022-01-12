@@ -11,6 +11,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Text;
 import launch.Launcher;
 import model.utils.Score;
+import model.utils.scoreHistory.OrderBy;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -30,11 +31,13 @@ public class ScoreView implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        //sortChoice.getSelectionModel().selectedIndexProperty().addListener((observableValue, number, number2) ->{
-            //switch (sortChoice.getItems().get((Integer) number2)){
-
-            //}
-        //});
+        sortChoice.getSelectionModel().selectedIndexProperty().addListener((observableValue, number, number2) ->{
+            switch ((String) sortChoice.getItems().get((Integer) number2)){
+                case "Meilleur"->Launcher.scoreHistoryManager.getByOrder(OrderBy.Best);
+                case "Plus recent"->Launcher.scoreHistoryManager.getByOrder(OrderBy.DateDesc);
+                case "Plus ancien"->Launcher.scoreHistoryManager.getByOrder(OrderBy.DateAsc);
+            }
+        });
         scoresView.itemsProperty().bind(Launcher.scoreHistoryManager.getScoresProperty());
         scoresView.setCellFactory(__->{
             return new ListCell<Score>(){
@@ -61,5 +64,6 @@ public class ScoreView implements Initializable {
                 }
             };
         });
+        sortChoice.getSelectionModel().select(0);
     }
 }

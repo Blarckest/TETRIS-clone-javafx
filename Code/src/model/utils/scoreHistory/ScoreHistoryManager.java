@@ -11,7 +11,6 @@ import model.utils.comparator.ScoreComparator;
 import model.utils.persistance.ScoreLoader;
 import model.utils.persistance.ScoreSaver;
 
-import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 
@@ -54,13 +53,13 @@ public class ScoreHistoryManager implements IScoreHistoryManager{
     }
 
     @Override
-    public Score[] getByOrder(OrderBy order) {
+    public ObservableList<Score> getByOrder(OrderBy order) {
         switch (order){
             case Best -> scores.sort(new ScoreComparator());
             case DateAsc -> scores.sort(new AscDateComparator());
             case DateDesc -> scores.sort(new DescDateComparator());
         }
-        return (Score[]) scores.toArray();
+        return scores;
     }
 
     @Override

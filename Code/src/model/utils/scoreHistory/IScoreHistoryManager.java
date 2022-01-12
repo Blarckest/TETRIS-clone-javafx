@@ -1,6 +1,7 @@
 package model.utils.scoreHistory;
 
 import javafx.beans.property.ListProperty;
+import javafx.collections.ObservableList;
 import model.utils.Score;
 
 import java.util.List;
@@ -11,7 +12,7 @@ public interface IScoreHistoryManager {
     List<Score> getScores();
     ListProperty<Score> getScoresProperty();
 
-    Score[] getByOrder(OrderBy order);
+    ObservableList<Score> getByOrder(OrderBy order);
 
     void add(Score score);
 }
