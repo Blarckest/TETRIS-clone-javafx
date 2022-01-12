@@ -15,12 +15,6 @@ public class Navigator {
     private Stage m_stage;
     public Navigator(Stage stage){
         m_stage=stage;
-        try {
-            goToMenu();
-        }
-        catch (Exception e){
-            error(e);
-        }
     }
     public void goToGame(){
         try {
@@ -29,7 +23,7 @@ public class Navigator {
             Parent view = fxmlLoader.load();
             m_stage.setScene(new Scene(view));
             GameController gc=new GameController(fxmlLoader.getController());
-            LooperAbs looper=new Looper(((GameView)fxmlLoader.getController()).getPausedProperty());
+            LooperAbs looper=new Looper(((GameView)fxmlLoader.getController()).getPausedProperty(),((GameView)fxmlLoader.getController()).getGameOverProperty());
             Thread thread=new Thread(looper);
             thread.start();
             looper.subscribe(gc);

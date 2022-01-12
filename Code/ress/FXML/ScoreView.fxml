@@ -8,14 +8,14 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.text.Text?>
 <?import java.net.URL?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ListView?>
 <VBox xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml"
       fx:controller="view.ScoreView"
       prefHeight="800" prefWidth="500">
-    <ScrollPane>
-        <VBox>
-            <Text>list score</Text>
-        </VBox>
+    <ScrollPane fx:id="scoreScroller">
+        <ListView fx:id="scoresView"/>
     </ScrollPane>
     <Button fx:id="backButton" onAction="#goToMenu" text="Retour"/>
     <stylesheets>

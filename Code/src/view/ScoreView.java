@@ -1,18 +1,55 @@
 package view;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
+import javafx.fxml.Initializable;
+import javafx.scene.control.ListCell;
+import javafx.scene.control.ListView;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.text.Text;
 import launch.Launcher;
+import model.utils.Score;
 
-public class ScoreView {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class ScoreView implements Initializable {
     @FXML
-    private Button playButton;
-
+    public ScrollPane scoreScroller;
     @FXML
-    private Button seeScoreButton;
-
+    public ListView scoresView;
     @FXML
     public void goToMenu(){
         Launcher.navigator.goToMenu();
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        scoresView.itemsProperty().bind(Launcher.scoreHistoryManager.getScoresProperty());
+        scoresView.setCellFactory(__->{
+            return new ListCell<Score>(){
+                private Text date = null;
+                private Text score = null;
+                private BorderPane pane =null;
+                @Override
+                protected void updateItem(Score item, boolean empty) {
+                    super.updateItem(item, empty);
+                    if (!empty) {
+                        var dateScore=item.getDate();
+                        date = new Text();
+                        date.setText(dateScore.getDayOfMonth()+"/"+String.format("%02d",dateScore.getMonthValue())+"/"+String.valueOf(dateScore.getYear()).substring(2,4)+"  "+dateScore.getHour()+":"+dateScore.getMinute());
+                        score=new Text();
+                        score.setText(String.valueOf(item.getScoreProperty()));
+                        pane =new BorderPane();
+                        pane.leftProperty().setValue(date);
+                        pane.rightProperty().setValue(score);
+                        setGraphic(pane);
+                    } else {
+                        setText("");
+                        setGraphic(null);
+                    }
+                }
+            };
+        });
     }
 }

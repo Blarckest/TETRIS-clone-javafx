@@ -1,4 +1,4 @@
-package model.utils.move;
+package model.utils.rotate.move;
 
 import model.utils.Couple;
 

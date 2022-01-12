@@ -16,7 +16,7 @@ public class MatrixMerger {
         }
     }
 
-    public void merge2(GridAbs grid, int ligne) {
+    public void moveLineDown(GridAbs grid, int ligne) {
         for (int i= grid.lignes; i >0; i--) {
             if(i<=ligne){
                 for(int j=0; j< grid.colonnes;j++){

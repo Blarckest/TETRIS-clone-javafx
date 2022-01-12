@@ -181,4 +181,7 @@ public class GameView implements Initializable {
     public BooleanProperty getPausedProperty(){
         return isPauseProperty;
     }
+    public BooleanProperty getGameOverProperty(){
+        return isGameOverProperty;
+    }
 }

@@ -1,7 +1,6 @@
-package model.utils.move;
+package model.utils.rotate.move;
 
 import model.utils.Couple;
-import model.utils.looper.IObserver;
 
 public class Mover implements IMover {
     private final IMovable m_object;

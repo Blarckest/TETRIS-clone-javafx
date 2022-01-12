@@ -7,8 +7,10 @@ import java.util.ArrayList;
 
 public abstract class LooperAbs implements Runnable{
     protected BooleanProperty gamePaused = new SimpleBooleanProperty();
+    protected BooleanProperty gameOver = new SimpleBooleanProperty();
 
-    public LooperAbs(BooleanProperty gamePausedProperty){gamePaused.bind(gamePausedProperty);}
+
+    public LooperAbs(BooleanProperty gamePausedProperty, BooleanProperty gameOverProperty){gamePaused.bind(gamePausedProperty); gameOver.bind(gameOverProperty);}
 
     ArrayList<IObserver> listObserver = new ArrayList<>();
 

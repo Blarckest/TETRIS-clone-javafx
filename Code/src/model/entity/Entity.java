@@ -1,8 +1,8 @@
 package model.entity;
 
 import model.utils.Couple;
-import model.utils.move.IMovable;
-import model.utils.move.Mover;
+import model.utils.rotate.move.IMovable;
+import model.utils.rotate.move.Mover;
 import model.utils.rotate.IRotable;
 import model.utils.rotate.AngleRotator;
 
