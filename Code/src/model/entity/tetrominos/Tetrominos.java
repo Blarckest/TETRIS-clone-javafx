@@ -1,12 +1,10 @@
 package model.entity.tetrominos;
 
 import javafx.scene.paint.Color;
-import model.entity.block.BlockAbs;
 import model.entity.Entity;
+import model.entity.block.BlockAbs;
 import model.utils.CircularList;
 import model.utils.Couple;
-
-import java.util.List;
 
 
 public abstract class Tetrominos extends Entity{
@@ -77,13 +75,13 @@ public abstract class Tetrominos extends Entity{
         return shapeMatrix.getPrecedentShape();
     }
 
-    //pb? doit peutetre le mettre dans un rotator
+    //todo pb? doit peutetre le mettre dans un rotator
     public void rotateLeft() {
-        setMatrix((BlockAbs[][]) shapeMatrix.next());
+        setMatrix(shapeMatrix.next());
     }
 
-    //pb? doit peutetre le mettre dans un rotator
+    //todo pb? doit peutetre le mettre dans un rotator
     public void rotateRight() {
-        setMatrix((BlockAbs[][]) shapeMatrix.precedent());
+        setMatrix(shapeMatrix.precedent());
     }
 }

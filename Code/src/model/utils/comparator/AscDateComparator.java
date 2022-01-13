@@ -2,7 +2,6 @@ package model.utils.comparator;
 
 import model.utils.Score;
 
-import java.time.LocalDateTime;
 import java.util.Comparator;
 
 public class AscDateComparator implements Comparator<Score> {

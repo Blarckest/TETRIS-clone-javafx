@@ -1,15 +1,12 @@
 package view;
 
-import javafx.beans.value.ChangeListener;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
-import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
 import javafx.scene.text.Text;
 import launch.Launcher;
 import model.utils.Score;
@@ -19,8 +16,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class ScoreView implements Initializable {
-    @FXML
-    public ScrollPane scoreScroller;
     @FXML
     public ListView scoresView;
     @FXML

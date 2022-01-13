@@ -7,8 +7,6 @@ import model.utils.scoreHistory.IScoreHistoryManager;
 import model.utils.scoreHistory.ScoreHistoryManager;
 import view.navigator.Navigator;
 
-import java.net.URI;
-
 public class Launcher extends Application {
     public static IScoreHistoryManager scoreHistoryManager;
     public static Navigator navigator;

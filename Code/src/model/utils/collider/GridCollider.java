@@ -1,6 +1,5 @@
 package model.utils.collider;
 
-import model.entity.block.Block;
 import model.entity.block.BlockAbs;
 import model.entity.grid.GridAbs;
 

@@ -5,22 +5,21 @@ import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleObjectProperty;
 
-import java.io.Serializable;
 import java.time.LocalDateTime;
 
-public class Score implements Serializable {
-    private static final  long serialVersionUID =-728081640044068203L;
-
-    //LES PROPERTY SONT PAS SERIALIZABLE
+public class Score {
+    //LES PROPERTY SONT PAS SERIALIZABLE DONC ON SERIALIZE A LA MAIN
 
     private transient IntegerProperty scoreProperty;
 
-    public int getScore(){
+    public int getScore() {
         return scoreProperty.getValue();
     }
+
     public IntegerProperty scoreProperty() {
         return scoreProperty;
     }
+
     private transient SimpleObjectProperty<LocalDateTime> dateProperty;
 
     public LocalDateTime getDate() {

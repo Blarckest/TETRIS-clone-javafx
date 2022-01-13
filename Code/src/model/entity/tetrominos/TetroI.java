@@ -5,9 +5,6 @@ import model.entity.block.Block;
 import model.entity.block.BlockAbs;
 import model.utils.CircularList;
 
-import java.lang.reflect.Array;
-import java.util.Arrays;
-
 public class TetroI extends Tetrominos {
     public TetroI() {
         blocks = new BlockAbs[]{new Block(Color.BLUE), new Block(Color.BLUE), new Block(Color.BLUE), new Block(Color.BLUE)};
