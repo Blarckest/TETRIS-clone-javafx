@@ -12,8 +12,6 @@ public class LineCleaner implements ILineCleaner {
     @Override
     public int removeLines() {
         var matrix=grid.matrix;
-        int width = matrix.length;
-        int lineWidth;
         int clearedRows=0;
         for (int ligne = 0; ligne < matrix.length; ligne++) {
             var rowToClear = true;

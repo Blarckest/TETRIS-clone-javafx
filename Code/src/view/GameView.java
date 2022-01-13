@@ -4,15 +4,12 @@ import javafx.application.Platform;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleBooleanProperty;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
@@ -35,7 +32,7 @@ public class GameView implements Initializable {
 
     private static final double blockSize = 20;
 
-    private List<IEventListener> eventListeners= new LinkedList<>();
+    private final List<IEventListener> eventListeners = new LinkedList<>();
 
     private final BooleanProperty isPauseProperty = new SimpleBooleanProperty();
 
@@ -53,13 +50,6 @@ public class GameView implements Initializable {
     private GridPane nextTetroPreview;
     @FXML
     private ToggleButton pauseButton;
-    @FXML
-    private VBox helpBox;
-    @FXML
-    private GridPane tetroPanel;
-    @FXML
-    private Button backButton;
-    private GridAbs grid;
 
     @FXML
     public void goToMenu(){
@@ -146,9 +136,9 @@ public class GameView implements Initializable {
     }
 
     public void gameOver() {
-        if (isGameOverProperty.getValue() == true) {
+        if (isGameOverProperty.getValue()) {
             stopThreadProperty.setValue(true);
-            Platform.runLater(()->Launcher.navigator.goToGameOver(scoreValue));
+            Platform.runLater(() -> Launcher.navigator.goToGameOver(scoreValue));
         }
     }
 
@@ -163,7 +153,7 @@ public class GameView implements Initializable {
         scoreValue.textProperty().bind(integerProperty.asString());
     }
 
-    public void pauseGame(ActionEvent actionEvent) {
+    public void pauseGame() {
         gamePanel.requestFocus();
     }
 

@@ -12,7 +12,7 @@ import view.GameOver;
 import view.GameView;
 
 public class Navigator {
-    private Stage m_stage;
+    private final Stage m_stage;
     public Navigator(Stage stage){
         m_stage=stage;
     }

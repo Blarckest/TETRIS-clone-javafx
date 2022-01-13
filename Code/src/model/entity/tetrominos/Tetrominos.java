@@ -1,61 +1,26 @@
 package model.entity.tetrominos;
 
 import javafx.scene.paint.Color;
-import model.entity.Entity;
 import model.entity.block.BlockAbs;
 import model.utils.CircularList;
-import model.utils.Couple;
 
 
-public abstract class Tetrominos extends Entity{
-
-    private boolean blocked;
+public abstract class Tetrominos {
     private BlockAbs[][] matrix;
     private CircularList<BlockAbs[][]> shapeMatrix;
 
-    protected TetroType type=TetroType.NaT;
+    protected TetroType type = TetroType.NaT;
     protected BlockAbs[] blocks;
 
-    public Tetrominos() {blocked = false;}
-
-    public void setBlocked(){blocked=true;}
-
-    public boolean isBlocked(){return blocked;}
-
-    public TetroType getType(){return type;}
-
-    @Override
-    public void move(Couple couple) {
-        super.move(couple);
-        for (var blockLine:matrix)
-            for (var block:blockLine) block.move(couple);
+    public TetroType getType() {
+        return type;
     }
 
-    @Override
-    public void moveTo(Couple couple) {
-        super.move(couple);
-        for (int ligne = 0, matrixLength = matrix.length; ligne < matrixLength; ligne++) {
-            BlockAbs[] blockLine = matrix[ligne];
-            for (int colonne = 0; colonne < blockLine.length; colonne++) {
-                BlockAbs block = blockLine[colonne];
-                //block.moveTo(new Couple(couple.first+block.getSize().first*ligne, couple.second+block.getSize().second*colonne));
-            }
-        }
-    }
-
-    public void changeColor(Color color){
-        for (var blockLine:matrix)
+    public void changeColor(Color color) {
+        for (var blockLine : matrix)
             for (var block:blockLine) block.setColor(color);
     }
     protected void setMatrix(BlockAbs[][] matrix) {
-        for (int i = 0; i < matrix.length; i++) {
-            BlockAbs[] blockLine = matrix[i];
-            for (int j = 0; j < blockLine.length; j++) {
-                BlockAbs block = blockLine[j];
-                //if (block!=null)
-                    //block.moveTo(new Couple(getX()+block.getSize().first*i,getY()+block.getSize().second*j));
-            }
-        }
         this.matrix=matrix;
     }
 

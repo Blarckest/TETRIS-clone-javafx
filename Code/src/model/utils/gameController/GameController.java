@@ -11,8 +11,8 @@ import model.utils.looper.IObserver;
 import view.GameView;
 
 public class GameController implements IGameController, IObserver {
-    private IGameBoard board = new GameBoard(20, 12);
-    private BooleanProperty isGameOver=new SimpleBooleanProperty(false);
+    private final IGameBoard board = new GameBoard(20, 12);
+    private final BooleanProperty isGameOver = new SimpleBooleanProperty(false);
 
     private final GameView gameView;
 
@@ -20,7 +20,7 @@ public class GameController implements IGameController, IObserver {
         gameView = c;
         board.createNewTetro();
         gameView.addListener(this);
-        gameView.initGameView(board.getGrid(),board.getNextTetro());
+        gameView.initGameView(board.getGrid(), board.getNextTetro());
         gameView.bindScore(board.getScore().scoreProperty());
         gameView.bindGameOver(isGameOver);
         refresh();

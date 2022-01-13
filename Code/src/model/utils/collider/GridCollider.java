@@ -25,10 +25,7 @@ public class GridCollider implements ICollider {
     }
 
     private boolean checkOutOfBound(int targetX, int targetY) {
-        if (targetX >= 0 && targetY >= 0 && targetY < grid.lignes && targetX < grid.colonnes) {
-            return false;
-        }
-        return true;
+        return targetX < 0 || targetY < 0 || targetY >= grid.lignes || targetX >= grid.colonnes;
     }
 
     private boolean isSelfColliding(BlockAbs[][] tetro, BlockAbs object){

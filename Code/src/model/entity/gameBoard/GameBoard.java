@@ -15,29 +15,29 @@ import model.utils.matrix.MatrixMerger;
 import model.utils.rotate.ITetroRotator;
 import model.utils.rotate.TetroRotator;
 
-public class GameBoard implements IGameBoard{
-    private final int width;
-    private final int height;
-    private final ITetrominosRandomFactory tetrominosRandomFactory=new TetrominosRandomFactory();
-    private GridAbs grid = new Grid(20,12);
-    private final ICollider collider=new GridCollider(grid);
+public class GameBoard implements IGameBoard {
+    private final ITetrominosRandomFactory tetrominosRandomFactory;
+    private GridAbs grid;
+    private final ICollider collider;
     private Tetrominos tetrominos;
     private Tetrominos nextTetrominos;
     private Couple currentOffset;
     private final Score score;
-    private ITetroRotator rotator=new TetroRotator(tetrominos);
+    private ITetroRotator rotator;
 
-    public GameBoard(int width, int height) {
-        this.width = width;
-        this.height = height;
-        nextTetrominos=tetrominosRandomFactory.create();
-        score=new Score();
+    public GameBoard(int lines, int columns) {
+        grid = new Grid(lines, columns);
+        tetrominosRandomFactory = new TetrominosRandomFactory();
+        collider = new GridCollider(grid);
+        rotator = new TetroRotator(tetrominos);
+        nextTetrominos = tetrominosRandomFactory.create();
+        score = new Score();
     }
 
     @Override
     public boolean moveTetroDown() {
         Couple p = new Couple(currentOffset);
-        p.second+=1;
+        p.second += 1;
         boolean conflict = collider.intersect(tetrominos.getCurrentShape(), p.first, p.second);
         if (conflict) {
             return false;
@@ -98,7 +98,7 @@ public class GameBoard implements IGameBoard{
             return false;
         } else {
             cleanCurrentTetro();
-            rotator.rotateLeft(tetrominos);
+            rotator.rotateLeft();
             mergeTetroToMatrix();
             return true;
         }
@@ -112,7 +112,7 @@ public class GameBoard implements IGameBoard{
             return false;
         } else {
             cleanCurrentTetro();
-            rotator.rotateRight(tetrominos);
+            rotator.rotateRight();
             mergeTetroToMatrix();
             return true;
         }
@@ -144,7 +144,6 @@ public class GameBoard implements IGameBoard{
 
     @Override
     public void mergeTetroToBackground() {
-        tetrominos.setBlocked();
         new MatrixMerger().merge(grid, tetrominos.getCurrentShape(), currentOffset.first, currentOffset.second);
     }
 

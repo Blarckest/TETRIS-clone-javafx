@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 public class Score {
     //LES PROPERTY SONT PAS SERIALIZABLE DONC ON SERIALIZE A LA MAIN
 
-    private transient IntegerProperty scoreProperty;
+    private final transient IntegerProperty scoreProperty;
 
     public int getScore() {
         return scoreProperty.getValue();
@@ -20,7 +20,7 @@ public class Score {
         return scoreProperty;
     }
 
-    private transient SimpleObjectProperty<LocalDateTime> dateProperty;
+    private final transient SimpleObjectProperty<LocalDateTime> dateProperty;
 
     public LocalDateTime getDate() {
         return dateProperty.getValue();

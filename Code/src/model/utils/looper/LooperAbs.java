@@ -5,16 +5,19 @@ import javafx.beans.property.SimpleBooleanProperty;
 
 import java.util.ArrayList;
 
-public abstract class LooperAbs implements Runnable{
-    protected BooleanProperty gamePaused = new SimpleBooleanProperty();
-    protected BooleanProperty stopThread = new SimpleBooleanProperty();
+public abstract class LooperAbs implements Runnable {
+    protected final BooleanProperty gamePaused = new SimpleBooleanProperty();
+    protected final BooleanProperty stopThread = new SimpleBooleanProperty();
 
 
-    public LooperAbs(BooleanProperty gamePausedProperty, BooleanProperty stopThreadProperty){gamePaused.bind(gamePausedProperty); stopThread.bind(stopThreadProperty);}
+    public LooperAbs(BooleanProperty gamePausedProperty, BooleanProperty stopThreadProperty) {
+        gamePaused.bind(gamePausedProperty);
+        stopThread.bind(stopThreadProperty);
+    }
 
-    ArrayList<IObserver> listObserver = new ArrayList<>();
+    final ArrayList<IObserver> listObserver = new ArrayList<>();
 
-    public void subscribe(IObserver o){
+    public void subscribe(IObserver o) {
         listObserver.add(o);
     }
 

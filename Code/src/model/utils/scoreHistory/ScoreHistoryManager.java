@@ -11,29 +11,37 @@ import model.utils.comparator.ScoreComparator;
 import model.utils.persistance.ScoreLoader;
 import model.utils.persistance.ScoreSaver;
 
-import java.net.URISyntaxException;
 import java.util.ArrayList;
 
 
-public class ScoreHistoryManager implements IScoreHistoryManager{
+public class ScoreHistoryManager implements IScoreHistoryManager {
 
-    private ObservableList<Score> scores;
-    private ListProperty<Score> scoresProperty;
+    private final ObservableList<Score> scores;
+    private final ListProperty<Score> scoresProperty;
+
     @Override
-    public ObservableList<Score> getScores() {return scoresProperty.get();}
-    public void setScores(ObservableList<Score> value) {scoresProperty.set(value);}
+    public ObservableList<Score> getScores() {
+        return scoresProperty.get();
+    }
+
+    public void setScores(ObservableList<Score> value) {
+        scoresProperty.set(value);
+    }
+
     @Override
-    public ListProperty<Score> getScoresProperty() {return scoresProperty;}
+    public ListProperty<Score> getScoresProperty() {
+        return scoresProperty;
+    }
 
     private final String filePath;
 
-    public ScoreHistoryManager() throws URISyntaxException {
-        filePath="./save";
-        var arr=new ScoreLoader().load(filePath);
-        if (arr!=null)
-            scores=FXCollections.observableArrayList(arr);
+    public ScoreHistoryManager() {
+        filePath = "./save";
+        var arr = new ScoreLoader().load(filePath);
+        if (arr != null)
+            scores = FXCollections.observableArrayList(arr);
         else
-            scores=FXCollections.observableArrayList();
+            scores = FXCollections.observableArrayList();
         scoresProperty = new SimpleListProperty<>(scores);
     }
 

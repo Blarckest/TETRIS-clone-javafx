@@ -13,8 +13,8 @@ public class Looper extends LooperAbs {
         while(!stopThread.getValue()){
             try {
                 Thread.sleep(200);
-                if (gamePaused.getValue()==false)
-                    for(IObserver o : listObserver)
+                if (!gamePaused.getValue())
+                    for (IObserver o : listObserver)
                         o.doAction();
 
             } catch (InterruptedException e) {
