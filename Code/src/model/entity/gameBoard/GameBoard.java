@@ -18,7 +18,7 @@ import model.utils.rotate.TetroRotator;
 public class GameBoard implements IGameBoard {
     private final ITetrominosRandomFactory tetrominosRandomFactory;
     private GridAbs grid;
-    private final ICollider collider;
+    private ICollider collider;
     private Tetrominos tetrominos;
     private Tetrominos nextTetrominos;
     private Couple currentOffset;
@@ -164,7 +164,8 @@ public class GameBoard implements IGameBoard {
 
     @Override
     public void newGame() {
-        grid=new Grid(20,12);
+        grid = new Grid(grid.lines, grid.columns);
+        collider = new GridCollider(grid);
         score.reset();
         createNewTetro();
     }

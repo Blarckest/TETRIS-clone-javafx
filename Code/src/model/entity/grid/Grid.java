@@ -3,21 +3,23 @@ package model.entity.grid;
 import model.entity.block.BlockAbs;
 
 public class Grid extends GridAbs {
-    public Grid(int lignes, int colonnes){
-        this.lignes=lignes;
-        this.colonnes=colonnes;
-        matrix=new BlockAbs[lignes][colonnes];
-    }
-    public Grid(BlockAbs[][] matrix){
-        this.matrix=matrix;
-        lignes= matrix.length;
-        colonnes=matrix[0].length;
+    public Grid(int lines, int columns) {
+        this.lines = lines;
+        this.columns = columns;
+        matrix = new BlockAbs[lines][columns];
     }
 
-    public Object at(int ligne, int colonne){
-        return matrix[ligne][colonne];
+    public Grid(BlockAbs[][] matrix) {
+        this.matrix = matrix;
+        lines = matrix.length;
+        columns = matrix[0].length;
     }
-    public void setAt(int ligne, int colonne, BlockAbs value){
-        matrix[ligne][colonne]=value;
+
+    public Object at(int line, int column) {
+        return matrix[line][column];
+    }
+
+    public void setAt(int line, int column, BlockAbs value) {
+        matrix[line][column] = value;
     }
 }

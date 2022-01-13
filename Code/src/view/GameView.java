@@ -108,8 +108,8 @@ public class GameView implements Initializable {
     }
 
     public void initGameView(GridAbs grid, Tetrominos nextTetro) {
-        for (int i = 0; i < grid.lignes; i++) {
-            for (int j = 0; j < grid.colonnes; j++) {
+        for (int i = 0; i < grid.lines; i++) {
+            for (int j = 0; j < grid.columns; j++) {
                 Rectangle rectangle = new Rectangle(blockSize, blockSize);
                 rectangle.setFill(Color.TRANSPARENT);
                 gamePanel.add(rectangle, j, i);
