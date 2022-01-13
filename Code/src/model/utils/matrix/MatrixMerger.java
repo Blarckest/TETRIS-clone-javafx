@@ -19,9 +19,7 @@ public class MatrixMerger {
     public void moveLineDown(GridAbs grid, int ligne) {
         for (int i= grid.lignes; i >0; i--) {
             if(i<=ligne){
-                for(int j=0; j< grid.colonnes;j++){
-                    grid.matrix[i][j]=grid.matrix[i-1][j];
-                }
+                if (grid.colonnes >= 0) System.arraycopy(grid.matrix[i - 1], 0, grid.matrix[i], 0, grid.colonnes);
             }
         }
     }

@@ -28,12 +28,14 @@
             </VBox>
             <ToggleButton text="Pause" styleClass="ipad-dark-grey" onAction="#pauseGame" prefWidth="140"
                           fx:id="pauseButton"/>
-            <VBox fx:id="helpBox" alignment="CENTER">
-                <Text styleClass="helpInfo" wrappingWidth="150">Use arrow keys (←, ↑, →, ↓) or (Q,Z,S,D) keys for movement and rotating.</Text>
+            <VBox alignment="CENTER">
+                <Text styleClass="helpInfo" wrappingWidth="150">Use arrow keys (←, ↑, →, ↓) or (Q,Z,S,D) keys for
+                    movement and rotating.
+                </Text>
                 <Text styleClass="helpInfo" wrappingWidth="150">G - start new game.</Text>
                 <Text styleClass="helpInfo" wrappingWidth="150">P - pause/resume.</Text>
             </VBox>
-            <Button fx:id="backButton" onAction="#goToMenu" text="Retour" />
+            <Button onAction="#goToMenu" text="Retour"/>
         </VBox>
 </HBox>
 <stylesheets>

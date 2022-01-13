@@ -158,12 +158,11 @@ public class GameView implements Initializable {
     }
 
     public void refreshGameBackground(GridAbs grid) {
-        var children=gamePanel.getChildren();
-        for(int i=0; i<children.size();i++)
-        {
-            var currentChild=(Rectangle)children.get(i);
-            var currentBlock=(BlockAbs)grid.at(getRowIndex(currentChild),getColumnIndex(currentChild));
-            if (currentBlock!=null)
+        var children = gamePanel.getChildren();
+        for (var child : children) {
+            var currentChild = (Rectangle) child;
+            var currentBlock = (BlockAbs) grid.at(getRowIndex(currentChild), getColumnIndex(currentChild));
+            if (currentBlock != null)
                 currentChild.setFill(currentBlock.getColor());
             else
                 currentChild.setFill(Color.TRANSPARENT);

@@ -11,12 +11,16 @@ import model.utils.looper.LooperAbs;
 import view.GameOver;
 import view.GameView;
 
+import java.util.Objects;
+
 public class Navigator {
     private final Stage m_stage;
-    public Navigator(Stage stage){
-        m_stage=stage;
+
+    public Navigator(Stage stage) {
+        m_stage = stage;
     }
-    public void goToGame(){
+
+    public void goToGame() {
         try {
             var location = getClass().getResource("/FXML/GameView.fxml");
             var fxmlLoader = new FXMLLoader(location, null);
@@ -36,7 +40,7 @@ public class Navigator {
     }
     public void goToScore(){
         try {
-            Parent view = FXMLLoader.load(getClass().getResource("/FXML/ScoreView.fxml"));
+            Parent view = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/FXML/ScoreView.fxml")));
             m_stage.setScene(new Scene(view));
             m_stage.show();
         }
@@ -61,7 +65,7 @@ public class Navigator {
     }
     public void goToMenu(){
         try {
-            Parent view = FXMLLoader.load(getClass().getResource("/FXML/MainWindow.fxml"));
+            Parent view = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/FXML/MainWindow.fxml")));
             m_stage.setScene(new Scene(view));
             m_stage.show();
         }

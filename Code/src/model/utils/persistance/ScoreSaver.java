@@ -2,16 +2,17 @@ package model.utils.persistance;
 
 import model.utils.Score;
 
-import java.io.*;
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 public class ScoreSaver implements ISaver{
     public boolean save(ArrayList<Score> object, String fileLocation) {
-        try(var os=new ObjectOutputStream(new FileOutputStream(fileLocation))){
+        try(var os=new ObjectOutputStream(new FileOutputStream(fileLocation))) {
             os.writeObject(object.size());
-            for (int i=0;i< object.size();i++){
-                os.writeObject(object.get(i).getScore());
-                os.writeObject(object.get(i).getDate());
+            for (var score : object) {
+                os.writeObject(score.getScore());
+                os.writeObject(score.getDate());
             }
             return true;
         }
