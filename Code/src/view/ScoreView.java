@@ -15,6 +15,9 @@ import model.utils.scoreHistory.OrderBy;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * Code de la vue d'affichage des scores du joueur
+ */
 public class ScoreView implements Initializable {
     @FXML
     public ListView scoresView;

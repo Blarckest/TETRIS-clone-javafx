@@ -41,7 +41,7 @@ public class GameController implements IGameController, IObserver {
             board.mergeTetroToBackground();
             int clearedRow = board.clearRows();
             if (clearedRow>0) {
-                board.getScore().add(clearedRow*50*clearedRow);
+                board.getScore().add(clearedRow*100*clearedRow);
             }
             if (board.createNewTetro()) {
                 Platform.runLater(() ->Launcher.scoreHistoryManager.add(board.getScore()));
@@ -51,6 +51,7 @@ public class GameController implements IGameController, IObserver {
             }
             refresh();
         }
+        board.getScore().add(1);
         refresh();
     }
 

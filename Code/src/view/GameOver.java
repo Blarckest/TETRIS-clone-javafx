@@ -7,6 +7,9 @@ import javafx.scene.control.Button;
 import javafx.scene.text.Text;
 import launch.Launcher;
 
+/**
+ * Code de la vue de fin de partie, game over
+ */
 public class GameOver {
     @FXML
     private Text scoreValue;

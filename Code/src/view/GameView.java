@@ -28,6 +28,9 @@ import java.util.ResourceBundle;
 import static javafx.scene.layout.GridPane.getColumnIndex;
 import static javafx.scene.layout.GridPane.getRowIndex;
 
+/**
+ * Code de la vue lorsque le joueur est en train de jouer
+ */
 public class GameView implements Initializable {
 
     private static final double blockSize = 20;
