@@ -1,7 +1,7 @@
 package model.utils.lineCleaner;
 
 import model.entity.grid.GridAbs;
-import model.utils.MatrixMerger;
+import model.utils.matrixOperator;
 
 /**
  * implementation d'un nettoyeur de ligne agissant sur un grid
@@ -22,7 +22,7 @@ public record LineCleaner(GridAbs grid) implements ILineCleaner {
             }
             if (rowToClear) {
                 clearedRows++;
-                new MatrixMerger().moveLineDown(grid, ligne);
+                new matrixOperator().moveLineDown(grid, ligne);
                 matrix = grid.matrix;
             }
         }

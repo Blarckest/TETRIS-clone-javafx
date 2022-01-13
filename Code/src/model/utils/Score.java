@@ -14,38 +14,82 @@ import java.time.LocalDateTime;
 public class Score {
     //LES PROPERTY SONT PAS SERIALIZABLE DONC ON SERIALIZE A LA MAIN
 
+    /**
+     * propriete contenant le score
+     */
     private final transient IntegerProperty scoreProperty;
 
+    /**
+     * retourne le score actuel
+     *
+     * @return score actuel
+     */
     public int getScore() {
         return scoreProperty.getValue();
     }
 
+    /**
+     * retourne la propriete contenant le score
+     *
+     * @return propriete contenant le score
+     */
     public IntegerProperty scoreProperty() {
         return scoreProperty;
     }
 
+    /**
+     * propriete contenant la date a laquelle a ete effectuer le score
+     */
     private final transient SimpleObjectProperty<LocalDateTime> dateProperty;
 
+    /**
+     * retourne la date associe au score
+     *
+     * @return date associe au score
+     */
     public LocalDateTime getDate() {
         return dateProperty.getValue();
     }
+
+    /**
+     * retourne la propriete contenant le date associe au score
+     *
+     * @return propriete contenant le date associe au score
+     */
     public ObjectProperty<LocalDateTime> dateProperty() {
         return dateProperty;
     }
 
-    public Score(){
+    /**
+     * constructeur par defaut score=0 date=date actuelle
+     */
+    public Score() {
         this(0, LocalDateTime.now());
     }
 
-    public Score(int value, LocalDateTime timeOfScore){
+    /**
+     * constructeur permettant de specifier un score et une date
+     *
+     * @param value       score
+     * @param timeOfScore date du score
+     */
+    public Score(int value, LocalDateTime timeOfScore) {
         scoreProperty = new SimpleIntegerProperty(value);
         dateProperty = new SimpleObjectProperty<>(timeOfScore);
     }
 
-    public void add(int i){
+    /**
+     * ajoute i au score
+     *
+     * @param i ajoute i au score actuel
+     */
+    public void add(int i) {
         scoreProperty.setValue(scoreProperty.getValue() + i);
     }
 
+    /**
+     * reset le score a 0
+     */
     public void reset() {
         scoreProperty.setValue(0);
     }

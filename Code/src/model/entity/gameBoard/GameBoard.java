@@ -5,13 +5,13 @@ import model.entity.grid.Grid;
 import model.entity.grid.GridAbs;
 import model.entity.tetrominos.Tetrominos;
 import model.utils.Couple;
-import model.utils.MatrixMerger;
 import model.utils.Score;
 import model.utils.collider.GridCollider;
 import model.utils.collider.ICollider;
 import model.utils.factory.tetrominos.ITetrominosRandomFactory;
 import model.utils.factory.tetrominos.TetrominosRandomFactory;
 import model.utils.lineCleaner.LineCleaner;
+import model.utils.matrixOperator;
 import model.utils.rotate.ITetroRotator;
 import model.utils.rotate.TetroRotator;
 
@@ -148,12 +148,12 @@ public class GameBoard implements IGameBoard {
 
     @Override
     public void mergeTetroToBackground() {
-        new MatrixMerger().merge(grid, tetrominos.getCurrentShape(), currentOffset.first, currentOffset.second);
+        new matrixOperator().merge(grid, tetrominos.getCurrentShape(), currentOffset.first, currentOffset.second);
     }
 
     @Override
     public void mergeTetroToMatrix() {
-        new MatrixMerger().merge(grid, tetrominos.getCurrentShape(), currentOffset.first, currentOffset.second);
+        new matrixOperator().merge(grid, tetrominos.getCurrentShape(), currentOffset.first, currentOffset.second);
     }
 
     @Override

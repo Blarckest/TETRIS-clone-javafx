@@ -4,15 +4,16 @@ import model.entity.block.BlockAbs;
 import model.entity.grid.GridAbs;
 
 /**
- * Classe permettant d'actualiser la matrice contenant les blocks quand cela est nécessaire
+ * classe capable d'effectuer des actions sur une grid et une matrice
  */
-public class MatrixMerger {
+public class matrixOperator {
     /**
-     * Méthode permettant de mettre à jour la grille du jeu quadn des blocks ont changé de place ou ont été créés
-     * @param grid1 grille du jeu contenant les blocks
-     * @param grid2 matrice contenant la forme du tetrominos
-     * @param xOffset coordonnée X du tetrominos
-     * @param yOffset coordonnée Y du tetrominos
+     * permet de merger une matrice dans la grid les objet de la grid ne sont pas modifier seul des ajout sont possible aucune suppression n'est effectuer
+     *
+     * @param grid1   grid sur laquel on merge
+     * @param grid2   matrice a merger
+     * @param xOffset ligne a laquel on merge
+     * @param yOffset colonne a laquel on merge
      */
     public void merge(GridAbs grid1, BlockAbs[][] grid2, int xOffset, int yOffset) {
         for (int ligne = 0; ligne < grid2.length; ligne++) {
@@ -26,10 +27,11 @@ public class MatrixMerger {
         }
     }
 
+    //todo corriger ce commentaire param ligne
     /**
-     * Méthode permettant de supprimer une ligne quand elle a été complétée et de faire descendre les blocks au dessus
-     * @param grid Grille du jeu contenant les différents blocks
-     * @param ligne numéro de la ligne à supprimer
+     * Méthode permettant de supprimer une ligne quand elle a été complétée et de faire descendre les blocks au dessus     *
+     * @param grid  grid sur laquelle effectuer l'action
+     * @param ligne ligne a descendre ou supprimer
      */
     public void moveLineDown(GridAbs grid, int ligne) {
         for (int i = grid.lines; i > 0; i--) {
