@@ -5,7 +5,13 @@ import model.entity.block.Block;
 import model.entity.block.BlockAbs;
 import model.utils.CircularList;
 
+/**
+ * tetro de type J
+ */
 public class TetroJ extends Tetrominos {
+    /**
+     * construit un tetro de type J
+     */
     public TetroJ() {
         blocks = new BlockAbs[]{new Block(Color.RED), new Block(Color.RED), new Block(Color.RED), new Block(Color.RED)};
         CircularList<BlockAbs[][]> list = new CircularList<>();

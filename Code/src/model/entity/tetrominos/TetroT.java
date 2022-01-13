@@ -5,8 +5,14 @@ import model.entity.block.Block;
 import model.entity.block.BlockAbs;
 import model.utils.CircularList;
 
-public class TetroT extends Tetrominos{
-    public TetroT(){
+/**
+ * tetro de type T
+ */
+public class TetroT extends Tetrominos {
+    /**
+     * construit un tetro de type T
+     */
+    public TetroT() {
         blocks = new BlockAbs[]{new Block(Color.CYAN), new Block(Color.CYAN), new Block(Color.CYAN), new Block(Color.CYAN)};
         CircularList<BlockAbs[][]> list = new CircularList<>();
         list.add(new BlockAbs[][]{
@@ -19,7 +25,7 @@ public class TetroT extends Tetrominos{
                 {null, blocks[1],  blocks[2], null},
                 {null, blocks[3], null, null},
                 {null, null, null, null}});
-        list.add(new BlockAbs[][]{                
+        list.add(new BlockAbs[][]{
                 {null, blocks[0], null, null},
                 {blocks[1], blocks[2], blocks[3], null},
                 {null, null, null, null},

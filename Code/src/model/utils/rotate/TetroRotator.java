@@ -2,15 +2,18 @@ package model.utils.rotate;
 
 import model.entity.tetrominos.Tetrominos;
 
+/**
+ * implementation d'une classe capable de faire tourner un tetro
+ */
 public record TetroRotator(Tetrominos tetrominos) implements ITetroRotator {
 
     @Override
     public void rotateLeft() {
-        tetrominos.rotateLeft();
+        tetrominos.goToNextShape();
     }
 
     @Override
     public void rotateRight() {
-        tetrominos.rotateRight();
+        tetrominos.goToPrecdentShape();
     }
 }

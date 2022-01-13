@@ -1,8 +1,11 @@
 package model.utils.lineCleaner;
 
 import model.entity.grid.GridAbs;
-import model.utils.matrix.MatrixMerger;
+import model.utils.MatrixMerger;
 
+/**
+ * implementation d'un nettoyeur de ligne agissant sur un grid
+ */
 public record LineCleaner(GridAbs grid) implements ILineCleaner {
 
     @Override

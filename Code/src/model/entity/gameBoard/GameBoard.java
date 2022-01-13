@@ -5,13 +5,13 @@ import model.entity.grid.Grid;
 import model.entity.grid.GridAbs;
 import model.entity.tetrominos.Tetrominos;
 import model.utils.Couple;
+import model.utils.MatrixMerger;
 import model.utils.Score;
 import model.utils.collider.GridCollider;
 import model.utils.collider.ICollider;
 import model.utils.factory.tetrominos.ITetrominosRandomFactory;
 import model.utils.factory.tetrominos.TetrominosRandomFactory;
 import model.utils.lineCleaner.LineCleaner;
-import model.utils.matrix.MatrixMerger;
 import model.utils.rotate.ITetroRotator;
 import model.utils.rotate.TetroRotator;
 
@@ -49,13 +49,17 @@ public class GameBoard implements IGameBoard {
         }
     }
 
+
+    /**
+     * efface le tetro actuel pour pouvoir le deplacer une case plus bas
+     */
     private void cleanCurrentTetro() {
         //efface le tetro actuel pour ensuite pouvoir le redessiner au bon endroit
-        var shape=tetrominos.getCurrentShape();
-        for (int i=0;i< shape.length;i++){
-            for (int j=0; j<shape[0].length;j++){
-                if(shape[j][i]!=null)
-                    grid.setAt(currentOffset.second+i,currentOffset.first+j,null);
+        var shape = tetrominos.getCurrentShape();
+        for (int i = 0; i < shape.length; i++) {
+            for (int j = 0; j < shape[0].length; j++) {
+                if (shape[j][i] != null)
+                    grid.setAt(currentOffset.second + i, currentOffset.first + j, null);
             }
         }
     }

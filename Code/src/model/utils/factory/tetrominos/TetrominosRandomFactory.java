@@ -5,6 +5,9 @@ import model.entity.tetrominos.Tetrominos;
 
 import java.util.Random;
 
+/**
+ * implementation d'une factory de tetro aleatoire
+ */
 public class TetrominosRandomFactory implements ITetrominosRandomFactory {
     @Override
     public Tetrominos create() {

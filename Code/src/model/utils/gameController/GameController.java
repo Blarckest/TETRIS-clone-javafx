@@ -10,12 +10,20 @@ import model.utils.event.EventSrc;
 import model.utils.looper.IObserver;
 import view.GameView;
 
+/**
+ * implementation d'un game controller
+ */
 public class GameController implements IGameController, IObserver {
     private final IGameBoard board = new GameBoard(20, 12);
     private final BooleanProperty isGameOver = new SimpleBooleanProperty(false);
 
     private final GameView gameView;
 
+    /**
+     * construit un GameController interagissant avec la vue passer en parametre
+     *
+     * @param c controlleur de la vue
+     */
     public GameController(GameView c) {
         gameView = c;
         board.createNewTetro();
@@ -38,8 +46,7 @@ public class GameController implements IGameController, IObserver {
             if (board.createNewTetro()) {
                 Platform.runLater(() ->Launcher.scoreHistoryManager.add(board.getScore()));
                 isGameOver.setValue(true);
-            }
-            else{
+            } else{
                 Platform.runLater(() -> gameView.setNextTetro(board.getNextTetro()));
             }
             refresh();

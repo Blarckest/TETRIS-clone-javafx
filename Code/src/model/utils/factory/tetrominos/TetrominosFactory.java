@@ -2,6 +2,9 @@ package model.utils.factory.tetrominos;
 
 import model.entity.tetrominos.*;
 
+/**
+ * implementation d'une factory de tetro
+ */
 public class TetrominosFactory implements ITetrominosFactory {
 
     @Override

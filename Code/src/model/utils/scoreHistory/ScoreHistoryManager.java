@@ -14,6 +14,9 @@ import model.utils.persistance.ScoreSaver;
 import java.util.ArrayList;
 
 
+/**
+ * implementation d'une classe permettant de gerer un historique de score
+ */
 public class ScoreHistoryManager implements IScoreHistoryManager {
 
     private final ObservableList<Score> scores;

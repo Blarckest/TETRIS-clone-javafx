@@ -2,9 +2,13 @@ package model.utils.persistance;
 
 import model.utils.Score;
 
-import java.io.*;
+import java.io.FileInputStream;
+import java.io.ObjectInputStream;
 import java.time.LocalDateTime;
 
+/**
+ * implementation d'une classe capable de charger l'etat de l'historique de score
+ */
 public class ScoreLoader implements ILoader {
     @Override
     public Score[] load(String fileLocation) {
