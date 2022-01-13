@@ -7,7 +7,7 @@ import model.utils.Score;
 import java.util.List;
 
 public interface IScoreHistoryManager {
-    Score[] reload();
+    void reload();
     boolean save();
     List<Score> getScores();
     ListProperty<Score> getScoresProperty();

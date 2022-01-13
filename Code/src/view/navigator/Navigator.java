@@ -23,8 +23,9 @@ public class Navigator {
             Parent view = fxmlLoader.load();
             m_stage.setScene(new Scene(view));
             GameController gc=new GameController(fxmlLoader.getController());
-            LooperAbs looper=new Looper(((GameView)fxmlLoader.getController()).getPausedProperty(),((GameView)fxmlLoader.getController()).getGameOverProperty());
+            LooperAbs looper=new Looper(((GameView)fxmlLoader.getController()).getPausedProperty(),((GameView)fxmlLoader.getController()).getStopThreadProperty());
             Thread thread=new Thread(looper);
+            thread.setDaemon(true); //permet de kill le thread dans le cas ou l'appli se ferme anormalement (croix de la fenetre par exemple)
             thread.start();
             looper.subscribe(gc);
             m_stage.show();

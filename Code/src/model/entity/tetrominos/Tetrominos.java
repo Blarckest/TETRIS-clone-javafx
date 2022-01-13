@@ -40,7 +40,7 @@ public abstract class Tetrominos extends Entity{
             BlockAbs[] blockLine = matrix[ligne];
             for (int colonne = 0; colonne < blockLine.length; colonne++) {
                 BlockAbs block = blockLine[colonne];
-                block.moveTo(new Couple(couple.first+block.getSize().first*ligne, couple.second+block.getSize().second*colonne));
+                //block.moveTo(new Couple(couple.first+block.getSize().first*ligne, couple.second+block.getSize().second*colonne));
             }
         }
     }
@@ -54,8 +54,8 @@ public abstract class Tetrominos extends Entity{
             BlockAbs[] blockLine = matrix[i];
             for (int j = 0; j < blockLine.length; j++) {
                 BlockAbs block = blockLine[j];
-                if (block!=null)
-                    block.moveTo(new Couple(getX()+block.getSize().first*i,getY()+block.getSize().second*j));
+                //if (block!=null)
+                    //block.moveTo(new Couple(getX()+block.getSize().first*i,getY()+block.getSize().second*j));
             }
         }
         this.matrix=matrix;

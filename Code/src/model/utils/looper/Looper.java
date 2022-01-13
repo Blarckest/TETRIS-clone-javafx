@@ -4,13 +4,13 @@ import javafx.beans.property.BooleanProperty;
 
 public class Looper extends LooperAbs {
 
-    public Looper(BooleanProperty gamePausedProperty, BooleanProperty gameOverProperty) {
-        super(gamePausedProperty, gameOverProperty);
+    public Looper(BooleanProperty gamePausedProperty, BooleanProperty stopThreadProperty) {
+        super(gamePausedProperty, stopThreadProperty);
     }
 
     @Override
     public void run() {
-        while(!gameOver.getValue()){
+        while(!stopThread.getValue()){
             try {
                 Thread.sleep(200);
                 if (gamePaused.getValue()==false)

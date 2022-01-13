@@ -7,7 +7,7 @@ import model.utils.Couple;
 public class Block extends BlockAbs {
 
     public Block(Color color) {
-        super("/img/spritesBlock.png",color, new Couple(1,1));
+        super(color);
     }
 
 

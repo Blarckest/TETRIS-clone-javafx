@@ -1,5 +1,6 @@
 package view;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -25,7 +26,7 @@ public class GameOver {
     }
 
     public void quitGame(ActionEvent actionEvent) {
-        System.exit(0);
+        Platform.exit();
     }
     public void setScoreValue(Text scoreValue){
         this.scoreValue.textProperty().setValue(scoreValue.textProperty().getValue());

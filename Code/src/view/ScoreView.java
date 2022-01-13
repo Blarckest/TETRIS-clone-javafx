@@ -8,6 +8,8 @@ import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 import javafx.scene.text.Text;
 import launch.Launcher;
 import model.utils.Score;
@@ -51,8 +53,12 @@ public class ScoreView implements Initializable {
                         var dateScore=item.getDate();
                         date = new Text();
                         date.setText(dateScore.getDayOfMonth()+"/"+String.format("%02d",dateScore.getMonthValue())+"/"+String.valueOf(dateScore.getYear()).substring(2,4)+"  "+dateScore.getHour()+":"+dateScore.getMinute());
+                        date.setFill(Color.WHITESMOKE);
+
                         score=new Text();
                         score.setText(String.valueOf(item.getScore()));
+                        score.setFill(Color.WHITESMOKE);
+
                         pane =new BorderPane();
                         pane.leftProperty().setValue(date);
                         pane.rightProperty().setValue(score);

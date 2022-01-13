@@ -38,13 +38,12 @@ public class ScoreHistoryManager implements IScoreHistoryManager{
     }
 
     @Override
-    public Score[] reload() {
+    public void reload() {
         var tmp=FXCollections.observableArrayList(new ScoreLoader().load(filePath));
         scores.clear();
         for(var s : tmp){
             scores.add(s); //on fait comme ca pour que la propriete reste valide
         }
-        return (Score[]) scores.toArray();
     }
 
     @Override

@@ -1,8 +1,8 @@
 .root {
-    -fx-background-image: url("/img/fond_noir.jpg");
+    -fx-background-color: black;
 }
 
-.nextBrick {
+.nextTetro {
     -fx-border-width: 2px;
     -fx-border-color: whitesmoke;
     -fx-border-radius: 17px;
@@ -14,7 +14,7 @@
     -fx-border-radius: 12px;
 }
 
-.nextBrickLabel {
+.nextTetroLabel {
     -fx-font-family: "Let's go Digital";
     -fx-padding: 20px 0 0 0;
     -fx-font-size: 16px;
@@ -47,9 +47,14 @@
 
 .helpInfo {
     -fx-fill: white;
-    -fx-alignment: center-left;
-    -fx-text-alignment: left;
+    -fx-text-alignment: center;
     -fx-font-size: 10px;
+}
+
+.normalWriting {
+    -fx-fill: white;
+    -fx-text-alignment: left;
+    -fx-font-size: 20px;
 }
 
 .bonusStyle {
@@ -57,10 +62,11 @@
     -fx-font-weight: bold;
 }
 
-.gameOverStyle {
+.gameOver{
     -fx-font-family: "Let's go Digital";
     -fx-font-size: 48;
-    -fx-background-color: red;
+    -fx-fill: yellow;
+    -fx-text-fill: yellow;
 }
 
 .scoreClass{
@@ -68,4 +74,11 @@
     -fx-font-size: 38;
     -fx-fill: yellow;
     -fx-text-fill: yellow;
+}
+
+.list-view .list-cell:even {
+-fx-background-color: dimgrey;
+}
+.list-view .list-cell:odd {
+-fx-background-color: grey;
 }

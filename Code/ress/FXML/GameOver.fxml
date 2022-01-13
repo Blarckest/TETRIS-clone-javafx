@@ -12,7 +12,7 @@
       xmlns:fx="http://javafx.com/fxml"
       fx:controller="view.GameOver"
       prefHeight="800" prefWidth="500">
-    <Text styleClass="scoreClass">GAME OVER</Text>
+    <Text styleClass="gameOver">GAME OVER</Text>
     <HBox>
         <Text styleClass="scoreClass">Score: </Text>
         <Text fx:id="scoreValue" styleClass="scoreClass"></Text>

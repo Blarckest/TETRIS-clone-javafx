@@ -13,26 +13,39 @@
 <?import javafx.scene.control.ChoiceBox?>
 <?import java.lang.String?>
 <?import javafx.collections.FXCollections?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.control.Pagination?>
+<?import javafx.geometry.Insets?>
 <VBox xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml"
       fx:controller="view.ScoreView"
       prefHeight="800" prefWidth="500">
-    <ScrollPane fx:id="scoreScroller">
-        <ListView fx:id="scoresView"/>
-    </ScrollPane>
-    <HBox>
-        <Text>Trier par</Text>
-        <ChoiceBox fx:id="sortChoice" value="Meilleur">
-            <items>
-                <FXCollections fx:factory="observableArrayList">
-                    <String fx:value="Meilleur"/>
-                    <String fx:value="Plus recent"/>
-                    <String fx:value="Plus ancien"/>
-                </FXCollections>
-            </items>
-        </ChoiceBox>
+    <HBox alignment="CENTER">
+        <Text styleClass="gameOver" textAlignment="CENTER">SCORES</Text>
     </HBox>
-    <Button fx:id="backButton" onAction="#goToMenu" text="Retour"/>
+    <BorderPane styleClass="vbox">
+        <top>
+            <HBox>
+                <Text styleClass="normalWriting">Trier par: </Text>
+                <ChoiceBox fx:id="sortChoice">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="Meilleur"/>
+                            <String fx:value="Plus recent"/>
+                            <String fx:value="Plus ancien"/>
+                        </FXCollections>
+                    </items>
+                </ChoiceBox>
+            </HBox>
+        </top>
+        <center>
+            <ListView fx:id="scoresView" styleClass="list-view"/>
+        </center>
+    </BorderPane>
+    <HBox alignment="CENTER_RIGHT">
+        <Button fx:id="backButton" onAction="#goToMenu" text="Retour"/>
+    </HBox>
     <stylesheets>
         <URL value="@style.css"/>
     </stylesheets>

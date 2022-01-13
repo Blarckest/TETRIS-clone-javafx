@@ -12,14 +12,11 @@ import model.entity.Entity;
 import model.utils.Couple;
 
 public abstract class BlockAbs extends Entity {
-    private final Image image;
     private Color color;
-    private final Couple size;
-    BlockAbs(String path,Color color, Couple size)
+
+    BlockAbs(Color color)
     {
-        image=new Image(path);
         this.color=color;
-        this.size=size;
     }
 
     public Color getColor(){
@@ -27,24 +24,5 @@ public abstract class BlockAbs extends Entity {
     }
     public void setColor(Color newColor){
         color=newColor;
-    }
-
-    public Couple getSize() {return size;}
-
-    public Rectangle2D getBoundingRectangle() {
-        return new Rectangle2D(getX(),getY(),size.first, size.second);
-    }
-
-    //A faire dans un rendu avec une ImageView pour l'image
-    public void setFilter(){
-        ImageView image1 = new ImageView();
-        ColorAdjust filter=new ColorAdjust();
-        Blend blend = new Blend(
-                BlendMode.MULTIPLY,
-                filter,
-                new ColorInput(0,0, image1.getFitWidth(), image1.getFitHeight(), color)
-        );
-        image1.setEffect(blend);
-
     }
 }

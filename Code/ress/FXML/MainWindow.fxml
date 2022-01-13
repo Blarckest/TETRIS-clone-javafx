@@ -7,15 +7,28 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 <?import java.net.URL?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
 <VBox xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml"
       fx:controller="view.MainWindow"
       prefHeight="800" prefWidth="500">
-    <Text textAlignment="CENTER">
-        TETRIS!
-    </Text>
-    <Button fx:id="playButton" onAction="#launchGame" text="PLAY!" alignment="BASELINE_CENTER"/>
-    <Button fx:id="seeScoreButton" onAction="#goToScore" text="Scores" alignment="BASELINE_CENTER"/>
+    <VBox alignment="CENTER">
+    <HBox alignment="CENTER">
+        <Text textAlignment="CENTER" styleClass="gameOver">
+            TETRIS!
+        </Text>
+    </HBox>
+        <ImageView>
+            <image>
+                <Image url="/img/img.png"/>
+            </image>
+        </ImageView>
+    <VBox alignment="CENTER">
+        <Button fx:id="playButton" onAction="#launchGame" text="PLAY!" alignment="BASELINE_CENTER"/>
+        <Button fx:id="seeScoreButton" onAction="#goToScore" text="Scores" alignment="BASELINE_CENTER"/>
+    </VBox>
+    </VBox>
     <stylesheets>
         <URL value="@style.css"/>
     </stylesheets>

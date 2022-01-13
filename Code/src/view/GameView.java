@@ -34,6 +34,15 @@ import static javafx.scene.layout.GridPane.getRowIndex;
 public class GameView implements Initializable {
 
     private static final double blockSize = 20;
+
+    private List<IEventListener> eventListeners= new LinkedList<>();
+
+    private final BooleanProperty isPauseProperty = new SimpleBooleanProperty();
+
+    private final BooleanProperty isGameOverProperty = new SimpleBooleanProperty(false);
+
+    private final BooleanProperty stopThreadProperty = new SimpleBooleanProperty(false);
+
     @FXML
     private BorderPane gameBoard;
     @FXML
@@ -47,21 +56,16 @@ public class GameView implements Initializable {
     @FXML
     private VBox helpBox;
     @FXML
-    private GridPane brickPanel;
+    private GridPane tetroPanel;
     @FXML
     private Button backButton;
     private GridAbs grid;
 
     @FXML
     public void goToMenu(){
+        stopThreadProperty.setValue(true);
         Launcher.navigator.goToMenu();
     }
-
-    private List<IEventListener> eventListeners= new LinkedList<>();
-
-    private final BooleanProperty isPauseProperty = new SimpleBooleanProperty();
-
-    private final BooleanProperty isGameOverProperty = new SimpleBooleanProperty(false);
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -96,6 +100,9 @@ public class GameView implements Initializable {
             }
             if (keyEvent.getCode() == KeyCode.P) {
                 pauseButton.selectedProperty().setValue(!pauseButton.selectedProperty().getValue());
+            }
+            if (keyEvent.getCode() == KeyCode.G) {
+                newGame();
             }
 
         });
@@ -140,11 +147,12 @@ public class GameView implements Initializable {
 
     public void gameOver() {
         if (isGameOverProperty.getValue() == true) {
+            stopThreadProperty.setValue(true);
             Platform.runLater(()->Launcher.navigator.goToGameOver(scoreValue));
         }
     }
 
-    public void newGame(ActionEvent actionEvent) {
+    public void newGame() {
         for (var listener: eventListeners) {
             listener.createNewGame();
         }
@@ -174,14 +182,14 @@ public class GameView implements Initializable {
 
     public void addListener(IEventListener listener){eventListeners.add(listener);}
 
-    public void bindGamOver(BooleanProperty isGameOver) {
+    public void bindGameOver(BooleanProperty isGameOver) {
         this.isGameOverProperty.bind(isGameOver);
     }
 
     public BooleanProperty getPausedProperty(){
         return isPauseProperty;
     }
-    public BooleanProperty getGameOverProperty(){
-        return isGameOverProperty;
+    public BooleanProperty getStopThreadProperty(){
+        return stopThreadProperty;
     }
 }

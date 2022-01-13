@@ -22,7 +22,7 @@ public class GameController implements IGameController, IObserver {
         gameView.addListener(this);
         gameView.initGameView(board.getGrid(),board.getNextTetro());
         gameView.bindScore(board.getScore().scoreProperty());
-        gameView.bindGamOver(isGameOver);
+        gameView.bindGameOver(isGameOver);
         refresh();
     }
 

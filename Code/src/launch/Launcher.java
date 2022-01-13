@@ -26,6 +26,7 @@ public class Launcher extends Application {
 
     @Override
     public void stop() throws Exception {
+
         scoreHistoryManager.save();
         super.stop();
     }
