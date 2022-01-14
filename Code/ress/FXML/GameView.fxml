@@ -8,7 +8,7 @@
 <Pane fx:controller="view.GameView"
       xmlns:fx="http://javafx.com/fxml" prefHeight="800" prefWidth="500">
     <HBox>
-        <BorderPane styleClass="gameBoard" fx:id="gameBoard">
+        <BorderPane styleClass="gameBoard">
             <center>
                 <GridPane fx:id="gamePanel" hgap="1" vgap="1" layoutY="30" layoutX="40"/>
             </center>

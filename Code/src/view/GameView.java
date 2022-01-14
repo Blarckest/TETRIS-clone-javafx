@@ -8,7 +8,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.input.KeyCode;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
@@ -44,8 +43,6 @@ public class GameView implements Initializable {
     private final BooleanProperty stopThreadProperty = new SimpleBooleanProperty(false);
 
     @FXML
-    private BorderPane gameBoard;
-    @FXML
     private GridPane gamePanel;
     @FXML
     private Text scoreValue;
@@ -67,25 +64,25 @@ public class GameView implements Initializable {
         gamePanel.setOnKeyPressed(keyEvent -> {
             if (isPauseProperty.getValue() == Boolean.FALSE && isGameOverProperty.getValue() == Boolean.FALSE) {
                 if (keyEvent.getCode() == KeyCode.LEFT || keyEvent.getCode() == KeyCode.Q) {
-                    for (var listener: eventListeners) {
+                    for (var listener : eventListeners) {
                         listener.onLeftEvent(EventSrc.USER);
                     }
                     keyEvent.consume();
                 }
                 if (keyEvent.getCode() == KeyCode.RIGHT || keyEvent.getCode() == KeyCode.D) {
-                    for (var listener: eventListeners) {
+                    for (var listener : eventListeners) {
                         listener.onRightEvent(EventSrc.USER);
                     }
                     keyEvent.consume();
                 }
                 if (keyEvent.getCode() == KeyCode.UP || keyEvent.getCode() == KeyCode.Z) {
-                    for (var listener: eventListeners) {
+                    for (var listener : eventListeners) {
                         listener.onRotateLeftEvent(EventSrc.USER);
                     }
                     keyEvent.consume();
                 }
                 if (keyEvent.getCode() == KeyCode.DOWN || keyEvent.getCode() == KeyCode.S) {
-                    for (var listener: eventListeners) {
+                    for (var listener : eventListeners) {
                         listener.onDownEvent(EventSrc.USER);
                     }
                     keyEvent.consume();
