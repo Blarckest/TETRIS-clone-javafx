@@ -16,7 +16,7 @@ public record GridCollider(GridAbs grid) implements ICollider {
                 int line = yOffSet + j;
                 if ((tetro[i][j] != null && checkOutOfBound(line, column)) || ((tetro[i][j] != null && grid.at(line, column) != null && !isSelfColliding(tetro, tetro[i][j])))) {
                     return true;
-                } else if (tetro[i][j] != null && grid.at(line, column) != null && !isSelfColliding(tetro, (BlockAbs) grid.at(line, column))) {
+                } else if (tetro[i][j] != null && grid.at(line, column) != null && !isSelfColliding(tetro, grid.at(line, column))) {
                     return true;
                 }
             }

@@ -1,5 +1,6 @@
 package model.utils.looper;
 
+import javafx.application.Platform;
 import javafx.beans.property.BooleanProperty;
 
 /**
@@ -24,7 +25,7 @@ public class Looper extends LooperAbs {
                 Thread.sleep(200);
                 if (!gamePaused.getValue())
                     for (IObserver o : listObserver)
-                        o.doAction();
+                        Platform.runLater(o::doAction);
 
             } catch (InterruptedException e) {
                 e.printStackTrace();

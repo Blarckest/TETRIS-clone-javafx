@@ -6,7 +6,7 @@
 <?import javafx.scene.text.Text?>
 <?import java.net.URL?>
 <Pane fx:controller="view.GameView"
-      xmlns:fx="http://javafx.com/fxml" prefHeight="800" prefWidth="500">
+      xmlns:fx="http://javafx.com/fxml" prefHeight="800" prefWidth="600">
     <HBox>
         <BorderPane styleClass="gameBoard">
             <center>

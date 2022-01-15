@@ -32,7 +32,7 @@ import static javafx.scene.layout.GridPane.getRowIndex;
  */
 public class GameView implements Initializable {
 
-    private static final double blockSize = 20;
+    private static final double blockSize = 30;
 
     private final List<IEventListener> eventListeners = new LinkedList<>();
 
