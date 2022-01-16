@@ -58,7 +58,7 @@ public class GameBoard implements IGameBoard {
         var shape = tetrominos.getCurrentShape();
         for (int i = 0; i < shape.length; i++) {
             for (int j = 0; j < shape[0].length; j++) {
-                if (shape[j][i] != null)
+                if (shape[i][j] != null)
                     grid.setAt(currentOffset.second + i, currentOffset.first + j, null);
             }
         }

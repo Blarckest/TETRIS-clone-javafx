@@ -9,11 +9,11 @@ import model.entity.grid.GridAbs;
 public record GridCollider(GridAbs grid) implements ICollider {
 
     @Override
-    public boolean intersect(BlockAbs[][] tetro, int xOffset, int yOffSet) {
+    public boolean intersect(BlockAbs[][] tetro, int columnOffset, int lineOffset) {
         for (int i = 0; i < tetro.length; i++) {
             for (int j = 0; j < tetro[i].length; j++) {
-                int column = xOffset + i;
-                int line = yOffSet + j;
+                int column = columnOffset + j;
+                int line = lineOffset + i;
                 if ((tetro[i][j] != null && checkOutOfBound(line, column)) || ((tetro[i][j] != null && grid.at(line, column) != null && !isSelfColliding(tetro, tetro[i][j])))) {
                     return true;
                 } else if (tetro[i][j] != null && grid.at(line, column) != null && !isSelfColliding(tetro, grid.at(line, column))) {

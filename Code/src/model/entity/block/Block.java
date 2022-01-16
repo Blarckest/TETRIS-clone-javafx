@@ -7,6 +7,13 @@ import javafx.scene.paint.Color;
  */
 public class Block extends BlockAbs {
     /**
+     * constructeur par defaut d'un block (couleur transparent)
+     */
+    public Block() {
+        super(Color.TRANSPARENT);
+    }
+
+    /**
      * conctructeur du block
      *
      * @param color couleur du block
