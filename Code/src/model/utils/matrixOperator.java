@@ -10,18 +10,18 @@ public class matrixOperator {
     /**
      * permet de merger une matrice dans la grid les objet de la grid ne sont pas modifier seul des ajout sont possible aucune suppression n'est effectuer
      *
-     * @param grid1   grid sur laquel on merge
-     * @param grid2   matrice a merger
-     * @param xOffset ligne a laquel on merge
-     * @param yOffset colonne a laquel on merge
+     * @param grid1        grid sur laquel on merge
+     * @param grid2        matrice a merger
+     * @param columnOffset ligne a laquel on merge
+     * @param ligneOffset  colonne a laquel on merge
      */
-    public void merge(GridAbs grid1, BlockAbs[][] grid2, int xOffset, int yOffset) {
+    public void merge(GridAbs grid1, BlockAbs[][] grid2, int columnOffset, int ligneOffset) {
         for (int ligne = 0; ligne < grid2.length; ligne++) {
             for (int colonne = 0; colonne < grid2[0].length; colonne++) {
-                int line = xOffset + ligne;
-                int column = yOffset + colonne;
+                int line = ligneOffset + ligne;
+                int column = columnOffset + colonne;
                 if (grid2[ligne][colonne] != null) {
-                    grid1.setAt(column, line, grid2[ligne][colonne]);
+                    grid1.setAt(line, column, grid2[ligne][colonne]);
                 }
             }
         }
