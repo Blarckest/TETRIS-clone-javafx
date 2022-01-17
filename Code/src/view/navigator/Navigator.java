@@ -25,6 +25,15 @@ public class Navigator {
 
     }
 
+    public void setUpWindow(int minHeight, int minWidth, int height, int width, int maxHeight, int maxWidth){
+        m_stage.setMinHeight(minHeight);
+        m_stage.setMinWidth(minWidth);
+        m_stage.setHeight(height);
+        m_stage.setWidth(width);
+        m_stage.setMaxHeight(maxHeight);
+        m_stage.setMaxWidth(maxWidth);
+    }
+
     public void goToGame() {
         try {
             var location = getClass().getResource("/FXML/GameView.fxml");
@@ -37,12 +46,7 @@ public class Navigator {
             thread.setDaemon(true); //permet de kill le thread dans le cas ou l'appli se ferme anormalement (croix de la fenetre par exemple)
             thread.start();
             looper.subscribe(gc);
-            m_stage.setMinHeight(700);
-            m_stage.setMinWidth(600);
-            m_stage.setHeight(700);
-            m_stage.setWidth(600);
-            m_stage.setMaxHeight(700);
-            m_stage.setMaxWidth(600);
+            setUpWindow(700,600,700,600,700,600);
             m_stage.show();
 
         }
@@ -54,12 +58,7 @@ public class Navigator {
         try {
             Parent view = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/FXML/ScoreView.fxml")));
             m_stage.setScene(new Scene(view));
-            m_stage.setMinHeight(300);
-            m_stage.setMinWidth(300);
-            m_stage.setHeight(800);
-            m_stage.setWidth(600);
-            m_stage.setMaxHeight(1080);
-            m_stage.setMaxWidth(1920);
+            setUpWindow(300,300,800,600,1080,1920);
             m_stage.show();
 
         }
@@ -75,12 +74,7 @@ public class Navigator {
             Parent view = fxmlLoader.load();
             m_stage.setScene(new Scene(view));
             ((GameOver)fxmlLoader.getController()).setScoreValue(scoreValue);
-            m_stage.setMinHeight(500);
-            m_stage.setMinWidth(500);
-            m_stage.setHeight(800);
-            m_stage.setWidth(600);
-            m_stage.setMaxHeight(1080);
-            m_stage.setMaxWidth(1920);
+            setUpWindow(500,500,800,600,1080,1920);
             m_stage.show();
         }
         catch (Exception e){
@@ -92,13 +86,8 @@ public class Navigator {
         try {
             Parent view = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/FXML/MainWindow.fxml")));
             m_stage.setScene(new Scene(view));
+            setUpWindow(800,400,800,600,1080,1920);
             m_stage.show();
-            m_stage.setMinHeight(800);
-            m_stage.setMinWidth(400);
-            m_stage.setHeight(800);
-            m_stage.setWidth(600);
-            m_stage.setMaxHeight(1080);
-            m_stage.setMaxWidth(1920);
         }
         catch (Exception e){
             error(e);

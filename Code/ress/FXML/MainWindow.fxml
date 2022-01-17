@@ -24,7 +24,6 @@
            </Button>
          </bottom>
          <top>
-          <!-- <Button fx:id="playButton" alignment="BASELINE_CENTER" onAction="#launchGame" text="PLAY!" BorderPane.alignment="CENTER" /> -->
              <Button contentDisplay="TOP"  fx:id="playButton" onMouseEntered="#hoverColorPlay" onMouseExited="#mouseLeaveColorPlay" onMouseClicked="#launchGame" style="-fx-background-color: black;" text="Press To Play" textFill="YELLOW" BorderPane.alignment="BOTTOM_CENTER">
              </Button>
 
