@@ -10,8 +10,7 @@
 <BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="view.MainWindow"
-            prefHeight="800" prefWidth="500"
-            minHeight="500" minWidth="400">
+            prefHeight="800" prefWidth="500">
    <top>
      <Text styleClass="gameOver" textAlignment="CENTER" BorderPane.alignment="CENTER">
             TETRIS!
@@ -21,10 +20,14 @@
    <bottom>
       <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <bottom>
-           <Button fx:id="seeScoreButton" alignment="BASELINE_CENTER" onAction="#goToScore" text="Scores" BorderPane.alignment="CENTER" />
+           <Button fx:id="seeScoreButton" onMouseEntered="#hoverColorScores" onMouseExited="#mouseLeaveColorScores" style="-fx-background-color: black;" textFill="YELLOW" alignment="BASELINE_CENTER" onAction="#goToScore" text="Scores" BorderPane.alignment="CENTER">
+           </Button>
          </bottom>
          <top>
-           <Button fx:id="playButton" alignment="BASELINE_CENTER" onAction="#launchGame" text="PLAY!" BorderPane.alignment="CENTER" />
+          <!-- <Button fx:id="playButton" alignment="BASELINE_CENTER" onAction="#launchGame" text="PLAY!" BorderPane.alignment="CENTER" /> -->
+             <Button contentDisplay="TOP"  fx:id="playButton" onMouseEntered="#hoverColorPlay" onMouseExited="#mouseLeaveColorPlay" onMouseClicked="#launchGame" style="-fx-background-color: black;" text="Press To Play" textFill="YELLOW" BorderPane.alignment="BOTTOM_CENTER">
+             </Button>
+
          </top>
       </BorderPane>
    </bottom>

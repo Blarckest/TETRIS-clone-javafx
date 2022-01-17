@@ -35,7 +35,7 @@
                 <Text styleClass="helpInfo" wrappingWidth="150">G - start new game.</Text>
                 <Text styleClass="helpInfo" wrappingWidth="150">P - pause/resume.</Text>
             </VBox>
-            <Button onAction="#goToMenu" text="Retour"/>
+            <Button fx:id="menuButton" textFill="white" style="-fx-background-color: black;" onMouseEntered="#hoverColorMenu" onMouseExited="#mouseLeaveColorMenu" onAction="#goToMenu" text="Retour"/>
         </VBox>
 </HBox>
 <stylesheets>

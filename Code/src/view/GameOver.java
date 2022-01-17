@@ -3,14 +3,20 @@ package view;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import launch.Launcher;
+
+import java.net.URL;
+import java.util.ResourceBundle;
 
 /**
  * Code de la vue de fin de partie, game over
  */
-public class GameOver {
+public class GameOver implements Initializable {
     @FXML
     private Text scoreValue;
     @FXML
@@ -33,5 +39,42 @@ public class GameOver {
     }
     public void setScoreValue(Text scoreValue){
         this.scoreValue.textProperty().setValue(scoreValue.textProperty().getValue());
+    }
+
+    @FXML
+    public void hoverColorRestart(MouseEvent mouseEvent) throws Exception {
+        restartButton.setTextFill(Color.BLUEVIOLET);
+    }
+
+    @FXML
+    public void mouseLeaveColorRestart(MouseEvent mouseEvent) throws Exception {
+        restartButton.setTextFill(Color.WHITE);
+    }
+
+    @FXML
+    public void hoverColorScores(MouseEvent mouseEvent) throws Exception {
+        scoreButton.setTextFill(Color.YELLOW);
+    }
+
+    @FXML
+    public void mouseLeaveColorScores(MouseEvent mouseEvent) throws Exception {
+        scoreButton.setTextFill(Color.WHITE);
+    }
+
+    @FXML
+    public void hoverColorQuit(MouseEvent mouseEvent) throws Exception {
+        quitButton.setTextFill(Color.RED);
+    }
+
+    @FXML
+    public void mouseLeaveColorQuit(MouseEvent mouseEvent) throws Exception {
+        quitButton.setTextFill(Color.WHITE);
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        restartButton.setFont(Launcher.bigFont);
+        scoreButton.setFont(Launcher.smallFont);
+        quitButton.setFont(Launcher.smallFont);
     }
 }

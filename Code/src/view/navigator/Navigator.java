@@ -37,8 +37,12 @@ public class Navigator {
             thread.setDaemon(true); //permet de kill le thread dans le cas ou l'appli se ferme anormalement (croix de la fenetre par exemple)
             thread.start();
             looper.subscribe(gc);
-            m_stage.setMinHeight(500);
-            m_stage.setMinWidth(500);
+            m_stage.setMinHeight(700);
+            m_stage.setMinWidth(600);
+            m_stage.setHeight(700);
+            m_stage.setWidth(600);
+            m_stage.setMaxHeight(700);
+            m_stage.setMaxWidth(600);
             m_stage.show();
 
         }
@@ -52,6 +56,10 @@ public class Navigator {
             m_stage.setScene(new Scene(view));
             m_stage.setMinHeight(300);
             m_stage.setMinWidth(300);
+            m_stage.setHeight(800);
+            m_stage.setWidth(600);
+            m_stage.setMaxHeight(1080);
+            m_stage.setMaxWidth(1920);
             m_stage.show();
 
         }
@@ -69,6 +77,10 @@ public class Navigator {
             ((GameOver)fxmlLoader.getController()).setScoreValue(scoreValue);
             m_stage.setMinHeight(500);
             m_stage.setMinWidth(500);
+            m_stage.setHeight(800);
+            m_stage.setWidth(600);
+            m_stage.setMaxHeight(1080);
+            m_stage.setMaxWidth(1920);
             m_stage.show();
         }
         catch (Exception e){
@@ -83,6 +95,10 @@ public class Navigator {
             m_stage.show();
             m_stage.setMinHeight(800);
             m_stage.setMinWidth(400);
+            m_stage.setHeight(800);
+            m_stage.setWidth(600);
+            m_stage.setMaxHeight(1080);
+            m_stage.setMaxWidth(1920);
         }
         catch (Exception e){
             error(e);

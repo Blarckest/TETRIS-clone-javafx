@@ -6,8 +6,10 @@ import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.input.KeyCode;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
@@ -50,6 +52,8 @@ public class GameView implements Initializable {
     private GridPane nextTetroPreview;
     @FXML
     private ToggleButton pauseButton;
+    @FXML
+    private Button menuButton;
 
     @FXML
     public void goToMenu(){
@@ -105,6 +109,7 @@ public class GameView implements Initializable {
             }
         });
         isGameOverProperty.addListener((observable, oldValue, newValue)->{if (newValue){gameOver();}});
+        menuButton.setFont(Launcher.bigFont);
     }
 
     public void initGameView(GridAbs grid, Tetrominos nextTetro) {
@@ -180,5 +185,15 @@ public class GameView implements Initializable {
     }
     public BooleanProperty getStopThreadProperty(){
         return stopThreadProperty;
+    }
+
+    @FXML
+    public void hoverColorMenu(MouseEvent mouseEvent) throws Exception {
+        menuButton.setTextFill(Color.RED);
+    }
+
+    @FXML
+    public void mouseLeaveColorMenu(MouseEvent mouseEvent) throws Exception {
+        menuButton.setTextFill(Color.WHITE);
     }
 }

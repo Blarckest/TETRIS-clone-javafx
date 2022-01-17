@@ -2,9 +2,11 @@ package view;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
@@ -23,6 +25,8 @@ public class ScoreView implements Initializable {
     public ListView scoresView;
     @FXML
     public ChoiceBox sortChoice;
+    @FXML
+    private Button menuButton;
 
     @FXML
     public void goToMenu(){
@@ -64,5 +68,17 @@ public class ScoreView implements Initializable {
             }
         });
         sortChoice.getSelectionModel().select(0);
+        menuButton.setFont(Launcher.smallFont);
     }
+
+    @FXML
+    public void hoverColorMenu(MouseEvent mouseEvent) throws Exception {
+        menuButton.setTextFill(Color.WHITE);
+    }
+
+    @FXML
+    public void mouseLeaveColorMenu(MouseEvent mouseEvent) throws Exception {
+        menuButton.setTextFill(Color.YELLOW);
+    }
+
 }
