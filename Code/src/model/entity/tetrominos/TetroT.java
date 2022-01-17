@@ -16,25 +16,19 @@ public class TetroT extends Tetrominos {
         blocks = new BlockAbs[]{new Block(Color.CYAN), new Block(Color.CYAN), new Block(Color.CYAN), new Block(Color.CYAN)};
         CircularList<BlockAbs[][]> list = new CircularList<>();
         list.add(new BlockAbs[][]{
-                {null, null, null, null},
-                {blocks[0], blocks[1], blocks[2], null},
-                {null, blocks[3], null, null},
-                {null, null, null, null}});
+                {blocks[0], blocks[1], blocks[2]},
+                {null, blocks[3], null}});
         list.add(new BlockAbs[][]{
-                {null, blocks[0], null, null},
-                {null, blocks[1],  blocks[2], null},
-                {null, blocks[3], null, null},
-                {null, null, null, null}});
+                {null, blocks[0], null},
+                {null, blocks[1], blocks[2]},
+                {null, blocks[3], null}});
         list.add(new BlockAbs[][]{
-                {null, blocks[0], null, null},
-                {blocks[1], blocks[2], blocks[3], null},
-                {null, null, null, null},
-                {null, null, null, null}});
+                {null, blocks[0], null},
+                {blocks[1], blocks[2], blocks[3]}});
         list.add(new BlockAbs[][]{
-                {null, blocks[0], null, null},
-                {blocks[1], blocks[2], null, null},
-                {null, blocks[3], null, null},
-                {null, null, null, null}});
+                {null, blocks[0]},
+                {blocks[1], blocks[2]},
+                {null, blocks[3]}});
         setShapeMatrix(list);
         setMatrix((BlockAbs[][]) list.get(0));
         type=TetroType.T;

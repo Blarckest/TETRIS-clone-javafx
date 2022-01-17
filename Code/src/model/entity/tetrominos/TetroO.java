@@ -16,10 +16,8 @@ public class TetroO extends Tetrominos {
         blocks = new BlockAbs[]{new Block(Color.GREEN), new Block(Color.GREEN), new Block(Color.GREEN), new Block(Color.GREEN)};
         CircularList<BlockAbs[][]> list = new CircularList<>();
         list.add(new BlockAbs[][]{
-                {null, null, null, null},
-                {null, blocks[0], blocks[1], null},
-                {null, blocks[2], blocks[3], null},
-                {null, null, null, null}});
+                {blocks[0], blocks[1]},
+                {blocks[2], blocks[3]}});
         setShapeMatrix(list);
         setMatrix((BlockAbs[][]) list.get(0));
         type=TetroType.O;
