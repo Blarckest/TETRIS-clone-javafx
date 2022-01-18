@@ -15,6 +15,8 @@ import model.utils.matrixOperator;
 import model.utils.rotate.ITetroRotator;
 import model.utils.rotate.TetroRotator;
 
+import java.util.Random;
+
 public class GameBoard implements IGameBoard {
     private final ITetrominosRandomFactory tetrominosRandomFactory;
     private GridAbs grid;
@@ -126,9 +128,8 @@ public class GameBoard implements IGameBoard {
     public boolean createNewTetro() {
         tetrominos=nextTetrominos;
         nextTetrominos = tetrominosRandomFactory.create();
-        rotator=new TetroRotator(tetrominos);
-        //currentOffset = new Couple((Math.abs(new Random().nextInt())%(width-4))+4, 0);
-        currentOffset = new Couple(5, 0);
+        rotator = new TetroRotator(tetrominos);
+        currentOffset = new Couple((Math.abs(new Random().nextInt()) % (grid.columns - 4)), 0);
         var collision=collider.intersect(tetrominos.getCurrentShape(), currentOffset.first, currentOffset.second);
         if (!collision) {
             mergeTetroToMatrix();
