@@ -132,7 +132,7 @@ public class GameBoard implements IGameBoard {
         for (int i = 0; i < new Random().nextInt(3); i++) {
             rotator.rotateLeft();
         }
-        currentOffset = new Couple((Math.abs(new Random().nextInt()) % (grid.columns - tetrominos.getCurrentShape().length - 1)), 0);
+        currentOffset = new Couple((Math.abs(new Random().nextInt()) % (grid.columns - tetrominos.getCurrentShape()[0].length - 1)), 0);
         var collision = collider.intersect(tetrominos.getCurrentShape(), currentOffset.first, currentOffset.second);
         if (!collision) {
             mergeTetroToMatrix();

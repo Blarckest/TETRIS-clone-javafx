@@ -17,11 +17,20 @@ public class TetroZ extends Tetrominos {
         CircularList<BlockAbs[][]> list = new CircularList<>();
         list.add(new BlockAbs[][]{
                 {blocks[0], blocks[1], null},
+                {null, blocks[2], blocks[3]},
+                {null, null, null}});
+        list.add(new BlockAbs[][]{
+                {null, null, blocks[0]},
+                {null, blocks[1], blocks[2]},
+                {null, blocks[3], null}});
+        list.add(new BlockAbs[][]{
+                {null, null, null},
+                {blocks[0], blocks[1], null},
                 {null, blocks[2], blocks[3]}});
         list.add(new BlockAbs[][]{
-                {null, blocks[0]},
-                {blocks[1], blocks[2]},
-                {blocks[3], null}});
+                {null, blocks[0], null},
+                {blocks[1], blocks[2], null},
+                {blocks[3], null, null}});
         setShapeMatrix(list);
         setMatrix((BlockAbs[][]) list.get(0));
         type=TetroType.Z;
