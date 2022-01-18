@@ -126,11 +126,14 @@ public class GameBoard implements IGameBoard {
 
     @Override
     public boolean createNewTetro() {
-        tetrominos=nextTetrominos;
+        tetrominos = nextTetrominos;
         nextTetrominos = tetrominosRandomFactory.create();
         rotator = new TetroRotator(tetrominos);
-        currentOffset = new Couple((Math.abs(new Random().nextInt()) % (grid.columns - 4)), 0);
-        var collision=collider.intersect(tetrominos.getCurrentShape(), currentOffset.first, currentOffset.second);
+        for (int i = 0; i < new Random().nextInt(3); i++) {
+            rotator.rotateLeft();
+        }
+        currentOffset = new Couple((Math.abs(new Random().nextInt()) % (grid.columns - tetrominos.getCurrentShape().length - 1)), 0);
+        var collision = collider.intersect(tetrominos.getCurrentShape(), currentOffset.first, currentOffset.second);
         if (!collision) {
             mergeTetroToMatrix();
         }
