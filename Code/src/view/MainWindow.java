@@ -1,12 +1,10 @@
 package view;
 
 import javafx.fxml.FXML;
-
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
 import launch.Launcher;
 
 import java.net.URL;
@@ -34,22 +32,22 @@ public class MainWindow implements Initializable {
 
 
     @FXML
-    public void hoverColorPlay(MouseEvent mouseEvent) throws Exception {
+    public void hoverColorPlay(MouseEvent mouseEvent) {
         playButton.setTextFill(Color.WHITE);
     }
 
     @FXML
-    public void mouseLeaveColorPlay(MouseEvent mouseEvent) throws Exception {
+    public void mouseLeaveColorPlay(MouseEvent mouseEvent) {
         playButton.setTextFill(Color.YELLOW);
     }
 
     @FXML
-    public void hoverColorScores(MouseEvent mouseEvent) throws Exception {
+    public void hoverColorScores(MouseEvent mouseEvent) {
         seeScoreButton.setTextFill(Color.WHITE);
     }
 
     @FXML
-    public void mouseLeaveColorScores(MouseEvent mouseEvent) throws Exception {
+    public void mouseLeaveColorScores(MouseEvent mouseEvent) {
         seeScoreButton.setTextFill(Color.YELLOW);
     }
 

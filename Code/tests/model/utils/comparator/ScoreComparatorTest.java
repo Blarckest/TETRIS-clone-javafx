@@ -9,7 +9,7 @@ import java.util.Comparator;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class ScoreComparatorTest {
-    private Comparator comparator = new ScoreComparator();
+    private final Comparator comparator = new ScoreComparator();
 
     @Test
     void compare() {

@@ -8,7 +8,7 @@ import java.util.Comparator;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class AscDateComparatorTest {
-    private Comparator comparator = new AscDateComparator();
+    private final Comparator comparator = new AscDateComparator();
 
     @Test
     void compare() {

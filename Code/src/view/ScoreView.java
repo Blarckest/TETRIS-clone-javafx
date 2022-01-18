@@ -72,12 +72,12 @@ public class ScoreView implements Initializable {
     }
 
     @FXML
-    public void hoverColorMenu(MouseEvent mouseEvent) throws Exception {
+    public void hoverColorMenu(MouseEvent mouseEvent) {
         menuButton.setTextFill(Color.WHITE);
     }
 
     @FXML
-    public void mouseLeaveColorMenu(MouseEvent mouseEvent) throws Exception {
+    public void mouseLeaveColorMenu(MouseEvent mouseEvent) {
         menuButton.setTextFill(Color.YELLOW);
     }
 

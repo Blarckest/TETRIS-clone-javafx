@@ -11,8 +11,9 @@ import view.navigator.Navigator;
 public class Launcher extends Application {
     public static IScoreHistoryManager scoreHistoryManager;
     public static Navigator navigator;
-    public static Font smallFont=Font.loadFont(Launcher.class.getResourceAsStream("/font/digital.ttf"),20);
-    public static Font bigFont=Font.loadFont(Launcher.class.getResourceAsStream("/font/digital.ttf"),40);
+    public static final Font smallFont = Font.loadFont(Launcher.class.getResourceAsStream("/font/digital.ttf"), 20);
+    public static final Font bigFont = Font.loadFont(Launcher.class.getResourceAsStream("/font/digital.ttf"), 40);
+
     @Override
     public void start(Stage primaryStage) {
         navigator = new Navigator(primaryStage);

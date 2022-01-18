@@ -7,8 +7,8 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 class ITetroRotatorTest {
-    private Tetrominos tetro = new TetroI();
-    private ITetroRotator rotator = new TetroRotator(tetro);
+    private final Tetrominos tetro = new TetroI();
+    private final ITetroRotator rotator = new TetroRotator(tetro);
 
     @Test
     void rotateLeft() {

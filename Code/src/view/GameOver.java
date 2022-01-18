@@ -42,32 +42,32 @@ public class GameOver implements Initializable {
     }
 
     @FXML
-    public void hoverColorRestart(MouseEvent mouseEvent) throws Exception {
+    public void hoverColorRestart(MouseEvent mouseEvent) {
         restartButton.setTextFill(Color.BLUEVIOLET);
     }
 
     @FXML
-    public void mouseLeaveColorRestart(MouseEvent mouseEvent) throws Exception {
+    public void mouseLeaveColorRestart(MouseEvent mouseEvent) {
         restartButton.setTextFill(Color.WHITE);
     }
 
     @FXML
-    public void hoverColorScores(MouseEvent mouseEvent) throws Exception {
+    public void hoverColorScores(MouseEvent mouseEvent) {
         scoreButton.setTextFill(Color.YELLOW);
     }
 
     @FXML
-    public void mouseLeaveColorScores(MouseEvent mouseEvent) throws Exception {
+    public void mouseLeaveColorScores(MouseEvent mouseEvent) {
         scoreButton.setTextFill(Color.WHITE);
     }
 
     @FXML
-    public void hoverColorQuit(MouseEvent mouseEvent) throws Exception {
+    public void hoverColorQuit(MouseEvent mouseEvent) {
         quitButton.setTextFill(Color.RED);
     }
 
     @FXML
-    public void mouseLeaveColorQuit(MouseEvent mouseEvent) throws Exception {
+    public void mouseLeaveColorQuit(MouseEvent mouseEvent) {
         quitButton.setTextFill(Color.WHITE);
     }
 

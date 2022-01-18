@@ -10,8 +10,8 @@ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 class LineCleanerTest {
 
-    GridAbs g = new Grid(new BlockAbs[][]{{null, null}, {new Block(), new Block()}, {null, null}, {new Block(), new Block()}, {new Block(), new Block()}});
-    ILineCleaner cleaner = new LineCleaner(g);
+    final GridAbs g = new Grid(new BlockAbs[][]{{null, null}, {new Block(), new Block()}, {null, null}, {new Block(), new Block()}, {new Block(), new Block()}});
+    final ILineCleaner cleaner = new LineCleaner(g);
 
     @Test
     void removeLines() {

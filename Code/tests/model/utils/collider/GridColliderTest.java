@@ -9,14 +9,14 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class GridColliderTest {
-    private ICollider collider = new GridCollider(new Grid(new BlockAbs[][]{
+    private final ICollider collider = new GridCollider(new Grid(new BlockAbs[][]{
             {new Block(), new Block(), new Block(), new Block()},
             {new Block(), new Block(), new Block(), new Block()},
             {null, null, null, null},
             {null, null, null, null}}));
-    private BlockAbs[][] ezBlock = new BlockAbs[][]{{new Block()}};
+    private final BlockAbs[][] ezBlock = new BlockAbs[][]{{new Block()}};
 
-    private BlockAbs[][] hardBlock = new BlockAbs[][]{{new Block(), new Block(), new Block()}, {new Block(), new Block(), new Block()}};
+    private final BlockAbs[][] hardBlock = new BlockAbs[][]{{new Block(), new Block(), new Block()}, {new Block(), new Block(), new Block()}};
 
     @Test
     void intersect() {
