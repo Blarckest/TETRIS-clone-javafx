@@ -5,7 +5,7 @@ import model.entity.tetrominos.Tetrominos;
 /**
  * classe definissant un deplaceur de tetro
  */
-public abstract class ITetroMover implements IMover {
+public abstract class AbsTetroMover implements IMover {
     /**
      * tetro sur lequel effectuer les actions
      */

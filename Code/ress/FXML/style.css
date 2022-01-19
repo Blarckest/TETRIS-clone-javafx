@@ -37,10 +37,6 @@
     -fx-effect: dropshadow(three-pass-box, rgba(255, 255, 255, 0.2), 1, 0.0, 0, 1);
 }
 
-/* .rectangleStyle {
-    -fx-fill: linear-gradient(from 41px 34px to 50px 50px, reflect, #ff7f50 30%, #faebd7 47%);
-} */
-
 .vbox {
     -fx-spacing: 12;
 }
@@ -56,11 +52,6 @@
     -fx-text-alignment: left;
     -fx-font-size: 20px;
 }
-
-/* .bonusStyle {
-    -fx-font-size: 40px;
-    -fx-font-weight: bold;
-} */
 
 .gameOver{
     -fx-font-family: "Let's go Digital";

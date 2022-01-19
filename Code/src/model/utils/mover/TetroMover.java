@@ -5,7 +5,7 @@ import model.entity.tetrominos.Tetrominos;
 /**
  * implementation d'une classe permettant le deplacement d'un tetro
  */
-public class TetroMover extends ITetroMover {
+public class TetroMover extends AbsTetroMover {
     /**
      * @param tetrominos tetrominos sur lequel effectuer les deplacements
      */
