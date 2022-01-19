@@ -2,6 +2,9 @@ package model.entity.grid;
 
 import model.entity.block.BlockAbs;
 
+/**
+ * implementation d'un objet contenant les informations sur la matrice du jeu
+ */
 public class Grid extends GridAbs {
     /**
      * construit une matrice de la taille souhaiter

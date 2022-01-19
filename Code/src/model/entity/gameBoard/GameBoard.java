@@ -5,13 +5,13 @@ import model.entity.grid.Grid;
 import model.entity.grid.GridAbs;
 import model.entity.tetrominos.Tetrominos;
 import model.utils.Couple;
+import model.utils.MatrixOperator;
 import model.utils.Score;
 import model.utils.collider.GridCollider;
 import model.utils.collider.ICollider;
 import model.utils.factory.tetrominos.ITetrominosRandomFactory;
 import model.utils.factory.tetrominos.TetrominosRandomFactory;
 import model.utils.lineCleaner.LineCleaner;
-import model.utils.matrixOperator;
 import model.utils.mover.IMover;
 import model.utils.mover.TetroMover;
 import model.utils.rotate.ITetroRotator;
@@ -19,6 +19,9 @@ import model.utils.rotate.TetroRotator;
 
 import java.util.Random;
 
+/**
+ * implementation d'un game board representant et modifiant le jeu
+ */
 public class GameBoard implements IGameBoard {
     private final ITetrominosRandomFactory tetrominosRandomFactory;
     private GridAbs grid;
@@ -158,13 +161,13 @@ public class GameBoard implements IGameBoard {
     @Override
     public void mergeTetroToBackground() {
         Couple currPos = new Couple(tetrominos.getPosition());
-        new matrixOperator().merge(grid, tetrominos.getCurrentShape(), currPos.first, currPos.second);
+        new MatrixOperator().merge(grid, tetrominos.getCurrentShape(), currPos.first, currPos.second);
     }
 
     @Override
     public void mergeTetroToMatrix() {
         Couple currPos = new Couple(tetrominos.getPosition());
-        new matrixOperator().merge(grid, tetrominos.getCurrentShape(), currPos.first, currPos.second);
+        new MatrixOperator().merge(grid, tetrominos.getCurrentShape(), currPos.first, currPos.second);
     }
 
     @Override

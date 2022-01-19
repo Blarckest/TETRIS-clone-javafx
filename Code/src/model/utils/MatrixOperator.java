@@ -6,7 +6,7 @@ import model.entity.grid.GridAbs;
 /**
  * classe capable d'effectuer des actions sur une grid et une matrice
  */
-public class matrixOperator {
+public class MatrixOperator {
     /**
      * permet de merger une matrice dans la grid les objet de la grid ne sont pas modifier seul des ajout sont possible aucune suppression n'est effectuer
      *
