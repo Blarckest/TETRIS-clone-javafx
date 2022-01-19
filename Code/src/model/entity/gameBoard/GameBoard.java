@@ -12,7 +12,7 @@ import model.utils.factory.tetrominos.ITetrominosRandomFactory;
 import model.utils.factory.tetrominos.TetrominosRandomFactory;
 import model.utils.lineCleaner.LineCleaner;
 import model.utils.matrixOperator;
-import model.utils.mover.ITetroMover;
+import model.utils.mover.IMover;
 import model.utils.mover.TetroMover;
 import model.utils.rotate.ITetroRotator;
 import model.utils.rotate.TetroRotator;
@@ -27,7 +27,7 @@ public class GameBoard implements IGameBoard {
     private Tetrominos nextTetrominos;
     private final Score score;
     private ITetroRotator rotator;
-    private ITetroMover mover;
+    private IMover mover;
 
     public GameBoard(int lines, int columns) {
         grid = new Grid(lines, columns);
