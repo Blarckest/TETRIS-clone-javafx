@@ -11,6 +11,7 @@ model.utils.factory.tetrominos
 model.utils.gameController
 model.utils.lineCleaner
 model.utils.looper
+model.utils.mover
 model.utils.persistance
 model.utils.rotate
 model.utils.scoreHistory

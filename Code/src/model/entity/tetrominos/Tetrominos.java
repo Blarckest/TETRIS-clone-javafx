@@ -3,12 +3,17 @@ package model.entity.tetrominos;
 import javafx.scene.paint.Color;
 import model.entity.block.BlockAbs;
 import model.utils.CircularList;
+import model.utils.Couple;
 
 
 /**
  * representation d'un tetro
  */
 public abstract class Tetrominos {
+    /**
+     * position actuel du tetro (ligne,colonne)
+     */
+    private Couple position;
     /**
      * forme actuel du tetro
      */
@@ -104,5 +109,23 @@ public abstract class Tetrominos {
      */
     public void goToPrecdentShape() {
         setMatrix(shapeMatrix.precedent());
+    }
+
+    /**
+     * permet de recuperer la position actuelle du tetro
+     *
+     * @param position couple(ligne,colonne)
+     */
+    public void setPosition(Couple position) {
+        this.position = position;
+    }
+
+    /**
+     * permet de modifier la position actuelle du tetro
+     *
+     * @return couple(ligne, colonne) representant la position actuelle du tetro
+     */
+    public Couple getPosition() {
+        return position;
     }
 }

@@ -12,6 +12,8 @@ import model.utils.factory.tetrominos.ITetrominosRandomFactory;
 import model.utils.factory.tetrominos.TetrominosRandomFactory;
 import model.utils.lineCleaner.LineCleaner;
 import model.utils.matrixOperator;
+import model.utils.mover.ITetroMover;
+import model.utils.mover.TetroMover;
 import model.utils.rotate.ITetroRotator;
 import model.utils.rotate.TetroRotator;
 
@@ -23,29 +25,28 @@ public class GameBoard implements IGameBoard {
     private ICollider collider;
     private Tetrominos tetrominos;
     private Tetrominos nextTetrominos;
-    private Couple currentOffset;
     private final Score score;
     private ITetroRotator rotator;
+    private ITetroMover mover;
 
     public GameBoard(int lines, int columns) {
         grid = new Grid(lines, columns);
         tetrominosRandomFactory = new TetrominosRandomFactory();
         collider = new GridCollider(grid);
-        rotator = new TetroRotator(tetrominos);
         nextTetrominos = tetrominosRandomFactory.create();
         score = new Score();
     }
 
     @Override
     public boolean moveTetroDown() {
-        Couple p = new Couple(currentOffset);
+        Couple p = new Couple(tetrominos.getPosition());
         p.second += 1;
         boolean conflict = collider.intersect(tetrominos.getCurrentShape(), p.first, p.second);
         if (conflict) {
             return false;
         } else {
             cleanCurrentTetro();
-            currentOffset = p;
+            mover.moveDown();
             mergeTetroToMatrix();
             return true;
         }
@@ -56,26 +57,26 @@ public class GameBoard implements IGameBoard {
      * efface le tetro actuel pour pouvoir le deplacer une case plus bas
      */
     private void cleanCurrentTetro() {
-        //efface le tetro actuel pour ensuite pouvoir le redessiner au bon endroit
+        Couple currPos = new Couple(tetrominos.getPosition());
         var shape = tetrominos.getCurrentShape();
         for (int i = 0; i < shape.length; i++) {
             for (int j = 0; j < shape[0].length; j++) {
                 if (shape[i][j] != null)
-                    grid.setAt(currentOffset.second + i, currentOffset.first + j, null);
+                    grid.setAt(currPos.second + i, currPos.first + j, null);
             }
         }
     }
 
     @Override
     public boolean moveTetroLeft() {
-        Couple p = new Couple(currentOffset);
+        Couple p = new Couple(tetrominos.getPosition());
         p.first-=1;
         boolean conflict = collider.intersect(tetrominos.getCurrentShape(), p.first, p.second);
         if (conflict) {
             return false;
         } else {
             cleanCurrentTetro();
-            currentOffset = p;
+            mover.moveLeft();
             mergeTetroToMatrix();
             return true;
         }
@@ -83,14 +84,14 @@ public class GameBoard implements IGameBoard {
 
     @Override
     public boolean moveTetroRight() {
-        Couple p = new Couple(currentOffset);
+        Couple p = new Couple(tetrominos.getPosition());
         p.first+=1;
         boolean conflict = collider.intersect(tetrominos.getCurrentShape(), p.first, p.second);
         if (conflict) {
             return false;
         } else {
             cleanCurrentTetro();
-            currentOffset = p;
+            mover.moveRigth();
             mergeTetroToMatrix();
             return true;
         }
@@ -98,8 +99,9 @@ public class GameBoard implements IGameBoard {
 
     @Override
     public boolean rotateLeftTetro() {
+        Couple currPos = new Couple(tetrominos.getPosition());
         var nextShape = tetrominos.getNextShape();
-        boolean conflict = collider.intersect(nextShape, currentOffset.first, currentOffset.second);
+        boolean conflict = collider.intersect(nextShape, currPos.first, currPos.second);
         if (conflict) {
             return false;
         } else {
@@ -112,8 +114,9 @@ public class GameBoard implements IGameBoard {
 
     @Override
     public boolean rotateRightTetro() {
+        Couple currPos = new Couple(tetrominos.getPosition());
         var precedentShape = tetrominos.getPrecedentShape();
-        boolean conflict = collider.intersect(precedentShape, currentOffset.first, currentOffset.second);
+        boolean conflict = collider.intersect(precedentShape, currPos.first, currPos.second);
         if (conflict) {
             return false;
         } else {
@@ -129,11 +132,13 @@ public class GameBoard implements IGameBoard {
         tetrominos = nextTetrominos;
         nextTetrominos = tetrominosRandomFactory.create();
         rotator = new TetroRotator(tetrominos);
+        mover = new TetroMover(tetrominos);
         for (int i = 0; i < new Random().nextInt(3); i++) {
             rotator.rotateLeft();
         }
-        currentOffset = new Couple((Math.abs(new Random().nextInt()) % (grid.columns - tetrominos.getCurrentShape()[0].length - 1)), 0);
-        var collision = collider.intersect(tetrominos.getCurrentShape(), currentOffset.first, currentOffset.second);
+        tetrominos.setPosition(new Couple((Math.abs(new Random().nextInt()) % (grid.columns - tetrominos.getCurrentShape()[0].length - 1)), 0));
+        Couple currPos = new Couple(tetrominos.getPosition());
+        var collision = collider.intersect(tetrominos.getCurrentShape(), currPos.first, currPos.second);
         if (!collision) {
             mergeTetroToMatrix();
         }
@@ -152,12 +157,14 @@ public class GameBoard implements IGameBoard {
 
     @Override
     public void mergeTetroToBackground() {
-        new matrixOperator().merge(grid, tetrominos.getCurrentShape(), currentOffset.first, currentOffset.second);
+        Couple currPos = new Couple(tetrominos.getPosition());
+        new matrixOperator().merge(grid, tetrominos.getCurrentShape(), currPos.first, currPos.second);
     }
 
     @Override
     public void mergeTetroToMatrix() {
-        new matrixOperator().merge(grid, tetrominos.getCurrentShape(), currentOffset.first, currentOffset.second);
+        Couple currPos = new Couple(tetrominos.getPosition());
+        new matrixOperator().merge(grid, tetrominos.getCurrentShape(), currPos.first, currPos.second);
     }
 
     @Override
