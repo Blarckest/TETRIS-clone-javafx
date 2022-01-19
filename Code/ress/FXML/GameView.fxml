@@ -30,7 +30,7 @@
                     </center>
                 </BorderPane>
             </VBox>
-            <ToggleButton text="Pause" styleClass="ipad-dark-grey" onAction="#pauseGame" prefWidth="140"
+            <ToggleButton text="Pause" styleClass="pauseButton" onAction="#pauseGame" prefWidth="140"
                           fx:id="pauseButton"/>
             <VBox alignment="CENTER">
                 <Text styleClass="helpInfo" wrappingWidth="150">Use arrow keys (←, ↑, →, ↓) or (Q,Z,S,D) keys for

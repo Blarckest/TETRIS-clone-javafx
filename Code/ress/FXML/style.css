@@ -21,7 +21,7 @@
     -fx-text-fill: yellow;
 }
 
-.ipad-dark-grey {
+.pauseButton {
     -fx-background-color: linear-gradient(#686868 0%, #232723 25%, #373837 75%, #757575 100%),
     linear-gradient(#020b02, #3a3a3a),
     linear-gradient(#9d9e9d 0%, #6b6a6b 20%, #343534 80%, #242424 100%),
@@ -37,9 +37,9 @@
     -fx-effect: dropshadow(three-pass-box, rgba(255, 255, 255, 0.2), 1, 0.0, 0, 1);
 }
 
-.rectangleStyle {
+/* .rectangleStyle {
     -fx-fill: linear-gradient(from 41px 34px to 50px 50px, reflect, #ff7f50 30%, #faebd7 47%);
-}
+} */
 
 .vbox {
     -fx-spacing: 12;
@@ -57,10 +57,10 @@
     -fx-font-size: 20px;
 }
 
-.bonusStyle {
+/* .bonusStyle {
     -fx-font-size: 40px;
     -fx-font-weight: bold;
-}
+} */
 
 .gameOver{
     -fx-font-family: "Let's go Digital";
