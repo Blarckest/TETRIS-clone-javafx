@@ -13,21 +13,23 @@
             prefHeight="800" prefWidth="500">
    <top>
      <Text fx:id="tetris" styleClass="gameOver" textAlignment="CENTER" BorderPane.alignment="CENTER">
-            TETRIS!
-
+         TETRIS
         </Text>
    </top>
    <bottom>
       <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-         <bottom>
+         <center>
            <Button fx:id="seeScoreButton" onMouseEntered="#hoverColorScores" onMouseExited="#mouseLeaveColorScores" style="-fx-background-color: black;" textFill="YELLOW" alignment="BASELINE_CENTER" onAction="#goToScore" text="Scores" BorderPane.alignment="CENTER">
            </Button>
-         </bottom>
+         </center>
          <top>
              <Button contentDisplay="TOP"  fx:id="playButton" onMouseEntered="#hoverColorPlay" onMouseExited="#mouseLeaveColorPlay" onMouseClicked="#launchGame" style="-fx-background-color: black;" text="Press To Play" textFill="YELLOW" BorderPane.alignment="BOTTOM_CENTER">
              </Button>
 
          </top>
+          <bottom>
+              <Button fx:id="quit" onMouseEntered="#hoverColorQuit" onMouseExited="#mouseLeaveColorQuit" onAction="#quitGame" text="Quitter" textFill="yellow" BorderPane.alignment="BOTTOM_CENTER" style="-fx-background-color: black;"/>
+          </bottom>
       </BorderPane>
    </bottom>
    <center>

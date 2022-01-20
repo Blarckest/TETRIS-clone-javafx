@@ -1,5 +1,7 @@
 package view;
 
+import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -21,6 +23,8 @@ public class MainWindow implements Initializable {
     private Button seeScoreButton;
     @FXML
     private Text tetris;
+    @FXML
+    private Button quit;
 
     public void launchGame(){
         Launcher.navigator.goToGame();
@@ -51,10 +55,24 @@ public class MainWindow implements Initializable {
         seeScoreButton.setTextFill(Color.YELLOW);
     }
 
+    @FXML
+    public void hoverColorQuit(MouseEvent mouseEvent) {
+        quit.setTextFill(Color.WHITE);
+    }
+
+    @FXML
+    public void mouseLeaveColorQuit(MouseEvent mouseEvent) {
+        quit.setTextFill(Color.YELLOW);
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         playButton.setFont(Launcher.bigFont);
         seeScoreButton.setFont(Launcher.smallFont);
         tetris.setFont(Launcher.bigFont);
+        quit.setFont(Launcher.smallFont);
+    }
+    public void quitGame(ActionEvent actionEvent) {
+        Platform.exit();
     }
 }
