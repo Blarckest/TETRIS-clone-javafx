@@ -5,6 +5,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
 import launch.Launcher;
 
 import java.net.URL;
@@ -16,9 +17,10 @@ import java.util.ResourceBundle;
 public class MainWindow implements Initializable {
     @FXML
     private Button playButton;
-
     @FXML
     private Button seeScoreButton;
+    @FXML
+    private Text tetris;
 
     public void launchGame(){
         Launcher.navigator.goToGame();
@@ -53,5 +55,6 @@ public class MainWindow implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         playButton.setFont(Launcher.bigFont);
         seeScoreButton.setFont(Launcher.smallFont);
+        tetris.setFont(Launcher.bigFont);
     }
 }

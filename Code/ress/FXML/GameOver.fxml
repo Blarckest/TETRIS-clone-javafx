@@ -9,7 +9,7 @@
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="view.GameOver">
 <top>
-    <Text styleClass="gameOver" BorderPane.alignment="CENTER">GAME OVER</Text>
+    <Text fx:id="over" styleClass="gameOver" BorderPane.alignment="CENTER">GAME OVER</Text>
 </top>
 <center>
     <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
@@ -19,7 +19,7 @@
          <center>
             <BorderPane maxHeight="100" prefHeight="100.0" prefWidth="500.0" BorderPane.alignment="CENTER">
                <top>
-                  <Text styleClass="scoreClass" BorderPane.alignment="CENTER">Score: </Text>
+                  <Text fx:id="score" styleClass="scoreClass" BorderPane.alignment="CENTER">Score: </Text>
                </top>
                <center>
                   <Text fx:id="scoreValue" styleClass="scoreClass" BorderPane.alignment="CENTER" />

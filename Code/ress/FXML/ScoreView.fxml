@@ -13,7 +13,7 @@
       fx:controller="view.ScoreView"
       prefHeight="800" prefWidth="500">
     <HBox alignment="CENTER">
-        <Text styleClass="gameOver" textAlignment="CENTER">SCORES</Text>
+        <Text fx:id="score" styleClass="gameOver" textAlignment="CENTER">SCORES</Text>
     </HBox>
     <BorderPane styleClass="vbox">
         <top>

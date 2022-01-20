@@ -20,6 +20,10 @@ public class GameOver implements Initializable {
     @FXML
     private Text scoreValue;
     @FXML
+    private Text score;
+    @FXML
+    private Text over;
+    @FXML
     private Button restartButton;
     @FXML
     private Button scoreButton;
@@ -76,5 +80,8 @@ public class GameOver implements Initializable {
         restartButton.setFont(Launcher.bigFont);
         scoreButton.setFont(Launcher.smallFont);
         quitButton.setFont(Launcher.smallFont);
+        over.setFont(Launcher.bigFont);
+        score.setFont(Launcher.smallFont);
+        scoreValue.setFont(Launcher.bigFont);
     }
 }
