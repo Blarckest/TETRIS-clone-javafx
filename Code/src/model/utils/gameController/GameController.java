@@ -39,7 +39,7 @@ public class GameController implements IGameController, IObserver {
         if (!canMove) {
             board.mergeTetroToBackground();
             int clearedRow = board.clearRows();
-            if (clearedRow>0) {
+            if (clearedRow > 0) {
                 board.getScore().add(clearedRow * 100 * clearedRow);
             }
             if (board.createNewTetro()) {
@@ -87,7 +87,7 @@ public class GameController implements IGameController, IObserver {
     }
 
     @Override
-    public void refresh(){
+    public void refresh() {
         gameView.refreshGameBackground(board.getGrid());
     }
 

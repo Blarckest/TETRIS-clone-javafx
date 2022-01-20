@@ -41,10 +41,8 @@ public class ScoreHistoryManager implements IScoreHistoryManager {
     public ScoreHistoryManager() {
         filePath = "./save";
         var arr = new ScoreLoader().load(filePath);
-        if (arr != null)
-            scores = FXCollections.observableArrayList(arr);
-        else
-            scores = FXCollections.observableArrayList();
+        if (arr != null) scores = FXCollections.observableArrayList(arr);
+        else scores = FXCollections.observableArrayList();
         scoresProperty = new SimpleListProperty<>(scores);
     }
 
@@ -58,12 +56,12 @@ public class ScoreHistoryManager implements IScoreHistoryManager {
 
     @Override
     public boolean save() {
-        return (new ScoreSaver()).save(new ArrayList<>(scores),filePath);
+        return (new ScoreSaver()).save(new ArrayList<>(scores), filePath);
     }
 
     @Override
     public ObservableList<Score> getByOrder(OrderBy order) {
-        switch (order){
+        switch (order) {
             case Best -> scores.sort(new ScoreComparator());
             case DateAsc -> scores.sort(new AscDateComparator());
             case DateDesc -> scores.sort(new DescDateComparator());
@@ -73,8 +71,7 @@ public class ScoreHistoryManager implements IScoreHistoryManager {
 
     @Override
     public void add(Score score) {
-        if (!scores.contains(score))
-            scores.add(score);
+        if (!scores.contains(score)) scores.add(score);
     }
 }
 

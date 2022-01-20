@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.*?>
 <?import java.net.URL?>
 <Pane fx:controller="view.GameView"
       xmlns:fx="http://javafx.com/fxml" prefHeight="800" prefWidth="600">
@@ -39,10 +38,12 @@
                 <Text styleClass="helpInfo" wrappingWidth="150">G - start new game.</Text>
                 <Text styleClass="helpInfo" wrappingWidth="150">P - pause/resume.</Text>
             </VBox>
-            <Button fx:id="menuButton" textFill="white" style="-fx-background-color: black;" onMouseEntered="#hoverColorMenu" onMouseExited="#mouseLeaveColorMenu" onAction="#goToMenu" text="Retour"/>
+            <Button fx:id="menuButton" textFill="white" style="-fx-background-color: black;"
+                    onMouseEntered="#hoverColorMenu" onMouseExited="#mouseLeaveColorMenu" onAction="#goToMenu"
+                    text="Retour"/>
         </VBox>
-</HBox>
-<stylesheets>
-    <URL value="@style.css"/>
-</stylesheets>
+    </HBox>
+    <stylesheets>
+        <URL value="@style.css"/>
+    </stylesheets>
 </Pane>

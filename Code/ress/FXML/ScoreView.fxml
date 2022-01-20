@@ -18,7 +18,7 @@
     <BorderPane styleClass="vbox">
         <top>
             <HBox>
-                <Text styleClass="normalWriting"> Trier par :  </Text>
+                <Text styleClass="normalWriting">Trier par :</Text>
                 <ChoiceBox fx:id="sortChoice">
                     <items>
                         <FXCollections fx:factory="observableArrayList">
@@ -35,7 +35,8 @@
         </center>
     </BorderPane>
     <HBox alignment="CENTER_RIGHT">
-        <Button fx:id="menuButton" onMouseEntered="#hoverColorMenu" onMouseExited="#mouseLeaveColorMenu" textFill="yellow" style="-fx-background-color: black;" onAction="#goToMenu" text="Retour"/>
+        <Button fx:id="menuButton" onMouseEntered="#hoverColorMenu" onMouseExited="#mouseLeaveColorMenu"
+                textFill="yellow" style="-fx-background-color: black;" onAction="#goToMenu" text="Retour"/>
     </HBox>
     <stylesheets>
         <URL value="@style.css"/>

@@ -29,6 +29,7 @@ public class MatrixOperator {
 
     /**
      * Methode permettant de supprimer une ligne quand elle a ete completee et de faire descendre les blocks au dessus     *
+     *
      * @param grid  grid sur laquelle effectuer l'action
      * @param ligne ligne a descendre ou supprimer
      */

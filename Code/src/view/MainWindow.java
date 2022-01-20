@@ -26,11 +26,11 @@ public class MainWindow implements Initializable {
     @FXML
     private Button quit;
 
-    public void launchGame(){
+    public void launchGame() {
         Launcher.navigator.goToGame();
     }
 
-    public void goToScore(){
+    public void goToScore() {
         Launcher.navigator.goToScore();
     }
 
@@ -72,6 +72,7 @@ public class MainWindow implements Initializable {
         tetris.setFont(Launcher.bigFont);
         quit.setFont(Launcher.smallFont);
     }
+
     public void quitGame(ActionEvent actionEvent) {
         Platform.exit();
     }

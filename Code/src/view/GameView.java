@@ -7,7 +7,6 @@ import javafx.beans.property.SimpleBooleanProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
@@ -60,7 +59,7 @@ public class GameView implements Initializable {
     @FXML
     private Button menuButton;
 
-    public void goToMenu(){
+    public void goToMenu() {
         stopThreadProperty.setValue(true);
         Launcher.navigator.goToMenu();
     }
@@ -112,7 +111,11 @@ public class GameView implements Initializable {
                 pauseButton.setText("Pause");
             }
         });
-        isGameOverProperty.addListener((observable, oldValue, newValue)->{if (newValue){gameOver();}});
+        isGameOverProperty.addListener((observable, oldValue, newValue) -> {
+            if (newValue) {
+                gameOver();
+            }
+        });
         menuButton.setFont(Launcher.bigFont);
         next.setFont(Launcher.bigFont);
         pauseButton.setFont(Launcher.bigFont);
@@ -133,16 +136,16 @@ public class GameView implements Initializable {
 
     public void setNextTetro(Tetrominos nextTetro) {
         nextTetroPreview.getChildren().clear();
-        var matrix=nextTetro.getCurrentShape();
+        var matrix = nextTetro.getCurrentShape();
         for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < matrix[i].length; j++) {
                 Rectangle rectangle = new Rectangle(blockSize, blockSize);
                 if (matrix[i][j] == null) {
                     rectangle.setFill(Color.TRANSPARENT);
-                    nextTetroPreview.add(rectangle,j,i);
+                    nextTetroPreview.add(rectangle, j, i);
                 } else {
                     rectangle.setFill(matrix[i][j].getColor());
-                    nextTetroPreview.add(rectangle,j,i);
+                    nextTetroPreview.add(rectangle, j, i);
                 }
             }
         }
@@ -156,7 +159,7 @@ public class GameView implements Initializable {
     }
 
     public void newGame() {
-        for (var listener: eventListeners) {
+        for (var listener : eventListeners) {
             listener.createNewGame();
         }
     }
@@ -182,16 +185,19 @@ public class GameView implements Initializable {
         }
     }
 
-    public void addListener(IEventListener listener){eventListeners.add(listener);}
+    public void addListener(IEventListener listener) {
+        eventListeners.add(listener);
+    }
 
     public void bindGameOver(BooleanProperty isGameOver) {
         this.isGameOverProperty.bind(isGameOver);
     }
 
-    public BooleanProperty getPausedProperty(){
+    public BooleanProperty getPausedProperty() {
         return isPauseProperty;
     }
-    public BooleanProperty getStopThreadProperty(){
+
+    public BooleanProperty getStopThreadProperty() {
         return stopThreadProperty;
     }
 

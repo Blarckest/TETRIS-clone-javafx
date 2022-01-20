@@ -1,44 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.net.URL?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Text?>
-
+<?import java.net.URL?>
 <BorderPane prefHeight="800" prefWidth="500" xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="view.GameOver">
-<top>
-    <Text fx:id="over" styleClass="gameOver" BorderPane.alignment="CENTER">GAME OVER</Text>
-</top>
-<center>
-    <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-        <bottom>
-            <Button fx:id="restartButton" onAction="#restartGame" onMouseEntered="#hoverColorRestart" onMouseExited="#mouseLeaveColorRestart" style="-fx-background-color: black;" text="Rejouer" textFill="white" BorderPane.alignment="CENTER" />
-        </bottom>
-         <center>
-            <BorderPane maxHeight="100" prefHeight="100.0" prefWidth="500.0" BorderPane.alignment="CENTER">
-               <top>
-                  <Text fx:id="score" styleClass="scoreClass" BorderPane.alignment="CENTER">Score: </Text>
-               </top>
-               <center>
-                  <Text fx:id="scoreValue" styleClass="scoreClass" BorderPane.alignment="CENTER" />
-               </center>
-            </BorderPane>
-         </center>
-    </BorderPane>
-</center>
-<bottom>
-    <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-        <center>
-            <Button fx:id="scoreButton" onAction="#goToScore" onMouseEntered="#hoverColorScores" onMouseExited="#mouseLeaveColorScores" style="-fx-background-color: black;" text="Voir scores" textFill="white" BorderPane.alignment="CENTER" />
-        </center>
-        <bottom>
-            <Button fx:id="quitButton" onAction="#quitGame" onMouseEntered="#hoverColorQuit" onMouseExited="#mouseLeaveColorQuit" style="-fx-background-color: black;" text="Quitter" textFill="white" BorderPane.alignment="CENTER" />
-        </bottom>
-    </BorderPane>
-</bottom>
-<stylesheets>
-    <URL value="@style.css" />
-</stylesheets>
+    <top>
+        <Text fx:id="over" styleClass="gameOver" BorderPane.alignment="CENTER">GAME OVER</Text>
+    </top>
+    <center>
+        <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <bottom>
+                <Button fx:id="restartButton" onAction="#restartGame" onMouseEntered="#hoverColorRestart"
+                        onMouseExited="#mouseLeaveColorRestart" style="-fx-background-color: black;" text="Rejouer"
+                        textFill="white" BorderPane.alignment="CENTER"/>
+            </bottom>
+            <center>
+                <BorderPane maxHeight="100" prefHeight="100.0" prefWidth="500.0" BorderPane.alignment="CENTER">
+                    <top>
+                        <Text fx:id="score" styleClass="scoreClass" BorderPane.alignment="CENTER">Score:</Text>
+                    </top>
+                    <center>
+                        <Text fx:id="scoreValue" styleClass="scoreClass" BorderPane.alignment="CENTER"/>
+                    </center>
+                </BorderPane>
+            </center>
+        </BorderPane>
+    </center>
+    <bottom>
+        <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <center>
+                <Button fx:id="scoreButton" onAction="#goToScore" onMouseEntered="#hoverColorScores"
+                        onMouseExited="#mouseLeaveColorScores" style="-fx-background-color: black;" text="Voir scores"
+                        textFill="white" BorderPane.alignment="CENTER"/>
+            </center>
+            <bottom>
+                <Button fx:id="quitButton" onAction="#quitGame" onMouseEntered="#hoverColorQuit"
+                        onMouseExited="#mouseLeaveColorQuit" style="-fx-background-color: black;" text="Quitter"
+                        textFill="white" BorderPane.alignment="CENTER"/>
+            </bottom>
+        </BorderPane>
+    </bottom>
+    <stylesheets>
+        <URL value="@style.css"/>
+    </stylesheets>
 </BorderPane>

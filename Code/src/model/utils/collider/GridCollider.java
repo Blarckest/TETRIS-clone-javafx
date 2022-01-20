@@ -45,8 +45,7 @@ public record GridCollider(GridAbs grid) implements ICollider {
     private boolean isSelfColliding(BlockAbs[][] tetro, BlockAbs object) {
         for (var blockAbs : tetro) {
             for (var blockAb : blockAbs) {
-                if (blockAb == object)
-                    return true;
+                if (blockAb == object) return true;
             }
         }
         return false;

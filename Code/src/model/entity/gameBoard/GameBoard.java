@@ -64,8 +64,7 @@ public class GameBoard implements IGameBoard {
         var shape = tetrominos.getCurrentShape();
         for (int i = 0; i < shape.length; i++) {
             for (int j = 0; j < shape[0].length; j++) {
-                if (shape[i][j] != null)
-                    grid.setAt(currPos.second + i, currPos.first + j, null);
+                if (shape[i][j] != null) grid.setAt(currPos.second + i, currPos.first + j, null);
             }
         }
     }
@@ -73,7 +72,7 @@ public class GameBoard implements IGameBoard {
     @Override
     public boolean moveTetroLeft() {
         Couple p = new Couple(tetrominos.getPosition());
-        p.first-=1;
+        p.first -= 1;
         boolean conflict = collider.intersect(tetrominos.getCurrentShape(), p.first, p.second);
         if (conflict) {
             return false;
@@ -88,7 +87,7 @@ public class GameBoard implements IGameBoard {
     @Override
     public boolean moveTetroRight() {
         Couple p = new Couple(tetrominos.getPosition());
-        p.first+=1;
+        p.first += 1;
         boolean conflict = collider.intersect(tetrominos.getCurrentShape(), p.first, p.second);
         if (conflict) {
             return false;

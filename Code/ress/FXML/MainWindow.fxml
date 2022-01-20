@@ -1,42 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.text.Text?>
-
 <?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
 <?import java.net.URL?>
 <BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="view.MainWindow"
             prefHeight="800" prefWidth="500">
-   <top>
-     <Text fx:id="tetris" styleClass="gameOver" textAlignment="CENTER" BorderPane.alignment="CENTER">
-         TETRIS
+    <top>
+        <Text fx:id="tetris" styleClass="gameOver" textAlignment="CENTER" BorderPane.alignment="CENTER">
+            TETRIS
         </Text>
-   </top>
-   <bottom>
-      <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-         <center>
-           <Button fx:id="seeScoreButton" onMouseEntered="#hoverColorScores" onMouseExited="#mouseLeaveColorScores" style="-fx-background-color: black;" textFill="YELLOW" alignment="BASELINE_CENTER" onAction="#goToScore" text="Scores" BorderPane.alignment="CENTER">
-           </Button>
-         </center>
-         <top>
-             <Button contentDisplay="TOP"  fx:id="playButton" onMouseEntered="#hoverColorPlay" onMouseExited="#mouseLeaveColorPlay" onMouseClicked="#launchGame" style="-fx-background-color: black;" text="Press To Play" textFill="YELLOW" BorderPane.alignment="BOTTOM_CENTER">
-             </Button>
+    </top>
+    <bottom>
+        <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <center>
+                <Button fx:id="seeScoreButton" onMouseEntered="#hoverColorScores" onMouseExited="#mouseLeaveColorScores"
+                        style="-fx-background-color: black;" textFill="YELLOW" alignment="BASELINE_CENTER"
+                        onAction="#goToScore" text="Scores" BorderPane.alignment="CENTER">
+                </Button>
+            </center>
+            <top>
+                <Button contentDisplay="TOP" fx:id="playButton" onMouseEntered="#hoverColorPlay"
+                        onMouseExited="#mouseLeaveColorPlay" onMouseClicked="#launchGame"
+                        style="-fx-background-color: black;" text="Press To Play" textFill="YELLOW"
+                        BorderPane.alignment="BOTTOM_CENTER">
+                </Button>
 
-         </top>
-          <bottom>
-              <Button fx:id="quit" onMouseEntered="#hoverColorQuit" onMouseExited="#mouseLeaveColorQuit" onAction="#quitGame" text="Quitter" textFill="yellow" BorderPane.alignment="BOTTOM_CENTER" style="-fx-background-color: black;"/>
-          </bottom>
-      </BorderPane>
-   </bottom>
-   <center>
-       <ImageView>
-           <Image url="/img/img.png"/>
-       </ImageView>
-   </center>
+            </top>
+            <bottom>
+                <Button fx:id="quit" onMouseEntered="#hoverColorQuit" onMouseExited="#mouseLeaveColorQuit"
+                        onAction="#quitGame" text="Quitter" textFill="yellow" BorderPane.alignment="BOTTOM_CENTER"
+                        style="-fx-background-color: black;"/>
+            </bottom>
+        </BorderPane>
+    </bottom>
+    <center>
+        <ImageView>
+            <Image url="/img/img.png"/>
+        </ImageView>
+    </center>
     <stylesheets>
         <URL value="@style.css"/>
     </stylesheets>

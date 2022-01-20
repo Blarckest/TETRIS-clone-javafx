@@ -23,9 +23,8 @@ public class Looper extends LooperAbs {
         while (!stopThread.getValue()) {
             try {
                 Thread.sleep(200);
-                if (!gamePaused.getValue())
-                    for (IObserver o : listObserver)
-                        Platform.runLater(o::doAction);
+                if (!gamePaused.getValue()) for (IObserver o : listObserver)
+                    Platform.runLater(o::doAction);
 
             } catch (InterruptedException e) {
                 e.printStackTrace();

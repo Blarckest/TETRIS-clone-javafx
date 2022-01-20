@@ -33,6 +33,6 @@ public class TetroS extends Tetrominos {
                 {null, blocks[3], null}});
         setShapeMatrix(list);
         setMatrix((BlockAbs[][]) list.get(0));
-        type=TetroType.S;
+        type = TetroType.S;
     }
 }

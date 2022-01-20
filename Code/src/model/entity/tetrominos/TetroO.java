@@ -20,6 +20,6 @@ public class TetroO extends Tetrominos {
                 {blocks[2], blocks[3]}});
         setShapeMatrix(list);
         setMatrix((BlockAbs[][]) list.get(0));
-        type=TetroType.O;
+        type = TetroType.O;
     }
 }

@@ -41,7 +41,8 @@ public class GameOver implements Initializable {
     public void quitGame(ActionEvent actionEvent) {
         Platform.exit();
     }
-    public void setScoreValue(Text scoreValue){
+
+    public void setScoreValue(Text scoreValue) {
         this.scoreValue.textProperty().setValue(scoreValue.textProperty().getValue());
     }
 

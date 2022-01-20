@@ -30,7 +30,7 @@ public class ScoreView implements Initializable {
     @FXML
     private Text score;
 
-    public void goToMenu(){
+    public void goToMenu() {
         Launcher.navigator.goToMenu();
     }
 
