@@ -33,7 +33,7 @@ public class Score {
      *
      * @return propriete contenant le score
      */
-    public IntegerProperty scoreProperty() {
+    public IntegerProperty getScoreProperty() {
         return scoreProperty;
     }
 
@@ -56,7 +56,7 @@ public class Score {
      *
      * @return propriete contenant le date associe au score
      */
-    public ObjectProperty<LocalDateTime> dateProperty() {
+    public ObjectProperty<LocalDateTime> getDateProperty() {
         return dateProperty;
     }
 

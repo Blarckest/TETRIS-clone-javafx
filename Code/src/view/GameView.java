@@ -55,7 +55,6 @@ public class GameView implements Initializable {
     @FXML
     private Button menuButton;
 
-    @FXML
     public void goToMenu(){
         stopThreadProperty.setValue(true);
         Launcher.navigator.goToMenu();

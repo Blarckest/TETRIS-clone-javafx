@@ -20,12 +20,10 @@ public class MainWindow implements Initializable {
     @FXML
     private Button seeScoreButton;
 
-    @FXML
     public void launchGame(){
         Launcher.navigator.goToGame();
     }
 
-    @FXML
     public void goToScore(){
         Launcher.navigator.goToScore();
     }

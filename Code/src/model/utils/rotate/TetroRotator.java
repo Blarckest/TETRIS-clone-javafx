@@ -14,6 +14,6 @@ public record TetroRotator(Tetrominos tetrominos) implements ITetroRotator {
 
     @Override
     public void rotateRight() {
-        tetrominos.goToPrecdentShape();
+        tetrominos.goToPrecedentShape();
     }
 }

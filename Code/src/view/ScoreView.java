@@ -28,7 +28,6 @@ public class ScoreView implements Initializable {
     @FXML
     private Button menuButton;
 
-    @FXML
     public void goToMenu(){
         Launcher.navigator.goToMenu();
     }

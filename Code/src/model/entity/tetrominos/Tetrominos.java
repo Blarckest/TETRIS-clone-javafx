@@ -107,7 +107,7 @@ public abstract class Tetrominos {
     /**
      * permet au tetro de passer a sa precedente forme
      */
-    public void goToPrecdentShape() {
+    public void goToPrecedentShape() {
         setMatrix(shapeMatrix.precedent());
     }
 
