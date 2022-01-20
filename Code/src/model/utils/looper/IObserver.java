@@ -1,7 +1,7 @@
 package model.utils.looper;
 
 /**
- * interface definissant les fonctionnalités d'un observateur
+ * interface definissant les fonctionnalites d'un observateur
  */
 public interface IObserver {
     /**

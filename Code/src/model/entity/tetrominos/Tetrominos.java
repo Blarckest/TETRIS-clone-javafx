@@ -33,7 +33,7 @@ public abstract class Tetrominos {
     protected BlockAbs[] blocks;
 
     /**
-     * permet de savoir le type du tetro manipulé
+     * permet de savoir le type du tetro manipule
      *
      * @return type du tetro
      */

@@ -14,7 +14,7 @@ import view.GameView;
 import java.util.Objects;
 
 /**
- * Classe permettant d'intéragir entre les différentes vues (Accueil, Jeu, Score, GameOver)
+ * Classe permettant d'interagir entre les differentes vues (Accueil, Jeu, Score, GameOver)
  */
 public class Navigator {
     private final Stage m_stage;

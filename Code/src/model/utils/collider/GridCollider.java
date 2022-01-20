@@ -40,7 +40,7 @@ public record GridCollider(GridAbs grid) implements ICollider {
      *
      * @param tetro  tetro a tester
      * @param object block avec qui il y a collision
-     * @return si le bloc appartient au tetro donc si le tetro s'est collisionné avec lui meme alors revoit true
+     * @return si le bloc appartient au tetro donc si le tetro s'est collisionne avec lui meme alors revoit true
      */
     private boolean isSelfColliding(BlockAbs[][] tetro, BlockAbs object) {
         for (var blockAbs : tetro) {

@@ -19,7 +19,7 @@ public class Grid extends GridAbs {
     }
 
     /**
-     * construit l'objet a partir d'une matrice préexistante
+     * construit l'objet a partir d'une matrice preexistante
      *
      * @param matrix matrix a partir de laquelle sera construit la grid
      */

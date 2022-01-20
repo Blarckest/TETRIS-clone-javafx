@@ -11,7 +11,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 /**
- * Code de la vue de la fenêtre principale, lorsque le joueur lance le jeu
+ * Code de la vue de la fenetre principale, lorsque le joueur lance le jeu
  */
 public class MainWindow implements Initializable {
     @FXML

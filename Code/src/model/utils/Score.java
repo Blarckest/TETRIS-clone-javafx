@@ -8,8 +8,8 @@ import javafx.beans.property.SimpleObjectProperty;
 import java.time.LocalDateTime;
 
 /**
- * Classe contenant les informations concernant le score du joueur ainsi que la date à laquelle il l'a effectué
- * Cette classe contient aussi les méthodes permettant d'avoir accès au score et d'agir dessus
+ * Classe contenant les informations concernant le score du joueur ainsi que la date a laquelle il l'a effectue
+ * Cette classe contient aussi les methodes permettant d'avoir acces au score et d'agir dessus
  */
 public class Score {
     //LES PROPERTY SONT PAS SERIALIZABLE DONC ON SERIALIZE A LA MAIN

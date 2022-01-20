@@ -7,7 +7,7 @@ public interface ILineCleaner {
     /**
      * lance la suppression des lignes a supprimer
      *
-     * @return nombre de ligne supprimé
+     * @return nombre de ligne supprime
      */
     int removeLines();
 }
