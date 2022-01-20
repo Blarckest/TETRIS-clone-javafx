@@ -12,7 +12,7 @@
             fx:controller="view.MainWindow"
             prefHeight="800" prefWidth="500">
    <top>
-     <Text styleClass="gameOver" textAlignment="CENTER" BorderPane.alignment="CENTER">
+     <Text fx:id="tetris" styleClass="gameOver" textAlignment="CENTER" BorderPane.alignment="CENTER">
             TETRIS!
 
         </Text>

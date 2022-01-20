@@ -27,6 +27,8 @@ public class ScoreView implements Initializable {
     public ChoiceBox sortChoice;
     @FXML
     private Button menuButton;
+    @FXML
+    private Text score;
 
     public void goToMenu(){
         Launcher.navigator.goToMenu();
@@ -68,6 +70,7 @@ public class ScoreView implements Initializable {
         });
         sortChoice.getSelectionModel().select(0);
         menuButton.setFont(Launcher.smallFont);
+        score.setFont(Launcher.bigFont);
     }
 
     @FXML

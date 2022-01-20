@@ -16,11 +16,11 @@
         </BorderPane>
         <VBox alignment="CENTER" styleClass="vbox">
             <VBox alignment="CENTER">
-                <Label text="Score" styleClass="scoreClass"/>
+                <Text fx:id="score" text="Score" styleClass="scoreClass"/>
                 <Text fx:id="scoreValue" styleClass="scoreClass"/>
             </VBox>
             <VBox alignment="CENTER">
-                <Label text="Next" styleClass="nextTetroLabel"/>
+                <Text fx:id="next" text="Next" styleClass="nextTetroLabel"/>
                 <BorderPane styleClass="nextTetro" prefWidth="100" prefHeight="70" maxWidth="100">
                     <padding>
                         <Insets top="10" right="10" bottom="10" left="10"/>

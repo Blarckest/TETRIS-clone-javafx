@@ -7,6 +7,7 @@ import javafx.beans.property.SimpleBooleanProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
@@ -48,6 +49,10 @@ public class GameView implements Initializable {
     private GridPane gamePanel;
     @FXML
     private Text scoreValue;
+    @FXML
+    private Text score;
+    @FXML
+    private Text next;
     @FXML
     private GridPane nextTetroPreview;
     @FXML
@@ -109,6 +114,10 @@ public class GameView implements Initializable {
         });
         isGameOverProperty.addListener((observable, oldValue, newValue)->{if (newValue){gameOver();}});
         menuButton.setFont(Launcher.bigFont);
+        next.setFont(Launcher.bigFont);
+        pauseButton.setFont(Launcher.bigFont);
+        score.setFont(Launcher.bigFont);
+        scoreValue.setFont(Launcher.bigFont);
     }
 
     public void initGameView(GridAbs grid, Tetrominos nextTetro) {
